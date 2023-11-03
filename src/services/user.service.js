@@ -53,6 +53,16 @@ export default class User {
     return res.data;
   };
 
+  static getGoogleUrl = async () => {
+    let res = await axios.get(`${BASE_URL}/google`);
+    return res.data;
+  };
+
+  static getGoogleUserInfo = async (code) => {
+    let res = await axios.post(`${BASE_URL}/google/user-info`, { code });
+    return res.data;
+  };
+
   static getUser = async () => {
     let res = await axios.get(`${BASE_URL}/user`);
     return res.data;

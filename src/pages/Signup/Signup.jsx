@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Signup.css";
 import User from "../../services/user.service";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,21 @@ function Signup() {
     username: "",
     password: "",
   });
+
+  const [googleLoginUrl, setGoogleLoginUrl] = useState("");
+
+  useEffect(() => {
+    getGoogleUrl;
+
+    return () => {
+      getGoogleUrl();
+    };
+  }, []);
+
+  const getGoogleUrl = async () => {
+    let res = await User.getGoogleUrl();
+    setGoogleLoginUrl(res.url);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -62,6 +77,10 @@ function Signup() {
           />
 
           <button type="submit">Sign up</button>
+          <a className="google-btn" href={googleLoginUrl}>
+            <img src="./src/assets/g.png" alt="" />
+            Sign Up with Google
+          </a>
         </form>
         <div className="form-img"></div>
       </div>

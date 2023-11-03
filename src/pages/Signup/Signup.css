@@ -30,6 +30,10 @@
   border-bottom-right-radius: 5px;
 }
 
+.signup-form button {
+  width: 230px;
+}
+
 @media screen and (max-width: 768px) {
   .inner-form-container {
     flex-direction: column-reverse;

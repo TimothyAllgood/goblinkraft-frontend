@@ -101,3 +101,26 @@ button {
   margin-top: 2rem;
   height: calc(100vh - 2rem);
 }
+
+.google-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--white-accent);
+  color: var(--dark);
+  border-radius: 5px;
+  width: 230px;
+  height: 35px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  transition: all ease 0.3s;
+}
+
+.google-btn:hover {
+  background-color: var(--white-accent);
+}
+
+.google-btn img {
+  height: 100%;
+}
