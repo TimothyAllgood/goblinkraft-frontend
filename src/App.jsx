@@ -5,13 +5,19 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Nav from "./components/Nav/Nav";
 import "./App.css";
 import useViewport from "./hooks/useViewport";
+import axios from "axios";
 
 export default function App() {
   const { width } = useViewport();
   const breakpoint = 620;
   const [sidebarOpen, setSidebarOpen] = useState(width > breakpoint);
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
+  const token = useSelector((state) => state.user.token);
+
+  if (token) {
+    axios.defaults.headers.common["Authorization"] = token;
+  } else {
+    delete axios.defaults.headers.common["Authorization"];
+  }
 
   return (
     <>
