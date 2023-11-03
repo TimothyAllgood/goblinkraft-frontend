@@ -2,8 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import "./Sidebar.css";
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
+  let items = [
+    {
+      path: "/",
+      label: "Home",
+    },
+  ];
   return (
     <>
       <header className={`${sidebarOpen ? "open" : ""}`}>
@@ -25,6 +32,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           <li>
             <NavLink to="/admin">Admin Protected Route</NavLink>
           </li>
+          <DropdownMenu title={"Dropdown"} items={items} />
           <li>
             <NavLink to="/dashboard">Account</NavLink>
           </li>
