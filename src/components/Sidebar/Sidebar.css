@@ -1,5 +1,6 @@
 header {
   height: 100vh;
+  margin-left: -275px;
   width: 275px;
   min-width: 275px;
   max-width: 275px;
@@ -9,7 +10,13 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  transition: all ease 0.3s;
 }
+
+.open {
+  margin-left: 0;
+}
+
 header .logo {
   display: flex;
   align-items: center;
@@ -62,4 +69,34 @@ header .divider {
   width: 80%;
   background-color: var(--accent-hover);
   margin-bottom: 1rem;
+}
+
+.toggle-menu {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 1rem;
+  aspect-ratio: 1/1;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  margin-left: 10px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.move {
+  margin-left: 285px;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    z-index: 2;
+    position: absolute;
+  }
 }

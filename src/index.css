@@ -6,7 +6,7 @@
   --accent-hover: #4338ca;
   --dark: #333333;
   --white: #f1f1f1;
-  --white-accent: #fdfdfd;
+  --white-accent: #faf9f9;
   --grey: rgba(99, 107, 116, 0.2);
   --warning: #b51515;
   --warning-hover: #911010;
@@ -26,12 +26,21 @@ body {
 a,
 a:visited {
   text-decoration: none;
-  color: var(--dark);
+  /* color: var(--dark); */
 }
 
 ul {
   list-style-type: none;
 }
+
+.inner-page {
+  width: 100vw;
+  position: relative;
+}
+
+/* .inner-page.sidebar-open {
+  width: calc(100vw - 275px);
+} */
 
 .btn {
   padding: 0.5rem 1rem;
@@ -46,4 +55,40 @@ ul {
 
 .btn:hover {
   background-color: var(--main-hover);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  color: var(--accent);
+  background-color: var(--white-accent);
+  transition: all ease 0.3s;
+}
+
+button {
+  /* width: 100%; */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--accent);
+  background-color: var(--main);
+  transition: all ease 0.3s;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  height: calc(100vh - 2rem);
 }

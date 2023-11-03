@@ -6,6 +6,8 @@ import store from "./state/store";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./pages/Index/Index.jsx";
+import Signup from "./pages/Signup/Signup.jsx";
+import Login from "./pages/Login/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,14 +16,14 @@ const router = createBrowserRouter([
 
     children: [
       { index: true, element: <Index /> },
-      // {
-      //   path: "login",
-      //   element: <LoginSignupPage login={true} />,
-      // },
-      // {
-      //   path: "signup",
-      //   element: <LoginSignupPage login={false} />,
-      // },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
       // { path: "account/:id", element: <AccountPage /> },
       // {
       //   path: "verify/:id",

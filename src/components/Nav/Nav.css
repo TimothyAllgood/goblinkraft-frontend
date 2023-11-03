@@ -1,10 +1,14 @@
 .account-container {
   position: absolute;
   top: 2rem;
-  right: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .login-btns {
   display: flex;
   gap: 1rem;
+  width: 64vw;
+  justify-content: flex-end;
 }
