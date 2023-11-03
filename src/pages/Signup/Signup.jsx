@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Signup.css";
+import User from "../../services/user.service";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     username: "",
@@ -16,9 +19,17 @@ function Signup() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
+    try {
+      let res = await User.register(formData);
+      if (res) {
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
     // Add your signup logic here
   };
 

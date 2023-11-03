@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import User from "../../services/user.service";
+import { useDispatch } from "react-redux";
+import { login } from "../../state/userSlice";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 function Login() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { setItem } = useLocalStorage();
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -15,10 +24,20 @@ function Login() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
     // Add your signup logic here
+    try {
+      let data = await User.login(formData);
+      if (data) {
+        setItem("token", data.token);
+        await dispatch(login(data.token));
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -29,6 +48,7 @@ function Login() {
             <input
               type="text"
               id="username"
+              name="username"
               value={formData.username}
               onChange={handleChange}
               placeholder="Username"
@@ -38,6 +58,7 @@ function Login() {
             <input
               type="password"
               id="password"
+              name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="Password"
