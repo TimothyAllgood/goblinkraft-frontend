@@ -1,0 +1,39 @@
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-hover);
+  color: var(--white);
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container h1 {
+  color: var(--main);
+}
+
+.logo svg {
+  width: 20vw;
+  height: 20vw;
+  aspect-ratio: 1/1;
+}
+
+.logo path {
+  fill: var(--main);
+}
+
+.home-info {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

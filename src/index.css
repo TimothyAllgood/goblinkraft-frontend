@@ -1,0 +1,49 @@
+:root {
+  --main: #39ff63;
+  --main-hover: #3aefbd;
+  --accent: #312e81;
+  --accent-font: #a5b4fc;
+  --accent-hover: #4338ca;
+  --dark: #333333;
+  --white: #f1f1f1;
+  --white-accent: #fdfdfd;
+  --grey: rgba(99, 107, 116, 0.2);
+  --warning: #b51515;
+  --warning-hover: #911010;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--dark);
+  font-family: "Arial", sans-serif;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--accent);
+  background-color: var(--main);
+  transition: all ease 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--main-hover);
+}

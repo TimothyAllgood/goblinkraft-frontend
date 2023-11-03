@@ -1,0 +1,10 @@
+.account-container {
+  position: absolute;
+  top: 2rem;
+  right: 5rem;
+}
+
+.login-btns {
+  display: flex;
+  gap: 1rem;
+}
