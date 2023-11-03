@@ -17,13 +17,13 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard">World</NavLink>
+            <NavLink to="/open">Unprotected Route</NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard">Campaign</NavLink>
+            <NavLink to="/user">User Protected Route</NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard">Generator</NavLink>
+            <NavLink to="/admin">Admin Protected Route</NavLink>
           </li>
           <li>
             <NavLink to="/dashboard">Account</NavLink>

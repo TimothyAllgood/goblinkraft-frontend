@@ -36,7 +36,7 @@ function Signup() {
   return (
     <div className="form-container">
       <div className="inner-form-container">
-        <form className="signup-form" onSubmit={handleSubmit}>
+        <form className="signup-form form" onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"

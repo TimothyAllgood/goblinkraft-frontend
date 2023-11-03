@@ -42,4 +42,29 @@ export default class User {
     let res = await axios.post(`${BASE_URL}/verify/${id}`);
     return res.data;
   };
+
+  static resetPassword = async (user) => {
+    let res = await axios.post(`${BASE_URL}/reset`, user);
+    return res.data;
+  };
+
+  static generatePasswordReset = async (user) => {
+    let res = await axios.post(`${BASE_URL}/reset-password`, user);
+    return res.data;
+  };
+
+  static getUser = async () => {
+    let res = await axios.get(`${BASE_URL}/user`);
+    return res.data;
+  };
+
+  static getAdmin = async () => {
+    let res = await axios.get(`${BASE_URL}/admin`);
+    return res.data;
+  };
+
+  static getOpen = async () => {
+    let res = await axios.get(`${BASE_URL}/open`);
+    return res.data;
+  };
 }

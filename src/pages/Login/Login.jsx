@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import User from "../../services/user.service";
 import { useDispatch } from "react-redux";
 import { login } from "../../state/userSlice";
@@ -43,7 +43,7 @@ function Login() {
   return (
     <div className="form-container">
       <div className="inner-form-container">
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form form" onSubmit={handleSubmit}>
           <div>
             <input
               type="text"
@@ -65,6 +65,7 @@ function Login() {
             />
           </div>
           <button type="submit">Login</button>
+          <Link to="/forgot-password">Forgot Password?</Link>
         </form>
         <div className="form-img"></div>
       </div>

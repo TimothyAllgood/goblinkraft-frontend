@@ -8,6 +8,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./pages/Index/Index.jsx";
 import Signup from "./pages/Signup/Signup.jsx";
 import Login from "./pages/Login/Login.jsx";
+import Verify from "./pages/Verify/Verify.jsx";
+import PasswordReset from "./pages/PasswordReset/PasswordReset.jsx";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
+import Admin from "./pages/Test/Admin.jsx";
+import Open from "./pages/Test/Open.jsx";
+import UserProtected from "./pages/Test/User.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,15 +30,16 @@ const router = createBrowserRouter([
         path: "signup",
         element: <Signup />,
       },
-      // { path: "account/:id", element: <AccountPage /> },
-      // {
-      //   path: "verify/:id",
-      //   element: <VerifyUser />,
-      // },
-      // {
-      //   path: "test",
-      //   element: <Test />,
-      // },
+      { path: "reset-password/:id", element: <PasswordReset /> },
+      { path: "forgot-password", element: <ForgotPassword /> },
+      {
+        path: "verify/:id",
+        element: <Verify />,
+      },
+      // Test Routes
+      { path: "/user", element: <UserProtected /> },
+      { path: "/admin", element: <Admin /> },
+      { path: "/open", element: <Open /> },
     ],
   },
 ]);
