@@ -1,3 +1,19 @@
 #detail {
   display: flex;
 }
+
+main {
+  flex-grow: 1;
+  margin-left: max(-70vw, -400px);
+  transition: all ease 0.3s;
+}
+
+main.open {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 599px) {
+  main {
+    margin-left: 0;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import User from "../../services/user.service";
+import User from "../../../services/user.service";
 import { useNavigate, useParams } from "react-router-dom";
 
 function PasswordReset() {

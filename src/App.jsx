@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Nav from "./components/Nav/Nav";
 import "./App.css";
 import useViewport from "./hooks/useViewport";
 import axios from "axios";
+import { Stack } from "@mui/material";
 
 export default function App() {
   const { width } = useViewport();
@@ -24,10 +25,12 @@ export default function App() {
       <div className="container">
         <div id="detail">
           <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-          <div className={`inner-page ${sidebarOpen ? "sidebar-open" : ""}`}>
-            <Nav />
-            <Outlet />
-          </div>
+          <main className={sidebarOpen ? "open" : ""} open={sidebarOpen}>
+            <Stack>
+              <Nav />
+              <Outlet />
+            </Stack>
+          </main>
         </div>
       </div>
     </>

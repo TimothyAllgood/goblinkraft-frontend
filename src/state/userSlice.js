@@ -9,6 +9,9 @@ export const userSlice = createSlice({
     username: localStorage.getItem("token")
       ? jwtDecode(localStorage.getItem("token"))?.username
       : null,
+    role: localStorage.getItem("token")
+      ? jwtDecode(localStorage.getItem("token"))?.role
+      : null,
   },
   reducers: {
     login: (state, action) => {
@@ -18,6 +21,7 @@ export const userSlice = createSlice({
       // immutable state based off those changes
       state.token = action.payload;
       state.username = jwtDecode(action.payload).username;
+      state.role = jwtDecode(action.payload).role;
       if (state.token) {
         axios.defaults.headers.common["Authorization"] = state.token;
       } else {
@@ -27,6 +31,7 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.token = null;
       state.username = null;
+      state.role = null;
       delete axios.defaults.headers.common["Authorization"];
     },
   },

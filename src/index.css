@@ -1,61 +1,35 @@
-:root {
-  --main: #39ff63;
-  --main-hover: #3aefbd;
-  --accent: #312e81;
-  --accent-font: #a5b4fc;
-  --accent-hover: #4338ca;
+/* :root {
+  --bg: #f5e6c4;
+  --main: #800020;
+  --main-hover: #470012;
+  --accent: #29383f;
+  --accent-font: var(--bg);
+  --accent-hover: var(--main-hover);
   --dark: #333333;
   --white: #f1f1f1;
   --white-accent: #faf9f9;
   --grey: rgba(99, 107, 116, 0.2);
   --warning: #b51515;
   --warning-hover: #911010;
-}
+} */
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --full-height: calc(100vh - (50px + 2rem));
 }
 
 body {
-  color: var(--dark);
   font-family: "Arial", sans-serif;
 }
 
 a,
 a:visited {
   text-decoration: none;
-  /* color: var(--dark); */
 }
 
 ul {
   list-style-type: none;
 }
-
-.inner-page {
-  width: 100vw;
-  position: relative;
-}
-
-/* .inner-page.sidebar-open {
-  width: calc(100vw - 275px);
-} */
-
-.btn {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  color: var(--accent);
-  background-color: var(--main);
-  transition: all ease 0.3s;
-}
-
-.btn:hover {
-  background-color: var(--main-hover);
-}
+/* *
 
 form {
   display: flex;
@@ -81,16 +55,38 @@ input {
   transition: all ease 0.3s;
 }
 
-button {
-  /* width: 100%; */
+.btn,
+button,
+.google-btn {
+  border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  border: none;
   cursor: pointer;
   font-size: 1rem;
-  color: var(--accent);
+  color: var(--bg);
   background-color: var(--main);
   transition: all ease 0.3s;
+}
+
+.btn:hover,
+button:hover,
+.google-btn:hover {
+  background-color: var(--main-hover);
+}
+
+.google-btn {
+  display: flex;
+  width: 230px;
+  height: 35px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.google-btn img {
+  border-radius: 50%;
+  background-color: white;
 }
 
 .form-container {
@@ -102,25 +98,12 @@ button {
   height: calc(100vh - 2rem);
 }
 
-.google-btn {
-  padding: 0.5rem 1rem;
-  border: 2px solid var(--white-accent);
-  color: var(--dark);
-  border-radius: 5px;
-  width: 230px;
-  height: 35px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  transition: all ease 0.3s;
-}
-
-.google-btn:hover {
-  background-color: var(--white-accent);
-}
-
 .google-btn img {
   height: 100%;
 }
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+} */

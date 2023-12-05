@@ -4,9 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { logout } from "../../state/userSlice";
+import { Avatar, Box, Button } from "@mui/material";
 
 function Nav() {
   const username = useSelector((state) => state.user.username);
+
   const { removeItem } = useLocalStorage();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,21 +22,21 @@ function Nav() {
     <div className="account-container">
       <div className="login-btns">
         {username ? (
-          <>
-            <span className="btn">{username}</span>
-            <span className="btn" onClick={signout}>
+          <Box display="flex" gap="1rem">
+            <Avatar alt={username}>{username.charAt(0).toUpperCase()}</Avatar>
+            <Button variant="contained" onClick={signout}>
               Logout
-            </span>
-          </>
+            </Button>
+          </Box>
         ) : (
-          <>
-            <Link to="/login">
-              <span className="btn">Login</span>
-            </Link>
-            <Link to="/signup">
-              <span className="btn">Sign Up</span>
-            </Link>
-          </>
+          <Box display="flex" gap="1rem">
+            <Button variant="contained" href="/login">
+              Login
+            </Button>
+            <Button variant="contained" href="/signup">
+              Sign Up
+            </Button>
+          </Box>
         )}
       </div>
     </div>

@@ -1,13 +1,13 @@
 .home-container {
   /* width: 100vw; */
-  height: 100vh;
+  height: calc(100vh - (50px + 3rem));
   display: flex;
   gap: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--accent-hover);
-  color: var(--white);
+  background-color: var(--bg);
+  color: var(--main);
 }
 
 .logo-container {
