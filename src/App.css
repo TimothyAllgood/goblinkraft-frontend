@@ -4,16 +4,20 @@
 
 main {
   flex-grow: 1;
-  margin-left: max(-70vw, -400px);
-  transition: all ease 0.3s;
+  /* margin-left: max(-70vw, -400px); */
+  /* transition: all ease 0.3s; */
 }
 
+.hide {
+  display: none;
+}
+/* 
 main.open {
   margin-left: 0;
-}
+} */
 
-@media screen and (max-width: 599px) {
+/* @media screen and (max-width: 599px) {
   main {
     margin-left: 0;
   }
-}
+} */

@@ -11,6 +11,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 import { Box, Drawer } from "@mui/material";
+import Nav from "../Nav/Nav";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const role = useSelector((state) => state.user.role);
@@ -51,8 +52,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         className={`toggle-menu ${sidebarOpen ? "move" : ""}`}
         onClick={() => setSidebarOpen(!sidebarOpen)}
         sx={{
-          width: "min(70vw, 400px)",
-          display: { xs: "block", sm: "none" },
+          display: { xs: "flex", sm: "none" },
         }}
       >
         {sidebarOpen ? <></> : <FontAwesomeIcon icon={faDiceD20} />}
@@ -65,7 +65,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: "block", sm: "none" },
+          display: { xs: "flex", sm: "none" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: "min(70vw, 400px)",
@@ -74,60 +74,18 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       >
         <Link to="/">
           <div className="logo">
-            <ReactSVG className="logo-svg" src="./src/assets/logo.svg" />
+            <ReactSVG className="logo-svg" src="/logo.svg" />
             <h1>Goblinkraft</h1>
           </div>
         </Link>
         <span className="divider"></span>
         <ul>
-          <DropdownMenu title={"Campaign"} items={campaign} />
-          <DropdownMenu title={"Generators"} items={items} />
-        </ul>
-        {role === "ADMIN" && (
-          <ul>
-            <DropdownMenu title={"Admin"} items={admin} />
-          </ul>
-        )}
-      </Drawer>
-
-      <Box
-        className={`toggle-menu ${sidebarOpen ? "move" : ""}`}
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-        sx={{
-          width: "min(70vw, 400px)",
-          display: { xs: "none", sm: "block" },
-        }}
-      >
-        {sidebarOpen ? (
-          <FontAwesomeIcon icon={faArrowLeft} />
-        ) : (
-          <FontAwesomeIcon icon={faArrowRight} />
-        )}
-      </Box>
-      <Drawer
-        variant="persistent"
-        anchor="left"
-        open={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-        sx={{
-          width: "min(70vw, 400px)",
-          display: { xs: "none", sm: "block" },
-          "& .MuiDrawer-paper": {
-            width: "min(70vw, 400px)",
-            boxSizing: "border-box",
-          },
-        }}
-        className="header"
-      >
-        <Link to="/">
-          <div className="logo">
-            <ReactSVG className="logo-svg" src="./src/assets/logo.svg" />
-            <h1>Goblinkraft</h1>
-          </div>
-        </Link>
-        <span className="divider"></span>
-        <ul>
-          <DropdownMenu title={"Campaign"} items={campaign} />
+          <NavLink className="lone" to="/dm-screen">
+            DM Screen
+          </NavLink>
+          <NavLink className="lone" to="/campaigns">
+            Campaigns
+          </NavLink>
           <DropdownMenu title={"Generators"} items={items} />
         </ul>
         {role === "ADMIN" && (

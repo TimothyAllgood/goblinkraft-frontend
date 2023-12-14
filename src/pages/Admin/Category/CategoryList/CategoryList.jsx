@@ -6,8 +6,10 @@ import {
   Divider,
   Grid,
   Icon,
+  IconButton,
   Modal,
   Stack,
+  TextField,
   Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -19,7 +21,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "var(--bg)",
+  bgcolor: "#fff",
   boxShadow: 24,
   p: 4,
 };
@@ -46,15 +48,14 @@ function CategoryList() {
 
   const fetchCategories = async () => {
     try {
-      let isAdmin = await User.getAdmin();
-      console.log(isAdmin);
-      setAuthorized(true);
       let categories = await Category.getCategories();
-      console.log(categories);
+      setAuthorized(true);
       setCategories(categories);
     } catch (error) {
-      setAuthorized(false);
-      console.log(error);
+      console.log(error.response);
+      if (error.response.status === 401) {
+        setAuthorized(false);
+      }
     }
   };
 
@@ -91,7 +92,7 @@ function CategoryList() {
   if (!authorized) return <div>Not Authorized</div>;
 
   return (
-    <section className="list-container container">
+    <Box sx={{ m: 2 }} className="list-container container">
       <Modal
         open={open}
         onClose={toggleOpen}
@@ -100,40 +101,57 @@ function CategoryList() {
         className="modal"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            mb="1rem"
+          >
             Add Category
           </Typography>
           <form onSubmit={handleSubmit}>
             <div>
-              <input
+              <TextField
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Category Name"
+                fullWidth={true}
               />
             </div>
-            <button type="submit">Add Category</button>
+            <Button variant="contained" type="submit">
+              Add Category
+            </Button>
           </form>
         </Box>
       </Modal>
-      <Button variant="contained" onClick={toggleOpen} sx={{ m: 2 }}>
+      <Button variant="contained" onClick={toggleOpen} sx={{ mb: 2 }}>
         Add Category
       </Button>
-      <Grid container rowSpacing={4} sx={{ m: 2 }}>
+      <Grid container rowSpacing={1} columnSpacing={12}>
         {categories.map((category) => {
           return (
             <Grid key={category.id} item xs={4}>
-              <Stack direction="row" alignItems="center" gap={2}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
+              >
                 {category.name}
-                <DeleteIcon onClick={() => handleDelete(category.id)} />
+                <IconButton
+                  color="primary"
+                  onClick={() => handleDelete(category.id)}
+                >
+                  <DeleteIcon />
+                </IconButton>
               </Stack>
             </Grid>
           );
         })}
       </Grid>
-    </section>
+    </Box>
   );
 }
 

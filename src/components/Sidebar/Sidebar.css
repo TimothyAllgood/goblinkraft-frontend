@@ -1,14 +1,36 @@
-/* Logo */
-.header .logo {
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
 }
 
-.header .logo svg {
+.logo svg {
   width: 100%;
   height: 50px;
+  fill: black;
+}
+
+a.lone {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  transition: all ease 0.3s;
+  margin-bottom: 1rem;
+}
+
+a.lone:hover {
+  background-color: var(--main);
+  color: #fff;
+}
+
+a.lone.active {
+  background-color: var(--main);
+  color: #fff !important;
 }
 
 /* Toggle Button */
@@ -16,14 +38,14 @@
   z-index: 2;
   position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   padding: 1rem;
   aspect-ratio: 1/1;
-  border: 2px solid var(--main);
+  /* border: 2px solid var(--main); */
   color: var(--main);
   margin-left: 25px;
   margin-top: 1rem;
@@ -33,4 +55,10 @@
 
 .move {
   margin-left: min(70vw, 400px);
+}
+
+@media screen and (max-width: 599px) {
+  .toggle-menu svg {
+    height: 1.5rem;
+  }
 }

@@ -1,0 +1,46 @@
+.npc-card {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  /* aspect-ratio: 1.5/1; */
+  height: calc((var(--full-height) / 2) - 3rem);
+}
+
+.npc-header,
+.detail {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.npc-header {
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.detail {
+  padding: 0rem 1rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stat,
+.modifier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat p {
+  margin: 0;
+}

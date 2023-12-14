@@ -1,0 +1,10 @@
+.npc-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* min-height: var(--full-height); */
+  padding: 0 2rem;
+}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./DropdownMenu.css";
-import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Box } from "@mui/material";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const DropdownMenu = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,23 +11,52 @@ const DropdownMenu = ({ title, items }) => {
     setIsOpen(!isOpen);
   };
 
+  document.querySelector("body").addEventListener("click", (e) => {
+    if (!e.target.classList.contains("dropdown-title")) {
+      setIsOpen(false);
+    }
+  });
+
   return (
     <div className="dropdown-menu">
       <div className="dropdown-menu-header" onClick={toggleDropdown}>
-        <span>{title}</span>
-        {isOpen ? (
-          <FontAwesomeIcon icon={faArrowUp} />
-        ) : (
-          <FontAwesomeIcon icon={faArrowDown} />
-        )}
+        <span className="animate-link dropdown-title">{title}</span>
+        <ArrowDropDownIcon
+          sx={{
+            transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+            transition: "all ease .3s",
+          }}
+        />
       </div>
       {isOpen && (
         <ul className="dropdown-menu-items">
-          {items.map((item, index) => (
-            <li key={index}>
-              <NavLink to={item.path}>{item.label}</NavLink>
-            </li>
-          ))}
+          <Box
+            display="flex"
+            flexDirection="column"
+            gap="1rem"
+            className="dropdown-flex"
+            sx={{
+              position: "absolute",
+              top: 50,
+              left: 0,
+              width: "max-content",
+              p: "1rem",
+              backgroundColor: "white",
+              border: "1px solid rgba(0, 0, 0, 0.12)",
+            }}
+          >
+            {items.map((item, index) => (
+              <li key={index}>
+                <NavLink
+                  className="dropdown-item"
+                  onClick={toggleDropdown}
+                  to={item.path}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </Box>
         </ul>
       )}
     </div>

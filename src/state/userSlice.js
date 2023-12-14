@@ -12,6 +12,9 @@ export const userSlice = createSlice({
     role: localStorage.getItem("token")
       ? jwtDecode(localStorage.getItem("token"))?.role
       : null,
+    id: localStorage.getItem("token")
+      ? jwtDecode(localStorage.getItem("token"))?.id
+      : null,
   },
   reducers: {
     login: (state, action) => {
@@ -22,6 +25,7 @@ export const userSlice = createSlice({
       state.token = action.payload;
       state.username = jwtDecode(action.payload).username;
       state.role = jwtDecode(action.payload).role;
+      state.id = jwtDecode(action.payload).id;
       if (state.token) {
         axios.defaults.headers.common["Authorization"] = state.token;
       } else {

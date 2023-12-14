@@ -14,11 +14,23 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
 import Admin from "./pages/Test/Admin.jsx";
 import Open from "./pages/Test/Open.jsx";
 import UserProtected from "./pages/Test/User.jsx";
-import NPC from "./pages/Generators/NPC/NPC.jsx";
+import DMScreen from "./pages/DMScreen/DMScreen.jsx";
 import CategoryList from "./pages/Admin/Category/CategoryList/CategoryList.jsx";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CampaignList from "./pages/Campaigns/CampaignList/CampaignList.jsx";
+import CampaignPage from "./pages/Campaigns/Campaign/CampaignPage/CampaignPage.jsx";
+import ProfilePage from "./pages/ProfilePage/ProfilePage.jsx";
+import CampaignNPC from "./pages/Campaigns/CampaignNPC/CampaignNPC.jsx";
+import CampaignFaction from "./pages/Campaigns/Campaign/CampaignFaction/CampaignFaction.jsx";
+import NPCList from "./pages/Generators/NPCList/NPCList.jsx";
 
-const theme = createTheme({});
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "rgb(221, 66, 86)",
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
@@ -27,6 +39,7 @@ const router = createBrowserRouter([
 
     children: [
       { index: true, element: <Index /> },
+      // User
       {
         path: "login",
         element: <Login />,
@@ -35,13 +48,31 @@ const router = createBrowserRouter([
         path: "signup",
         element: <Signup />,
       },
+      {
+        path: "profile",
+        element: <ProfilePage />,
+      },
       { path: "reset-password/:id", element: <PasswordReset /> },
       { path: "forgot-password", element: <ForgotPassword /> },
       {
         path: "verify/:id",
         element: <Verify />,
       },
-      { path: "/generate/npc", element: <NPC /> },
+      { path: "/dm-screen", element: <DMScreen /> },
+      // Campaign
+      { path: "/campaigns", element: <CampaignList /> },
+      {
+        path: "/campaign/:id",
+        element: <CampaignPage />,
+        children: [
+          { path: "npcs", element: <CampaignNPC /> },
+          { path: "factions", element: <CampaignFaction /> },
+        ],
+      },
+
+      // Generators
+      { path: "/generate", children: [{ path: "npc", element: <NPCList /> }] },
+      // Admin
       { path: "/admin/categories", element: <CategoryList /> },
 
       // Test Routes

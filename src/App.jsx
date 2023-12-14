@@ -25,7 +25,8 @@ export default function App() {
       <div className="container">
         <div id="detail">
           <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-          <main className={sidebarOpen ? "open" : ""} open={sidebarOpen}>
+          {/* <main className={sidebarOpen ? "open" : ""} open={sidebarOpen}> */}
+          <main>
             <Stack>
               <Nav />
               <Outlet />
