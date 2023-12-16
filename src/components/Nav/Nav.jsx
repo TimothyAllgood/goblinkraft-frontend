@@ -32,11 +32,27 @@ function Nav() {
     },
     {
       path: "/generate/plot",
-      label: "Plot Generator",
+      label: "Plot Hook Generator",
     },
     {
-      path: "/generate/character",
-      label: "Character Generator",
+      path: "/generate/tavern",
+      label: "Tavern Generator",
+    },
+    {
+      path: "/generate/monster",
+      label: "Monster Generator",
+    },
+    {
+      path: "/generate/trap",
+      label: "Trap Generator",
+    },
+    {
+      path: "/generate/combat",
+      label: "Combat Description Generator",
+    },
+    {
+      path: "/generate/town",
+      label: "Town Generator",
     },
   ];
   return (

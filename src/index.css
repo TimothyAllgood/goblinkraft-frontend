@@ -113,3 +113,7 @@ a.MuiButton-outlined {
 .bold {
   font-weight: bold;
 }
+
+.info-tooltip {
+  cursor: pointer;
+}

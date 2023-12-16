@@ -1,7 +1,9 @@
-import { Divider } from "@mui/material";
+import { Divider, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import "./NPC.css";
 import Stat from "../../../../util/stat.util";
+// import Tooltip from "../../../../components/Tooltip/Tooltip";
+import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 
 function NPC({ npc }) {
   return (
@@ -19,10 +21,10 @@ function NPC({ npc }) {
         {npc.stats.map((stat, i) => {
           return (
             <div className="stat" key={i}>
-              <p>{Stat.getStatAbbreviation(stat.name)}</p>
-              <div className="modifier">
-                <p>{stat.val}</p>
-                <p>
+              <p className="stat-name">{Stat.getStatAbbreviation(stat.name)}</p>
+              <div className="value-modifier">
+                <p className="value">{stat.val}</p>
+                <p className="modifier">
                   {Stat.getModifier(stat.val) >= 0 && <>+</>}
                   {Stat.getModifier(stat.val)}
                 </p>
@@ -33,18 +35,52 @@ function NPC({ npc }) {
       </div>
       <Divider />
       <div className="npc-info">
-        <div className="ideal detail">
-          <p className="bold">Ideal:</p>
-          <p>{npc.ideal}</p>
+        <div className="description detail">{npc.description}</div>
+        <div className="trait activity">
+          <p className="bold">Current Activity: </p>
+          <p> {npc.activity.name} </p>
+          <Tooltip
+            className="info-tooltip"
+            title={
+              <>
+                <Typography>{npc.activity.info}</Typography>
+              </>
+            }
+            arrow
+            enterTouchDelay={100}
+          >
+            <InfoRoundedIcon color="primary" />
+          </Tooltip>
         </div>
-        <div className="flaw detail">
-          <p className="bold">Flaw:</p>
-          <p>{npc.flaw}</p>
+        <div className="trait quirk">
+          <p className="bold">Quirk: </p>
+          <p> {npc.quirk.name} </p>
+          {/* <Tooltip content={npc.quirk.info} /> */}
+          <Tooltip
+            className="info-tooltip"
+            title={
+              <>
+                <Typography>{npc.quirk.info}</Typography>
+              </>
+            }
+            arrow
+            enterTouchDelay={100}
+          >
+            <InfoRoundedIcon color="primary" />
+          </Tooltip>
         </div>
-        <div className="ib detail">
-          <p className="bold">Bond:</p>
-          <p>{npc.bond}</p>
+        {/* <div className="ideal trait">
+          <p className="bold">Ideal: </p>
+          <p> {npc.ideal}</p>
         </div>
+        <div className="flaw trait">
+          <p className="bold">Flaw: </p>
+          <p> {npc.flaw}</p>
+        </div>
+        <div className="bond trait">
+          <p className="bold">Hook: </p>
+          <p> {npc.bond}</p>
+        </div> */}
       </div>
     </div>
   );

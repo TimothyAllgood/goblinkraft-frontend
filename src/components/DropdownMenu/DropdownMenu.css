@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: 10000;
 }
 
 .dropdown-menu ul {

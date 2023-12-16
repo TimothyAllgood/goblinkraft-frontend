@@ -5,14 +5,12 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  /* aspect-ratio: 1.5/1; */
-  height: calc((var(--full-height) / 2) - 3rem);
+  height: 100%;
 }
 
 .npc-header,
 .detail {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -21,8 +19,15 @@
   padding: 0.5rem 1rem;
 }
 
-.detail {
+.detail,
+.trait {
   padding: 0rem 1rem;
+}
+
+.trait {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .stats {
@@ -31,10 +36,11 @@
   /* flex-direction: column; */
   align-items: center;
   justify-content: space-around;
+  padding: 1rem 0;
 }
 
 .stat,
-.modifier {
+.value-modifier {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,4 +49,21 @@
 
 .stat p {
   margin: 0;
+}
+
+.stat .value {
+  border: 1px solid var(--border);
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+}
+
+.stat .modifier {
+  background-color: white;
+  margin-top: -0.75rem;
+  border: 1px solid var(--border);
+  padding: 0 0.5rem;
+}
+
+.npc-info {
+  padding: 1rem 0;
 }
