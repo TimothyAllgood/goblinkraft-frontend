@@ -44,7 +44,11 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       label: "Campaign",
     },
   ];
-  let admin = [{ path: "/admin/categories", label: "Categories" }];
+  let admin = [
+    { path: "/admin/categories", label: "Categories" },
+    { path: "/admin/generators/npcs", label: "NPC Generator Data" },
+    { path: "/admin/generators/items", label: "Item Generator Data" },
+  ];
 
   return (
     <>

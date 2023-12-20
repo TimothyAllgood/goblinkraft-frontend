@@ -10,6 +10,7 @@ import { ReactSVG } from "react-svg";
 
 function Nav() {
   const username = useSelector((state) => state.user.username);
+  const role = useSelector((state) => state.user.role);
 
   const { removeItem } = useLocalStorage();
   const dispatch = useDispatch();
@@ -55,6 +56,12 @@ function Nav() {
       label: "Town Generator",
     },
   ];
+
+  const admin = [
+    { path: "/admin/generators/npcs", label: "NPC Generator Data" },
+    { path: "/admin/generators/items", label: "Item Generator Data" },
+  ];
+
   return (
     <div className="header">
       <Link className="logo" to="/">
@@ -73,6 +80,7 @@ function Nav() {
           <NavLink className="dark-link animate-link" to="/dm-screen">
             Shop
           </NavLink>
+          {role === "ADMIN" && <DropdownMenu title={"Admin"} items={admin} />}
         </div>
         <div className="login-btns">
           {username ? (

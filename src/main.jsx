@@ -23,6 +23,8 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage.jsx";
 import CampaignNPC from "./pages/Campaigns/CampaignNPC/CampaignNPC.jsx";
 import CampaignFaction from "./pages/Campaigns/Campaign/CampaignFaction/CampaignFaction.jsx";
 import NPCList from "./pages/Generators/NPCList/NPCList.jsx";
+import NPCGeneratorData from "./pages/Admin/NPCGeneratorData/NPCGeneratorData.jsx";
+import ItemGeneratorData from "./pages/Admin/ItemGeneratorData/ItemGeneratorData.jsx";
 
 const theme = createTheme({
   palette: {
@@ -74,6 +76,8 @@ const router = createBrowserRouter([
       { path: "/generate", children: [{ path: "npc", element: <NPCList /> }] },
       // Admin
       { path: "/admin/categories", element: <CategoryList /> },
+      { path: "/admin/generators/npcs", element: <NPCGeneratorData /> },
+      { path: "/admin/generators/items", element: <ItemGeneratorData /> },
 
       // Test Routes
       { path: "/user", element: <UserProtected /> },
