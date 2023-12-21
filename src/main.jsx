@@ -26,6 +26,8 @@ import NPCList from "./pages/Generators/NPCList/NPCList.jsx";
 import NPCGeneratorData from "./pages/Admin/NPCGeneratorData/NPCGeneratorData.jsx";
 import ItemGeneratorData from "./pages/Admin/ItemGeneratorData/ItemGeneratorData.jsx";
 import ItemList from "./pages/Generators/ItemList/ItemList.jsx";
+import PlotHookGeneratorData from "./pages/Admin/PlotHookGeneratorData/PlotHookGeneratorData.jsx";
+import PlotHookList from "./pages/Generators/PlotHookList/PlotHookList.jsx";
 
 const theme = createTheme({
   palette: {
@@ -79,12 +81,19 @@ const router = createBrowserRouter([
         children: [
           { path: "npc", element: <NPCList /> },
           { path: "item", element: <ItemList /> },
+          { path: "plot-hook", element: <PlotHookList /> },
         ],
       },
       // Admin
-      { path: "/admin/categories", element: <CategoryList /> },
-      { path: "/admin/generators/npcs", element: <NPCGeneratorData /> },
-      { path: "/admin/generators/items", element: <ItemGeneratorData /> },
+      {
+        path: "/admin",
+        children: [
+          { path: "categories", element: <CategoryList /> },
+          { path: "generators/npcs", element: <NPCGeneratorData /> },
+          { path: "generators/items", element: <ItemGeneratorData /> },
+          { path: "generators/plothooks", element: <PlotHookGeneratorData /> },
+        ],
+      },
 
       // Test Routes
       { path: "/user", element: <UserProtected /> },

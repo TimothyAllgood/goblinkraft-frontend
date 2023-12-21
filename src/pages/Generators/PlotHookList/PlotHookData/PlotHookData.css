@@ -1,0 +1,26 @@
+.plot-hook-card {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  height: 100%;
+}
+
+.plot-hook-header {
+  display: flex;
+  align-items: center;
+}
+.details {
+  gap: 0.2rem;
+}
+
+.description {
+  padding: 0.5rem 1rem;
+}
+
+.plot-hook-header {
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}

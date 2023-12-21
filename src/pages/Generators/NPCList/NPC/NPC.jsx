@@ -69,6 +69,10 @@ function NPC({ npc }) {
             <InfoRoundedIcon color="primary" />
           </Tooltip>
         </div>
+        <div className="trait quirk">
+          <p className="bold">Plot Hook: </p>
+          <p> {npc.hook.description} </p>
+        </div>
         {/* <div className="ideal trait">
           <p className="bold">Ideal: </p>
           <p> {npc.ideal}</p>

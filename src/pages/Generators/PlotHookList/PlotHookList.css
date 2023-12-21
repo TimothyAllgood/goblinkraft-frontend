@@ -1,0 +1,30 @@
+.plot-hook-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem 2rem;
+}
+
+.button-container {
+  width: calc(100% - 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0 2rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .plot-hook-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .plot-hook-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

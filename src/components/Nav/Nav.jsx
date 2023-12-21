@@ -32,7 +32,7 @@ function Nav() {
       label: "Item Generator",
     },
     {
-      path: "/generate/plot",
+      path: "/generate/plot-hook",
       label: "Plot Hook Generator",
     },
     {
@@ -60,6 +60,7 @@ function Nav() {
   const admin = [
     { path: "/admin/generators/npcs", label: "NPC Generator Data" },
     { path: "/admin/generators/items", label: "Item Generator Data" },
+    { path: "/admin/generators/plothooks", label: "Plot Hook Generator Data" },
   ];
 
   return (

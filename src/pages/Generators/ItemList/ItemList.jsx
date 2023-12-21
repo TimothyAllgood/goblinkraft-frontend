@@ -14,7 +14,6 @@ function ItemList() {
   const fetchItems = async () => {
     let res = await Item.generateItems();
     setItems(res.items);
-    console.log(res);
   };
 
   return (
