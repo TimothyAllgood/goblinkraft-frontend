@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Grid from "../../../../components/Grid/Grid";
-import ItemEffect from "../../../../services/itemEffect.service";
+import ItemEffect from "../../../../services/admin/generatorData/item/itemEffect.service";
 
 function ItemEffects({ value, index }) {
   const [itemEffects, setItemEffects] = useState([]);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PlotHookData from "../../../../services/plotHookData.service";
+import PlotHookData from "../../../../services/admin/generatorData/plotHookData/plotHookData.service";
 import Grid from "../../../../components/Grid/Grid";
 
 function PlotHooks({ value, index }) {

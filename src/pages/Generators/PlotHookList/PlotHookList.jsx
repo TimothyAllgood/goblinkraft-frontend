@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PlotHook from "../../../services/plotHook.service";
+import PlotHook from "../../../services/generator/plotHook.service";
 import PlotHookData from "./PlotHookData/PlotHookData";
 import "./PlotHookList.css";
 import { Button } from "@mui/material";

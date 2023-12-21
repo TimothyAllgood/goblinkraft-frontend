@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Grid from "../../../../components/Grid/Grid";
-import ItemCurse from "../../../../services/itemCurse.service";
+import ItemCurse from "../../../../services/admin/generatorData/item/itemCurse.service";
 
 function ItemCurses({ value, index }) {
   const [itemCurses, setItemCurses] = useState([]);

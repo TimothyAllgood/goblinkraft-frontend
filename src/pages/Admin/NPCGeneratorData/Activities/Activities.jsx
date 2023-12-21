@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Activity from "../../../../services/activity.service";
+import Activity from "../../../../services/admin/generatorData/npc/activity.service";
 import Grid from "../../../../components/Grid/Grid";
 
 function Activities({ value, index }) {

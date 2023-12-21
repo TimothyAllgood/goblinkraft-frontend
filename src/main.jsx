@@ -28,6 +28,8 @@ import ItemGeneratorData from "./pages/Admin/ItemGeneratorData/ItemGeneratorData
 import ItemList from "./pages/Generators/ItemList/ItemList.jsx";
 import PlotHookGeneratorData from "./pages/Admin/PlotHookGeneratorData/PlotHookGeneratorData.jsx";
 import PlotHookList from "./pages/Generators/PlotHookList/PlotHookList.jsx";
+import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
+import TavernPage from "./pages/Generators/TavernPage/TavernPage.jsx";
 
 const theme = createTheme({
   palette: {
@@ -41,7 +43,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Index /> },
       // User
@@ -82,6 +84,7 @@ const router = createBrowserRouter([
           { path: "npc", element: <NPCList /> },
           { path: "item", element: <ItemList /> },
           { path: "plot-hook", element: <PlotHookList /> },
+          { path: "tavern", element: <TavernPage /> },
         ],
       },
       // Admin

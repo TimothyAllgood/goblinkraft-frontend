@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Item from "../../../services/item.service";
+import Item from "../../../services/generator/item.service";
 import ItemData from "./Item/ItemData";
 import "./ItemList.css";
 import { Button } from "@mui/material";

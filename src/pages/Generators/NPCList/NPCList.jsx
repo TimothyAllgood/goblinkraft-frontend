@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./NPCList.css";
 import NPC from "./NPC/NPC";
-import Npc from "../../../services/npc.service";
+import Npc from "../../../services/generator/npc.service";
 import { Button } from "@mui/material";
 
 function NPCList() {

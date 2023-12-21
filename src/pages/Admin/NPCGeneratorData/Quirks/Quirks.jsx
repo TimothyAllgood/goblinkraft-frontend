@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Quirk from "../../../../services/quirk.service";
+import Quirk from "../../../../services/admin/generatorData/npc/quirk.service";
 import Grid from "../../../../components/Grid/Grid";
 
 function Quirks({ value, index }) {
