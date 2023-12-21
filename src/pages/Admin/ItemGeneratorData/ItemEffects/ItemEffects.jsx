@@ -31,6 +31,9 @@ function ItemEffects({ value, index }) {
         return value;
       },
       valueOptions: [
+        { value: "generic", label: "Generic" },
+        { value: "defensive", label: "Defensive" },
+        { value: "offensive", label: "Offensive" },
         { value: "armor", label: "Armor" },
         { value: "shield", label: "Shield" },
         { value: "meleeWeapon", label: "Melee Weapon" },
@@ -111,8 +114,7 @@ function ItemEffects({ value, index }) {
   };
 
   const handleEdit = async (itemEffect) => {
-    console.log(itemEffect);
-    if (itemEffect.id <= itemEffects?.at(-1)?.id && itemEffects.id > 0) {
+    if (itemEffect.id <= itemEffects?.at(-1)?.id && itemEffect.id > 0) {
       await ItemEffect.update(itemEffect);
     } else {
       let res = await ItemEffect.create(itemEffect);

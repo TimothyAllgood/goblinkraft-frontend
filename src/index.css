@@ -117,3 +117,7 @@ a.MuiButton-outlined {
 .info-tooltip {
   cursor: pointer;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}

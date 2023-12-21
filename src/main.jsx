@@ -25,6 +25,7 @@ import CampaignFaction from "./pages/Campaigns/Campaign/CampaignFaction/Campaign
 import NPCList from "./pages/Generators/NPCList/NPCList.jsx";
 import NPCGeneratorData from "./pages/Admin/NPCGeneratorData/NPCGeneratorData.jsx";
 import ItemGeneratorData from "./pages/Admin/ItemGeneratorData/ItemGeneratorData.jsx";
+import ItemList from "./pages/Generators/ItemList/ItemList.jsx";
 
 const theme = createTheme({
   palette: {
@@ -73,7 +74,13 @@ const router = createBrowserRouter([
       },
 
       // Generators
-      { path: "/generate", children: [{ path: "npc", element: <NPCList /> }] },
+      {
+        path: "/generate",
+        children: [
+          { path: "npc", element: <NPCList /> },
+          { path: "item", element: <ItemList /> },
+        ],
+      },
       // Admin
       { path: "/admin/categories", element: <CategoryList /> },
       { path: "/admin/generators/npcs", element: <NPCGeneratorData /> },

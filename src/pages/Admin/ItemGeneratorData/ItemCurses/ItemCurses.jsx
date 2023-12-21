@@ -5,7 +5,6 @@ import ItemCurse from "../../../../services/itemCurse.service";
 function ItemCurses({ value, index }) {
   const [itemCurses, setItemCurses] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log("wtf");
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
@@ -109,12 +108,10 @@ function ItemCurses({ value, index }) {
   };
 
   const handleEdit = async (itemCurse) => {
-    console.log(itemCurse);
-    if (itemCurse.id <= itemCurses?.at(-1)?.id && itemCurses.id > 0) {
+    if (itemCurse.id <= itemCurses?.at(-1)?.id && itemCurse.id > 0) {
       await ItemCurse.update(itemCurse);
     } else {
       let res = await ItemCurse.create(itemCurse);
-      console.log(res);
       setItemCurses([...itemCurses, res]);
     }
   };
