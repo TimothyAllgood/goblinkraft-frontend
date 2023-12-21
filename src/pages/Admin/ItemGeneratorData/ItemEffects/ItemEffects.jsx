@@ -41,8 +41,15 @@ function ItemEffects({ value, index }) {
         { value: "ring", label: "Ring" },
         { value: "rod", label: "Rod" },
         { value: "staff", label: "Staff" },
-        { value: "wondrous", label: "Wondrous" },
+        { value: "jewelry", label: "Jewelry" },
+        { value: "belt", label: "Belt" },
+        { value: "gloves", label: "Gloves" },
+        { value: "boots", label: "Boots" },
+        { value: "instrument", label: "Instrument" },
+        { value: "cloak", label: "Cloak" },
+        { value: "figurine", label: "Figurine" },
         { value: "potion", label: "Potion" },
+        { value: "poison", label: "Poison" },
       ],
 
       valueSetter: (params) => {
