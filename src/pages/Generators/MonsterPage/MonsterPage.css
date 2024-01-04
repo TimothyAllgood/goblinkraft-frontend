@@ -1,0 +1,13 @@
+.monster-page {
+  padding: 0 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.disclaimer {
+  position: absolute;
+  bottom: 0;
+  padding: 0 2rem 2rem;
+  font-style: italic;
+  font-size: 0.8rem;
+}

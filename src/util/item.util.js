@@ -38,7 +38,9 @@ export default class ItemUtil {
       let rarity = Object.entries(rarities)
         .find((r) => r[1] >= weight)[0]
         .toLowerCase();
-      console.log(rarity);
+      if (rarity === "veryrare") {
+        rarity = "Very Rare";
+      }
       return rarity;
     }
   };

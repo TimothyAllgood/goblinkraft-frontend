@@ -5,7 +5,7 @@ import Stat from "../../../../util/stat.util";
 // import Tooltip from "../../../../components/Tooltip/Tooltip";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 
-function NPC({ npc }) {
+function NPC({ npc, disableActivity }) {
   return (
     <div className="npc-card">
       <div className="npc-header">
@@ -36,22 +36,25 @@ function NPC({ npc }) {
       <Divider />
       <div className="npc-info">
         <div className="description detail">{npc.description}</div>
-        <div className="trait activity">
-          <p className="bold">Current Activity: </p>
-          <p> {npc.activity.name} </p>
-          <Tooltip
-            className="info-tooltip"
-            title={
-              <>
-                <Typography>{npc.activity.info}</Typography>
-              </>
-            }
-            arrow
-            enterTouchDelay={100}
-          >
-            <InfoRoundedIcon color="primary" />
-          </Tooltip>
-        </div>
+        {!disableActivity && (
+          <div className="trait activity">
+            <p className="bold">Current Activity: </p>
+            <p> {npc.activity.name} </p>
+            <Tooltip
+              className="info-tooltip"
+              title={
+                <>
+                  <Typography>{npc.activity.info}</Typography>
+                </>
+              }
+              arrow
+              enterTouchDelay={100}
+            >
+              <InfoRoundedIcon color="primary" />
+            </Tooltip>
+          </div>
+        )}
+
         <div className="trait quirk">
           <p className="bold">Quirk: </p>
           <p> {npc.quirk.name} </p>

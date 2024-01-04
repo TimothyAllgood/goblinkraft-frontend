@@ -13,11 +13,16 @@ export default function App() {
   const breakpoint = 620;
   const [sidebarOpen, setSidebarOpen] = useState(width > breakpoint);
   const token = useSelector((state) => state.user.token);
+  const colorScheme = useSelector((state) => state.user.colorScheme);
 
   if (token) {
     axios.defaults.headers.common["Authorization"] = token;
   } else {
     delete axios.defaults.headers.common["Authorization"];
+  }
+
+  if (colorScheme) {
+    document.documentElement.setAttribute("data-theme", colorScheme);
   }
 
   return (

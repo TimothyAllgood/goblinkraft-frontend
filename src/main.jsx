@@ -21,6 +21,8 @@ import CampaignList from "./pages/Campaigns/CampaignList/CampaignList.jsx";
 import CampaignPage from "./pages/Campaigns/Campaign/CampaignPage/CampaignPage.jsx";
 import ProfilePage from "./pages/ProfilePage/ProfilePage.jsx";
 import CampaignNPC from "./pages/Campaigns/CampaignNPC/CampaignNPC.jsx";
+import CampaignNPCEdit from "./pages/Campaigns/CampaignNPC/CampaignNPCEdit.jsx";
+
 import CampaignFaction from "./pages/Campaigns/Campaign/CampaignFaction/CampaignFaction.jsx";
 import NPCList from "./pages/Generators/NPCList/NPCList.jsx";
 import NPCGeneratorData from "./pages/Admin/NPCGeneratorData/NPCGeneratorData.jsx";
@@ -30,6 +32,14 @@ import PlotHookGeneratorData from "./pages/Admin/PlotHookGeneratorData/PlotHookG
 import PlotHookList from "./pages/Generators/PlotHookList/PlotHookList.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import TavernPage from "./pages/Generators/TavernPage/TavernPage.jsx";
+import TavernGeneratorData from "./pages/Admin/TavernGeneratorData/TavernGeneratorData.jsx";
+import MonsterGeneratorData from "./pages/Admin/MonsterGeneratorData/MonsterGeneratorData.jsx";
+import MonsterPage from "./pages/Generators/MonsterPage/MonsterPage.jsx";
+import MonsterEdit from "./components/MonsterEdit/MonsterEdit.jsx";
+import TrapList from "./pages/Generators/TrapList/TrapList.jsx";
+import CombatDescriptionPage from "./pages/Generators/CombatDescriptionPage/CombatDescriptionPage.jsx";
+import TownPage from "./pages/Generators/TownPage/TownPage.jsx";
+import CharacterPage from "./pages/Generators/CharacterPage/CharacterPage.jsx";
 
 const theme = createTheme({
   palette: {
@@ -72,7 +82,11 @@ const router = createBrowserRouter([
         path: "/campaign/:id",
         element: <CampaignPage />,
         children: [
-          { path: "npcs", element: <CampaignNPC /> },
+          {
+            path: "npcs",
+            element: <CampaignNPC />,
+          },
+          { path: "npcs/:npcId", element: <CampaignNPCEdit /> },
           { path: "factions", element: <CampaignFaction /> },
         ],
       },
@@ -81,10 +95,15 @@ const router = createBrowserRouter([
       {
         path: "/generate",
         children: [
-          { path: "npc", element: <NPCList /> },
+          { path: "character", element: <CharacterPage /> },
           { path: "item", element: <ItemList /> },
+          { path: "monster", element: <MonsterPage /> },
+          { path: "npc", element: <NPCList /> },
           { path: "plot-hook", element: <PlotHookList /> },
           { path: "tavern", element: <TavernPage /> },
+          { path: "trap", element: <TrapList /> },
+          { path: "combat-description", element: <CombatDescriptionPage /> },
+          { path: "town", element: <TownPage /> },
         ],
       },
       // Admin
@@ -95,7 +114,17 @@ const router = createBrowserRouter([
           { path: "generators/npcs", element: <NPCGeneratorData /> },
           { path: "generators/items", element: <ItemGeneratorData /> },
           { path: "generators/plothooks", element: <PlotHookGeneratorData /> },
+          { path: "generators/tavern", element: <TavernGeneratorData /> },
+          {
+            path: "generators/monsters",
+            element: <MonsterGeneratorData />,
+          },
         ],
+      },
+
+      {
+        path: "/admin/generators/monsters/:id",
+        element: <MonsterEdit />,
       },
 
       // Test Routes

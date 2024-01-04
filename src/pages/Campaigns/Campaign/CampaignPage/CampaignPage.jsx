@@ -43,7 +43,7 @@ function CampaignPage() {
     // />
     <section className="campaign container">
       <CampaignNav campaign={campaign} />
-      <Outlet />
+      <Outlet className="campaign-outlet" />
     </section>
   );
 }

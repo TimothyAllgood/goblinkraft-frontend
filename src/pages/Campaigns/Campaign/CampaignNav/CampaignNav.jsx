@@ -85,7 +85,9 @@ function CampaignNav({ campaign }) {
         <div
           className="campaign-header"
           style={{
-            backgroundImage: `url(${campaign.backgroundImage.url})`,
+            backgroundImage: campaign?.backgroundImage?.url
+              ? `url(${campaign.backgroundImage.url})`
+              : "black",
             height: drawerWidth,
           }}
         >
@@ -94,7 +96,15 @@ function CampaignNav({ campaign }) {
       </div>
       <ul className="campaign-menu">
         <NavLink to={`/campaign/${campaign.id}/npcs`}>NPCs</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>Locations</NavLink>
         <NavLink to={`/campaign/${campaign.id}/factions`}>Factions</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>Quests</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>
+          Notable Objects
+        </NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>
+          Session Notes
+        </NavLink>
       </ul>
     </div>
   );

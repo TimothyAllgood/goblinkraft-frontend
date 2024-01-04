@@ -32,6 +32,10 @@ function Nav() {
       label: "Item Generator",
     },
     {
+      path: "/generate/character",
+      label: "Character Generator",
+    },
+    {
       path: "/generate/plot-hook",
       label: "Plot Hook Generator",
     },
@@ -48,7 +52,7 @@ function Nav() {
       label: "Trap Generator",
     },
     {
-      path: "/generate/combat",
+      path: "/generate/combat-description",
       label: "Combat Description Generator",
     },
     {
@@ -61,6 +65,9 @@ function Nav() {
     { path: "/admin/generators/npcs", label: "NPC Generator Data" },
     { path: "/admin/generators/items", label: "Item Generator Data" },
     { path: "/admin/generators/plothooks", label: "Plot Hook Generator Data" },
+
+    { path: "/admin/generators/tavern", label: "Tavern Generator Data" },
+    { path: "/admin/generators/monsters", label: "Monster Generator Data" },
   ];
 
   return (
@@ -86,7 +93,11 @@ function Nav() {
         <div className="login-btns">
           {username ? (
             <Box display="flex" gap="1rem">
-              <Avatar alt={username}>{username.charAt(0).toUpperCase()}</Avatar>
+              <Link to="/profile">
+                <Avatar sx={{ bgcolor: "var(--main)" }} alt={username}>
+                  {username.charAt(0).toUpperCase()}
+                </Avatar>
+              </Link>
               <Button variant="outlined" onClick={signout}>
                 Logout
               </Button>

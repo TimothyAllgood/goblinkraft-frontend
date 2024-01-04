@@ -1,23 +1,18 @@
-/* :root {
-  --bg: #f5e6c4;
-  --main: #800020;
-  --main-hover: #470012;
-  --accent: #29383f;
-  --accent-font: var(--bg);
-  --accent-hover: var(--main-hover);
-  --dark: #333333;
-  --white: #f1f1f1;
-  --white-accent: #faf9f9;
-  --grey: rgba(99, 107, 116, 0.2);
-  --warning: #b51515;
-  --warning-hover: #911010;
-} */
-
 :root {
   --full-height: calc(100vh - (50px + 2rem));
   --main: rgb(221, 66, 86);
   --sidebar-bg: #424141;
   --border: rgba(0, 0, 0, 0.12);
+  --link-color: #333;
+}
+
+:root[data-theme="dark"] {
+  --bg: #101010;
+  --full-height: calc(100vh - (50px + 2rem));
+  --main: rgb(0, 162, 255);
+  --sidebar-bg: #424141;
+  --border: rgba(0, 0, 0, 0.12);
+  --color: white;
 }
 
 body {
@@ -26,6 +21,8 @@ body {
   margin: 0 !important;
   overscroll-behavior: none;
   padding: 0 !important;
+  background-color: var(--bg);
+  color: var(--color);
 }
 
 h1,
@@ -41,12 +38,12 @@ a {
 a,
 a:visited {
   text-decoration: none;
-  color: #333;
+  color: var(--link-color);
 }
 
 .dark-link,
 .dark-link:visited {
-  color: #333;
+  color: var(--link-color);
 }
 
 .animate-link {
@@ -114,10 +111,22 @@ a.MuiButton-outlined {
   font-weight: bold;
 }
 
+.italics {
+  font-style: italic;
+}
+
 .info-tooltip {
   cursor: pointer;
 }
 
 .capitalize {
+  text-transform: capitalize;
+}
+
+.capitalize-first {
+  display: inline-block;
+}
+
+.capitalize-first::first-letter {
   text-transform: capitalize;
 }

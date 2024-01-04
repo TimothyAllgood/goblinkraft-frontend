@@ -14,18 +14,24 @@ function EditToolbar(props) {
   const { rows, setRows, setRowModesModel } = props;
 
   const handleClick = () => {
-    let id = rows?.at(-1)?.id + 1 || 0;
+    let sorted = [...rows]?.sort((a, b) => {
+      return a.id - b.id;
+    });
+
+    let id = sorted?.at(-1)?.id + 1 || 0;
 
     if (
-      (id > 0 && Object.values(rows.at(-1)).every((val) => val)) ||
+      (id > 0 &&
+        Object.values(rows.at(-1)).every((val) => val !== undefined)) ||
+      id === 1 ||
       id === 0
     ) {
       setRows((oldRows) => {
-        return [...oldRows, { id, name: "" }];
+        return [...oldRows, { id }];
       });
       setRowModesModel((oldModel) => ({
         ...oldModel,
-        [id]: { mode: GridRowModes.Edit, fieldToFocus: "name" },
+        [id]: { mode: GridRowModes.Edit },
       }));
     }
   };
@@ -167,6 +173,7 @@ function Grid({
         rowModesModel={rowModesModel}
         onRowModesModelChange={handleRowModesModelChange}
         onRowEditStop={handleRowEditStop}
+        getRowHeight={() => "auto"}
       />
     </Box>
   );

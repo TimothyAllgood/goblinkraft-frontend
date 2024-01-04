@@ -40,4 +40,22 @@ export default class Campaign {
     let res = await axios.delete(`${BASE_URL}/delete/${id}`);
     return res.data;
   };
+
+  static getNPC = async (id) => {
+    let res = await axios.get(`${BASE_URL}/npcs/get/${id}`);
+    return res.data;
+  };
+
+  static getNPCs = async (id) => {
+    let res = await axios.get(`${BASE_URL}/npcs/getall/${id}`);
+    return res.data;
+  };
+
+  static upsertNPC = async (id, npc) => {
+    let res = await axios.post(`${BASE_URL}/npcs/upsert`, {
+      campaignId: id,
+      npc,
+    });
+    return res.data;
+  };
 }

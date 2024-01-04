@@ -16,7 +16,7 @@ import Nav from "../Nav/Nav";
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const role = useSelector((state) => state.user.role);
 
-  let items = [
+  const items = [
     {
       path: "/generate/npc",
       label: "NPC Generator",
@@ -26,29 +26,42 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       label: "Item Generator",
     },
     {
-      path: "/generate/plot-hook",
-      label: "Plot Generator",
-    },
-    {
       path: "/generate/character",
       label: "Character Generator",
     },
-  ];
-  let campaign = [
     {
-      path: "/worlds",
-      label: "Worlds",
+      path: "/generate/plot-hook",
+      label: "Plot Hook Generator",
     },
     {
-      path: "/campaigns",
-      label: "Campaign",
+      path: "/generate/tavern",
+      label: "Tavern Generator",
+    },
+    {
+      path: "/generate/monster",
+      label: "Monster Generator",
+    },
+    {
+      path: "/generate/trap",
+      label: "Trap Generator",
+    },
+    {
+      path: "/generate/combat-description",
+      label: "Combat Description Generator",
+    },
+    {
+      path: "/generate/town",
+      label: "Town Generator",
     },
   ];
+
   let admin = [
     { path: "/admin/categories", label: "Categories" },
     { path: "/admin/generators/npcs", label: "NPC Generator Data" },
     { path: "/admin/generators/items", label: "Item Generator Data" },
     { path: "/admin/generators/plothooks", label: "Plot Hook Generator Data" },
+    { path: "/admin/generators/tavern", label: "Tavern Generator Data" },
+    { path: "/admin/generators/monsters", label: "Monster Generator Data" },
   ];
 
   return (

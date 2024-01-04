@@ -123,12 +123,50 @@ function ItemCurses({ value, index }) {
     });
   };
 
+  const findDuplicates = () => {
+    const names = itemCurses.map(function (item) {
+      return item.name;
+    });
+    const duplicateNames = names.filter(
+      (item, index) => names.indexOf(item) !== index
+    );
+
+    let duplicates = duplicateNames.map((name) => {
+      return itemCurses.find((item) => item.name === name);
+    });
+
+    return duplicates;
+  };
+
+  let hasDuplicates = findDuplicates();
+
   if (loading) return "loading";
 
   return (
     <div className="admin-container" hidden={value !== index}>
       <div className="total">
-        <h3>Total Curses: {itemCurses.length}</h3>
+        <h3>
+          Total Minor Curses:{" "}
+          {itemCurses.filter((item) => item.severity === "MINOR").length}
+        </h3>
+        <h3>
+          Total Major Curses:{" "}
+          {itemCurses.filter((item) => item.severity === "MAJOR").length}
+        </h3>{" "}
+        {hasDuplicates?.length > 0 && (
+          <>
+            <p className="bold">Duplicates Found</p>
+            {hasDuplicates.map((duplicate) => {
+              return (
+                <div key={duplicate.id}>
+                  <p>
+                    {duplicate.id}: {duplicate.name}
+                  </p>
+                </div>
+              );
+            })}
+          </>
+        )}
       </div>
       <Grid
         initialRows={itemCurses}

@@ -6,3 +6,10 @@
   width: 100vw;
   overflow-y: scroll;
 }
+
+.campaign-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

@@ -1,0 +1,6 @@
+.npc-form-page,
+.npc-form-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

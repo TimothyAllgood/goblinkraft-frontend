@@ -1,0 +1,60 @@
+.monster-stats {
+  display: flex;
+  gap: 1rem;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+
+.monster-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cr {
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+  /* justify-content: space-between; */
+}
+.source-link-container {
+  display: flex;
+  gap: 5px;
+}
+
+.source-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  text-decoration: underline;
+}
+
+.stat,
+.value-modifier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat p {
+  margin: 0;
+}
+
+.stat .value {
+  border: 1px solid var(--border);
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+}
+
+.stat .modifier {
+  background-color: white;
+  margin-top: -0.75rem;
+  border: 1px solid var(--border);
+  padding: 0 0.5rem;
+}
+
+.ability {
+  padding: 2rem 0;
+}

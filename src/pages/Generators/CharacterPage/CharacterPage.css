@@ -1,0 +1,19 @@
+.character-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.character {
+  width: 90vw;
+}
+
+.traits {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 2rem;
+}

@@ -15,6 +15,9 @@ export const userSlice = createSlice({
     id: localStorage.getItem("token")
       ? jwtDecode(localStorage.getItem("token"))?.id
       : null,
+    colorScheme: localStorage.getItem("token")
+      ? jwtDecode(localStorage.getItem("token"))?.colorScheme
+      : null,
   },
   reducers: {
     login: (state, action) => {
@@ -26,16 +29,25 @@ export const userSlice = createSlice({
       state.username = jwtDecode(action.payload).username;
       state.role = jwtDecode(action.payload).role;
       state.id = jwtDecode(action.payload).id;
+      state.colorScheme = jwtDecode(action.payload).colorScheme;
       if (state.token) {
         axios.defaults.headers.common["Authorization"] = state.token;
       } else {
         delete axios.defaults.headers.common["Authorization"];
+      }
+
+      if (state.colorScheme) {
+        console.log("here");
+        document.documentElement.setAttribute("data-theme", colorScheme);
+        console.log(document.documentElement.getAttribute("data-theme"));
       }
     },
     logout: (state) => {
       state.token = null;
       state.username = null;
       state.role = null;
+      state.id = null;
+      state.colorScheme = null;
       delete axios.defaults.headers.common["Authorization"];
     },
   },

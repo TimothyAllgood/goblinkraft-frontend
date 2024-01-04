@@ -1,0 +1,9 @@
+.campaign-npc-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.campaign-npc {
+  cursor: pointer;
+}

@@ -11,6 +11,10 @@
   fill: black;
 }
 
+.logo path {
+  fill: var(--main);
+}
+
 a.lone {
   cursor: pointer;
   padding: 0.5rem 1rem;
