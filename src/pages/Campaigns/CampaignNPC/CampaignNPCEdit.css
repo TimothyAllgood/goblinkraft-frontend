@@ -4,3 +4,42 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+.npc-inputs {
+  display: flex;
+  gap: 1rem;
+}
+
+.npc-inputs .form-group {
+  flex: 1;
+}
+
+.quill {
+  height: 250px;
+  margin-bottom: 2rem;
+}
+
+.ql-toolbar {
+}
+
+.ql-container {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 1rem;
+}
+
+.rich-editor {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.rich-editor label {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom: none;
+  padding: 8px 16px;
+  font-weight: bold;
+}

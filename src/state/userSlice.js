@@ -15,6 +15,12 @@ export const userSlice = createSlice({
     id: localStorage.getItem("token")
       ? jwtDecode(localStorage.getItem("token"))?.id
       : null,
+    subscription: localStorage.getItem("token")
+      ? jwtDecode(localStorage.getItem("token"))?.subscription
+      : null,
+    subscribed: localStorage.getItem("token")
+      ? jwtDecode(localStorage.getItem("token"))?.subscribed
+      : null,
     colorScheme: localStorage.getItem("token")
       ? jwtDecode(localStorage.getItem("token"))?.colorScheme
       : null,
@@ -28,6 +34,8 @@ export const userSlice = createSlice({
       state.token = action.payload;
       state.username = jwtDecode(action.payload).username;
       state.role = jwtDecode(action.payload).role;
+      state.subscription = jwtDecode(action.payload).subscription;
+      state.subscribed = jwtDecode(action.payload).subscribed;
       state.id = jwtDecode(action.payload).id;
       state.colorScheme = jwtDecode(action.payload).colorScheme;
       if (state.token) {
@@ -37,9 +45,7 @@ export const userSlice = createSlice({
       }
 
       if (state.colorScheme) {
-        console.log("here");
-        document.documentElement.setAttribute("data-theme", colorScheme);
-        console.log(document.documentElement.getAttribute("data-theme"));
+        document.documentElement.setAttribute("data-theme", state.colorScheme);
       }
     },
     logout: (state) => {
@@ -48,6 +54,8 @@ export const userSlice = createSlice({
       state.role = null;
       state.id = null;
       state.colorScheme = null;
+      state.subscription = null;
+      state.subscribed = null;
       delete axios.defaults.headers.common["Authorization"];
     },
   },

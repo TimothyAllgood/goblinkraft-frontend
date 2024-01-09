@@ -51,10 +51,28 @@ export default class Campaign {
     return res.data;
   };
 
+  static deleteNPC = async (id) => {
+    let res = await axios.delete(`${BASE_URL}/npcs/delete/${id}`);
+    return res.data;
+  };
+
   static upsertNPC = async (id, npc) => {
     let res = await axios.post(`${BASE_URL}/npcs/upsert`, {
       campaignId: id,
       npc,
+    });
+    return res.data;
+  };
+
+  static updateNPCImage = async (npc) => {
+    const config = {
+      headers: {
+        "Content-type": "multipart/form-data",
+      },
+    };
+
+    let res = await axios.post(`${BASE_URL}/npcs/update-image`, npc, {
+      config,
     });
     return res.data;
   };

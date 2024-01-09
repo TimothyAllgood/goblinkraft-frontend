@@ -14,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Campaign from "../../../services/campaign.service";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -22,6 +22,9 @@ import { styled } from "@mui/material/styles";
 import "./CampaignList.css";
 import { DeleteRounded } from "@mui/icons-material";
 import EditIcon from "@mui/icons-material/Edit";
+import { logout } from "../../../state/userSlice";
+import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 
 const style = {
   position: "absolute",
@@ -48,6 +51,9 @@ const VisuallyHiddenInput = styled("input")({
 
 function CampaignList() {
   const id = useSelector((state) => state.user.id);
+  const { removeItem } = useLocalStorage();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [campaigns, setCampaigns] = useState([]);
   const [authorized, setAuthorized] = useState(false);
@@ -65,22 +71,25 @@ function CampaignList() {
 
   useEffect(() => {
     fetchCampaigns();
-
-    return () => {
-      fetchCampaigns();
-    };
   }, []);
 
   const fetchCampaigns = async () => {
-    try {
-      const campaigns = await Campaign.getCampaigns(id);
-      setCampaigns(campaigns);
-    } catch (error) {
-      if (error.response?.status === 401) {
-        setAuthorized(false);
-      } else {
-        console.log(error);
+    if (id) {
+      try {
+        const campaigns = await Campaign.getCampaigns(id);
+        setCampaigns(campaigns);
+      } catch (error) {
+        if (error.response?.status === 401) {
+          setAuthorized(false);
+          await dispatch(logout());
+          await removeItem("token");
+          navigate("/login");
+        } else {
+          console.log(error);
+        }
       }
+    } else {
+      navigate("/login");
     }
   };
 

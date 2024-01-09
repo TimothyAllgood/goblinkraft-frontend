@@ -11,6 +11,7 @@ import { ReactSVG } from "react-svg";
 function Nav() {
   const username = useSelector((state) => state.user.username);
   const role = useSelector((state) => state.user.role);
+  const subscribed = useSelector((state) => state.user.subscribed);
 
   const { removeItem } = useLocalStorage();
   const dispatch = useDispatch();
@@ -101,6 +102,11 @@ function Nav() {
               <Button variant="outlined" onClick={signout}>
                 Logout
               </Button>
+              {!subscribed && (
+                <Button variant="contained" onClick={signout}>
+                  Subscribe
+                </Button>
+              )}
             </Box>
           ) : (
             <Box display="flex" gap="1rem">

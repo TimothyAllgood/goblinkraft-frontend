@@ -80,7 +80,16 @@ function PlotHooks({ value, index }) {
   return (
     <div className="admin-container" hidden={value !== index}>
       <div className="total">
-        <h3>Total Plot Hooks: {plotHooks.length}</h3>
+        <h3>
+          Total Generic Hooks:{" "}
+          {plotHooks.filter((hook) => hook.type === "generic").length}
+        </h3>
+      </div>
+      <div className="total">
+        <h3>
+          Total NPC Hooks:{" "}
+          {plotHooks.filter((hook) => hook.type === "npc").length}
+        </h3>
       </div>
       <Grid
         initialRows={plotHooks}

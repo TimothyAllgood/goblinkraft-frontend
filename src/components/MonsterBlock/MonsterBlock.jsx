@@ -34,13 +34,27 @@ function MonsterBlock({ monster, abilities, filters, setFilters }) {
   }, [monster]);
 
   const parseAbilityName = (ability) => {
-    const splitAbilityName = ability.description.split(".");
+    let splitAbilityName = ability.description.split(".");
     if (splitAbilityName.length > 0) {
       const abilityName = splitAbilityName[0];
-      const abilityDescription = splitAbilityName[1].replace(
-        /\[.*?\]/g,
-        `${monsterName}`
-      );
+      let abilityDescription = "";
+      if (splitAbilityName.length > 3) {
+        splitAbilityName = splitAbilityName.filter((n) => n !== "");
+        for (let i = 1; i < splitAbilityName.length; i++) {
+          let str = splitAbilityName[i].replace(/\[.*?\]/g, `${monsterName}`);
+          if (i === 1) {
+            abilityDescription += str + ".";
+          } else {
+            abilityDescription += str;
+          }
+        }
+      } else {
+        abilityDescription = splitAbilityName[1].replace(
+          /\[.*?\]/g,
+          `${monsterName}`
+        );
+      }
+
       return { abilityName, abilityDescription };
     }
     return splitAbilityName;
@@ -691,9 +705,9 @@ function MonsterBlock({ monster, abilities, filters, setFilters }) {
 
       <Divider />
       <div className="ability">
-        {abilities.map((ability) => {
+        {abilities.map((ability, i) => {
           return (
-            <Typography>
+            <Typography key={i}>
               <span className="bold">
                 {parseAbilityName(ability).abilityName + "."}
               </span>

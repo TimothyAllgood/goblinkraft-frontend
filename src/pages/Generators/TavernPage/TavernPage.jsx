@@ -86,21 +86,18 @@ function TavernPage() {
               <div className="tavern-events">
                 <h3>General Atmopshere</h3>
                 <div className="event">
-                  <p className="bold">{tavern.tavernAtmosphere?.name}: </p>
                   <p>{tavern.tavernAtmosphere?.info}</p>
                 </div>
               </div>
               <div className="tavern-events">
                 <h3>Tonight's Main Event</h3>
                 <div className="event">
-                  <p className="bold">{tavern.tavernEvent?.name}: </p>
                   <p>{tavern.tavernEvent?.info}</p>
                 </div>
               </div>
               <div className="tavern-feature">
                 <h3>Unique Feature</h3>
                 <div className="event">
-                  <p className="bold">{tavern.tavernFeature?.name}: </p>
                   <p>{tavern.tavernFeature?.info}</p>
                 </div>
               </div>
