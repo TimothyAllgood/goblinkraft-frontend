@@ -40,12 +40,107 @@ import TrapList from "./pages/Generators/TrapList/TrapList.jsx";
 import CombatDescriptionPage from "./pages/Generators/CombatDescriptionPage/CombatDescriptionPage.jsx";
 import TownPage from "./pages/Generators/TownPage/TownPage.jsx";
 import CharacterPage from "./pages/Generators/CharacterPage/CharacterPage.jsx";
+import { jwtDecode } from "jwt-decode";
+
+const scheme = localStorage.getItem("token")
+  ? jwtDecode(localStorage.getItem("token"))?.colorScheme
+  : null;
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: "rgb(221, 66, 86)",
+  components: {
+    MuiInputBase: {
+      root: {
+        color: "var(--color)",
+      },
     },
+    MuiAutocomplete: {
+      styleOverrides: {
+        popupIndicator: {
+          color: "var(--main)",
+        },
+        inputRoot: {
+          color: "var(--main)",
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "var(--main)",
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          color: "var(--color)",
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "var(--main)",
+          },
+        },
+        notchedOutline: {
+          borderColor: "var(--main)",
+        },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          color: "var(--color)",
+        },
+      },
+    },
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          borderColor: "var(--main)",
+          color: "var(--color)",
+        },
+        iconSeparator: {
+          color: "var(--color)",
+        },
+        withBorderColor: {
+          borderColor: "var(--color)",
+        },
+      },
+    },
+    MuiTablePagination: {
+      styleOverrides: {
+        root: {
+          color: "var(--color)",
+        },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          color: "var(--color)",
+        },
+      },
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          color: "var(--bg)",
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: "var(--main)",
+        },
+      },
+    },
+  },
+  palette: {
+    ...(scheme === "goblinmode"
+      ? {
+          primary: {
+            main: "rgb(0, 255, 149)",
+          },
+        }
+      : {
+          primary: {
+            main: "rgb(221, 66, 86)",
+          },
+        }),
   },
 });
 

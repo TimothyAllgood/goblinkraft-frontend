@@ -1,3 +1,4 @@
 .dm-box {
   overflow-y: auto;
+  border-color: var(--main);
 }

@@ -1,4 +1,16 @@
-:root {
+:root[data-theme="goblinmode"] {
+  --bg: #17002b;
+  --full-height: calc(100vh - (50px + 2rem));
+  --main: rgb(0, 255, 149);
+  --sidebar-bg: #424141;
+  --border: rgba(0, 0, 0, 0.12);
+  --color: rgb(0, 255, 149);
+  --dm-border: #34095a;
+  --nav-bg: #34095a;
+  --cursed: rgb(221, 66, 86);
+}
+
+:root[date-theme="light"] {
   --full-height: calc(100vh - (50px + 2rem));
   --main: rgb(221, 66, 86);
   --sidebar-bg: #424141;
@@ -129,4 +141,20 @@ a.MuiButton-outlined {
 
 .capitalize-first::first-letter {
   text-transform: capitalize;
+}
+
+.ql-toolbar .ql-picker {
+  color: var(--color) !important;
+}
+.ql-stroke {
+  stroke: var(--color) !important;
+}
+
+.ql-fill {
+  fill: var(--color) !important;
+}
+
+.ql-container,
+.ql-toolbar {
+  border-color: var(--main) !important;
 }

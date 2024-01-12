@@ -8,7 +8,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 function CampaignNav({ campaign }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [marginTop, setMarginTop] = useState("calc(50px + 4rem - 1px)");
-  const [borderTop, setBorderTop] = useState("1px solid rgba(0, 0, 0, 0.12)");
+  const [borderTop, setBorderTop] = useState("1px solid var(--bg)");
   const [headerHeight, setHeaderHeight] = useState(0);
   const navEl = useRef(null);
   const drawerWidth = "min(50vw, 300px)";
@@ -48,7 +48,7 @@ function CampaignNav({ campaign }) {
       if (scrollY > headerHeight) {
         setBorderTop("none");
       } else {
-        setBorderTop("1px solid rgba(0, 0, 0, 0.12)");
+        setBorderTop("1px solid var(--bg)");
       }
     }
   };
@@ -156,6 +156,7 @@ function CampaignNav({ campaign }) {
               width: drawerWidth,
               mt: marginTop,
               borderTop: borderTop,
+              borderRightColor: "var(--bg)",
             },
           }}
           open

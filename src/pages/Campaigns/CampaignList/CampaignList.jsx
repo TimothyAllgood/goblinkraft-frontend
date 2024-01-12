@@ -284,6 +284,9 @@ function CampaignList() {
                   >
                     <Button
                       variant="contained"
+                      sx={{
+                        color: "var(--bg) !important",
+                      }}
                       href={`/campaign/${campaign.id}`}
                     >
                       View Campaign

@@ -86,6 +86,7 @@ function CampaignNPC() {
                     <Button
                       variant="contained"
                       href={`/campaign/${id}/npcs/${npc.id}`}
+                      sx={{ color: "var(--bg) !important" }}
                     >
                       Edit NPC
                     </Button>

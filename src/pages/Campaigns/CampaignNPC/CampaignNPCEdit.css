@@ -35,7 +35,7 @@
 }
 
 .rich-editor label {
-  border: 1px solid #ccc;
+  border: 1px solid var(--main);
   box-sizing: border-box;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;

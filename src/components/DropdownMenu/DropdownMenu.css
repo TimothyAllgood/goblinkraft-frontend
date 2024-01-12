@@ -50,7 +50,7 @@
 
   .dropdown-menu-header:hover {
     background-color: var(--main);
-    color: #fff;
+    color: var(--nav-bg);
   }
 
   .dropdown-menu-items {
@@ -70,12 +70,12 @@
 
   .dropdown-menu-items a:hover {
     background-color: var(--main);
-    color: #fff;
+    color: var(--nav-bg);
   }
 
   .dropdown-menu-items .active {
     background-color: var(--main);
-    color: #fff;
+    color: var(--nav-bg);
   }
 
   .dropdown-flex {
@@ -90,6 +90,6 @@
   }
 
   .dropdown-menu .active {
-    color: #fff !important;
+    color: var(--nav-bg) !important;
   }
 }

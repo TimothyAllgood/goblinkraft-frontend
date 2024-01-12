@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./TavernPage.css";
 import Tavern from "../../../services/generator/tavern.service";
-import { Button, Divider } from "@mui/material";
+import { Button, Divider, Typography } from "@mui/material";
 import NPC from "../NPCList/NPC/NPC";
 
 function TavernPage() {
@@ -26,7 +26,7 @@ function TavernPage() {
       <section className="tavern-page">
         <div className="tavern-header">
           <div className="name">
-            <h3>{tavern.name}</h3>
+            <Typography variant="h3">{tavern.name}</Typography>
           </div>
           <p className="capitalize italics">{tavern.quality}</p>
         </div>

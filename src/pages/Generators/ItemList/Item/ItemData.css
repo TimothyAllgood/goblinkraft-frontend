@@ -1,5 +1,5 @@
 .item-card {
-  border: 1px solid var(--border);
+  border: 1px solid var(--main);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -59,24 +59,11 @@
   margin: 0;
 }
 
-.stat .value {
-  border: 1px solid var(--border);
-  padding: 1rem;
-  aspect-ratio: 1 / 1;
-}
-
-.stat .modifier {
-  background-color: white;
-  margin-top: -0.75rem;
-  border: 1px solid var(--border);
-  padding: 0 0.5rem;
-}
-
 .item-info {
   padding: 1rem 0;
 }
 
 .cursed {
-  color: var(--main);
+  color: var(--cursed);
   font-style: italic;
 }

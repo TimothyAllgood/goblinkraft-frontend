@@ -22,6 +22,11 @@ export default class MonsterData {
     return res.data;
   };
 
+  static getAutocompleteMonsters = async (search) => {
+    let res = await axios.get(`${BASE_URL}/autocomplete/${search}`);
+    return res.data;
+  };
+
   static deleteMonster = async (id) => {
     let res = await axios.delete(`${BASE_URL}/delete/${id}`);
     return res.data;

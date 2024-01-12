@@ -1,5 +1,5 @@
 .npc-card {
-  border: 1px solid var(--border);
+  border: 1px solid var(--main);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -58,7 +58,7 @@
 }
 
 .stat .modifier {
-  background-color: white;
+  background-color: var(--nav-bg);
   margin-top: -0.75rem;
   border: 1px solid var(--border);
   padding: 0 0.5rem;

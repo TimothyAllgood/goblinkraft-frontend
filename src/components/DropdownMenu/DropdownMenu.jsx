@@ -41,7 +41,7 @@ const DropdownMenu = ({ title, items }) => {
               left: 0,
               width: "max-content",
               p: "1rem",
-              backgroundColor: "white",
+              backgroundColor: "var(--nav-bg)",
               border: "1px solid rgba(0, 0, 0, 0.12)",
             }}
           >

@@ -1,6 +1,8 @@
 import React from "react";
 import "./DMScreen.css";
 import { Box, Divider, Typography } from "@mui/material";
+import SessionNotes from "./SessionNotes/SessionNotes";
+import Encounters from "./Encounters/Encounters";
 
 function DMScreen() {
   return (
@@ -16,7 +18,7 @@ function DMScreen() {
       <Box
         gridArea="  1 / 1 / 5 / 5"
         sx={{
-          border: "1px solid rgba(0, 0, 0, 0.12)",
+          border: "1px solid var(--dm-border)",
         }}
         className="dm-box"
       >
@@ -24,11 +26,12 @@ function DMScreen() {
           Session Notes
         </Typography>
         <Divider variant="middle" />
+        <SessionNotes />
       </Box>
       <Box
         gridArea="1 / 5 / 3 / 9"
         sx={{
-          border: "1px solid rgba(0, 0, 0, 0.12)",
+          border: "1px solid var(--dm-border)",
         }}
         className="dm-box"
       >
@@ -40,7 +43,7 @@ function DMScreen() {
       <Box
         gridArea="3 / 5 / 5 / 9"
         sx={{
-          border: "1px solid rgba(0, 0, 0, 0.12)",
+          border: "1px solid var(--dm-border)",
         }}
         className="dm-box"
       >
@@ -52,7 +55,7 @@ function DMScreen() {
       <Box
         gridArea="1 / 9 / 5 / 13"
         sx={{
-          border: "1px solid rgba(0, 0, 0, 0.12)",
+          border: "1px solid var(--dm-border)",
         }}
         className="dm-box"
       >
@@ -60,6 +63,7 @@ function DMScreen() {
           Encounters
         </Typography>
         <Divider variant="middle" />
+        <Encounters />
       </Box>
     </Box>
   );
