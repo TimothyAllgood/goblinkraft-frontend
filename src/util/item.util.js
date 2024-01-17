@@ -3,7 +3,6 @@ export default class ItemUtil {
     if (item.effects?.length > 0) {
       let effectAffix = item.effects[0];
       let name = item.type;
-      console.log(effectAffix);
       if (effectAffix?.affixType === "prefix") {
         name = effectAffix.name + " " + name;
       }
@@ -32,9 +31,6 @@ export default class ItemUtil {
       itemEffects?.forEach((effect) => {
         weight = weight + rarities[effect.rarity];
       });
-
-      console.log(weight);
-
       let rarity = Object.entries(rarities)
         .find((r) => r[1] >= weight)[0]
         .toLowerCase();

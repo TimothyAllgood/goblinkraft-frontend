@@ -3,7 +3,6 @@ const BASE_URL = "http://localhost:4000/api/v1/plothooks/data";
 
 export default class PlotHookData {
   static create = async (plotHook) => {
-    console.log(plotHook);
     let res = await axios.post(`${BASE_URL}/`, plotHook);
     return res.data;
   };

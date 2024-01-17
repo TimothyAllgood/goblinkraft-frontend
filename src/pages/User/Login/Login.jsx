@@ -57,7 +57,6 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
     setError({ valid: true, message: "" });
     // Add your signup logic here
     try {

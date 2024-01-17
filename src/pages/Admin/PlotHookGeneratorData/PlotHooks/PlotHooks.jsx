@@ -59,10 +59,8 @@ function PlotHooks({ value, index }) {
 
   const handleEdit = async (plotHook) => {
     if (plotHook.id <= plotHooks?.at(-1)?.id && plotHook.id > 0) {
-      console.log("updating");
       await PlotHookData.update(plotHook);
     } else {
-      console.log("creating");
       let res = await PlotHookData.create(plotHook);
       setPlotHooks([...plotHooks, res]);
     }

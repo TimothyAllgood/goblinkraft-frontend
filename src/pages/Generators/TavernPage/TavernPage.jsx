@@ -14,7 +14,6 @@ function TavernPage() {
   const fetchTavern = async () => {
     let res = await Tavern.generateTavern();
     setTavern(res);
-    console.log(res);
   };
   return (
     <>

@@ -51,7 +51,6 @@ function Signup() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(event);
     setError({ valid: true, message: "" });
 
     try {

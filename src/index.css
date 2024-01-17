@@ -1,3 +1,17 @@
+:root {
+  --bg: #17002b;
+  --full-height: calc(100vh - (50px + 2rem));
+  --main: rgb(0, 255, 149);
+  --main-dark: rgb(0, 184, 107);
+  --main-disabled: rgb(0, 184, 107, 0.2);
+  --sidebar-bg: #424141;
+  --border: rgba(0, 0, 0, 0.12);
+  --color: rgb(0, 255, 149);
+  --dm-border: #34095a;
+  --nav-bg: #34095a;
+  --cursed: rgb(221, 66, 86);
+}
+
 :root[data-theme="goblinmode"] {
   --bg: #17002b;
   --full-height: calc(100vh - (50px + 2rem));

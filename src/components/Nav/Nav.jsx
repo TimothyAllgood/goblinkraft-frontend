@@ -48,18 +48,18 @@ function Nav() {
       path: "/generate/monster",
       label: "Monster Generator",
     },
-    {
-      path: "/generate/trap",
-      label: "Trap Generator",
-    },
-    {
-      path: "/generate/combat-description",
-      label: "Combat Description Generator",
-    },
-    {
-      path: "/generate/town",
-      label: "Town Generator",
-    },
+    // {
+    //   path: "/generate/trap",
+    //   label: "Trap Generator",
+    // },
+    // {
+    //   path: "/generate/combat-description",
+    //   label: "Combat Description Generator",
+    // },
+    // {
+    //   path: "/generate/town",
+    //   label: "Town Generator",
+    // },
   ];
 
   const admin = [

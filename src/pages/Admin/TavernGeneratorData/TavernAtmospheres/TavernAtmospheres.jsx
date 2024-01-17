@@ -73,7 +73,6 @@ function TavernAtmospheres({ value, index }) {
     let duplicates = duplicateNames.map((name) => {
       return tavernAtmospheres.find((item) => item.name === name);
     });
-    console.log(duplicates);
 
     return duplicates;
   };

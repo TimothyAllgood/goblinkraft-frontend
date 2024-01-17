@@ -10,7 +10,6 @@ function PasswordReset() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Password Reset");
     if (password === confirmPassword) {
       try {
         const user = { id: parseInt(id, 10), password };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete, Button, TextField } from "@mui/material";
 import { useSelector } from "react-redux";
 import Campaign from "../../../services/campaign.service";
 import ReactQuill from "react-quill";
@@ -50,7 +50,7 @@ function SessionNotes() {
           onChange={(e, value) => {
             setFormData((prevFormData) => ({
               ...prevFormData,
-              campaignId: value.id,
+              campaignId: value?.id || null,
             }));
           }}
         />
@@ -73,8 +73,22 @@ function SessionNotes() {
             ["clean"],
           ],
         }}
+        style={{
+          height: id
+            ? "calc((100vh + 7rem) - 35rem)"
+            : "calc((100vh + 7rem) - 27rem)",
+        }}
         theme="snow"
       />
+      {authorized && (
+        <Button
+          sx={{ width: "10rem", mt: "1rem" }}
+          disabled={!formData.campaignId || !formData.notes.length > 0}
+          variant="contained"
+        >
+          Save
+        </Button>
+      )}
     </div>
   );
 }

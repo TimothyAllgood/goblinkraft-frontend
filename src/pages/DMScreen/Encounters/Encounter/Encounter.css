@@ -1,3 +1,23 @@
 .encounters .encounter {
   width: 100%;
 }
+
+.encounter .combatants {
+  padding: 0.5rem;
+}
+
+.encounter .combatant {
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#initiative {
+  width: 5rem;
+  text-align: center;
+}

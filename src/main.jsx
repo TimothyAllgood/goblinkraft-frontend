@@ -44,13 +44,39 @@ import { jwtDecode } from "jwt-decode";
 
 const scheme = localStorage.getItem("token")
   ? jwtDecode(localStorage.getItem("token"))?.colorScheme
-  : null;
+  : "goblinmode";
 
 const theme = createTheme({
   components: {
     MuiInputBase: {
-      root: {
-        color: "var(--color)",
+      styleOverrides: {
+        root: {
+          color: "var(--color)",
+        },
+        '&"::before': {
+          borderBottom: "1px solid var(--color)",
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          color: "var(--color)",
+          "&:hover:not(.Mui-disabled, .Mui-error):before": {
+            borderColor: "var(--nav-bg)",
+          },
+          "&:before": {
+            borderColor: "var(--bg)",
+          },
+        },
+      },
+    },
+
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          color: "var(--main-dark)",
+        },
       },
     },
     MuiAutocomplete: {
@@ -128,6 +154,15 @@ const theme = createTheme({
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&.Mui-disabled": {
+            backgroundColor: "var(--main-disabled)",
+          },
+        },
+      },
+    },
   },
   palette: {
     ...(scheme === "goblinmode"
@@ -178,10 +213,10 @@ const router = createBrowserRouter([
         element: <CampaignPage />,
         children: [
           {
-            path: "npcs",
+            path: "characters",
             element: <CampaignNPC />,
           },
-          { path: "npcs/:npcId", element: <CampaignNPCEdit /> },
+          { path: "characters/:npcId", element: <CampaignNPCEdit /> },
           { path: "factions", element: <CampaignFaction /> },
         ],
       },

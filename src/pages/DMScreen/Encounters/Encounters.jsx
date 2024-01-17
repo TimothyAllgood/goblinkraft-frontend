@@ -35,7 +35,7 @@ function Encounters() {
             value={value}
             index={i}
             players={players}
-            updatePlayer={updatePlayer}
+            updatePlayers={updatePlayers}
           ></Encounter>
         </div>
       );
@@ -59,8 +59,8 @@ function Encounters() {
     ]);
   };
 
-  const updatePlayer = () => {
-    console.log(player);
+  const updatePlayers = (updatedPlayers) => {
+    setPlayers(updatedPlayers);
   };
 
   return (

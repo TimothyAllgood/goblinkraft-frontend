@@ -3,7 +3,6 @@ import React from "react";
 import "./PlotHookData.css";
 
 function PlotHookData({ plotHook }) {
-  console.log(plotHook);
   return (
     <div className="plot-hook-card">
       <div className="plot-hook-header">

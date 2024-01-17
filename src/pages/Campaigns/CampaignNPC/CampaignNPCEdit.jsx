@@ -44,7 +44,6 @@ function CampaignNPCEdit() {
       setLoading(true);
       if (npcId !== "new") {
         const _npc = await Campaign.getNPC(npcId);
-        console.log(_npc);
         setNpc(_npc);
       }
 
@@ -57,7 +56,6 @@ function CampaignNPCEdit() {
     }
   };
   const handleChange = (event) => {
-    console.log(event);
     const { name, value } = event.target;
     setNpc((prevFormData) => ({
       ...prevFormData,
@@ -86,11 +84,9 @@ function CampaignNPCEdit() {
     try {
       if (npcId !== "new") {
         let res = await Campaign.upsertNPC(npcId, npc);
-        console.log(res);
         setNpc(res);
       }
       if (npcId === "new") {
-        console.log(npc);
         let res = await Campaign.upsertNPC(null, npc);
         setNpc(res);
       }
@@ -196,11 +192,10 @@ function CampaignNPCEdit() {
               onChange={handleChange}
             >
               <MenuItem value={"Ally"}>Ally</MenuItem>
-              <MenuItem value={"Enemy"}>Enemy</MenuItem>
-              <MenuItem value={"Generic"}>Generic</MenuItem>
+              <MenuItem value={"Adversary"}>Adversary</MenuItem>
               <MenuItem value={"Neutral"}>Neutral</MenuItem>
               <MenuItem value={"Protagonist"}>Protagonist</MenuItem>
-              <MenuItem value={"Diety"}>Diety</MenuItem>
+              <MenuItem value={"Generic"}>Generic</MenuItem>
             </Select>
           </FormControl>
         </div>

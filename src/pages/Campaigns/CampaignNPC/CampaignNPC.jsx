@@ -20,7 +20,7 @@ function CampaignNPC() {
   };
 
   const handleClick = (npcId) => {
-    navigate(`/campaign/${id}/npcs/${npcId}`);
+    navigate(`/campaign/${id}/characters/${npcId}`);
   };
 
   const handleDelete = async (id) => {
@@ -39,7 +39,7 @@ function CampaignNPC() {
         sx={{ width: "fit-content" }}
         onClick={() => handleClick("new")}
       >
-        Add New NPC
+        Add New Character
       </Button>
       <div className="campaign-npc-list">
         {npcs.map((npc) => {
@@ -85,7 +85,7 @@ function CampaignNPC() {
                   >
                     <Button
                       variant="contained"
-                      href={`/campaign/${id}/npcs/${npc.id}`}
+                      href={`/campaign/${id}/characters/${npc.id}`}
                       sx={{ color: "var(--bg) !important" }}
                     >
                       Edit NPC

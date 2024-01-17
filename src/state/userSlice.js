@@ -46,6 +46,8 @@ export const userSlice = createSlice({
 
       if (state.colorScheme) {
         document.documentElement.setAttribute("data-theme", state.colorScheme);
+      } else {
+        document.documentElement.setAttribute("data-theme", "goblinmode");
       }
     },
     logout: (state) => {

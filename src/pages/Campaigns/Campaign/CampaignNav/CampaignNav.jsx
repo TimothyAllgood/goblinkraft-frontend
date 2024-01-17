@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import "./CampaignNav.css";
-import { Box, Drawer } from "@mui/material";
+import { Box, Drawer, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -95,10 +95,19 @@ function CampaignNav({ campaign }) {
         </div>
       </div>
       <ul className="campaign-menu">
-        <NavLink to={`/campaign/${campaign.id}/npcs`}>NPCs</NavLink>
-        <NavLink to={`/campaign/${campaign.id}/factions`}>Locations</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/characters`}>Characters</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>Deities</NavLink>
+
+        <NavLink to={`/campaign/${campaign.id}/factions`}>Settlements</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>Regions</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>Dungeons</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>
+          Geographical Features
+        </NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>
+          Points of Interest
+        </NavLink>
         <NavLink to={`/campaign/${campaign.id}/factions`}>Factions</NavLink>
-        <NavLink to={`/campaign/${campaign.id}/factions`}>Quests</NavLink>
         <NavLink to={`/campaign/${campaign.id}/factions`}>
           Notable Objects
         </NavLink>
