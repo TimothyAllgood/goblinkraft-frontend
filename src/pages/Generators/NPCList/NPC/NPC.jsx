@@ -1,11 +1,48 @@
-import { Divider, Tooltip, Typography } from "@mui/material";
-import React from "react";
+import { Button, Divider, Tooltip, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import "./NPC.css";
 import Stat from "../../../../util/stat.util";
 // import Tooltip from "../../../../components/Tooltip/Tooltip";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import { useSelector } from "react-redux";
+import Npc from "../../../../services/generator/npc.service";
 
-function NPC({ npc, disableActivity }) {
+function NPC({
+  npc,
+  disableActivity,
+  generating,
+  setGenerating,
+  setOpen,
+  setSelectedArt,
+}) {
+  const [art, setArt] = useState();
+  const subscribed = useSelector((state) => state.user.subscribed);
+  const subscription = useSelector((state) => state.user.subscription);
+
+  useEffect(() => {
+    if (setOpen) {
+      setArt();
+      setOpen(false);
+      setGenerating(false);
+      setSelectedArt();
+    }
+  }, [npc]);
+
+  const generateArt = async () => {
+    try {
+      setGenerating(true);
+      setOpen(false);
+      setSelectedArt();
+      let res = await Npc.generateArt(npc);
+      setArt(res.art);
+      setSelectedArt(res.art);
+      setGenerating(false);
+      setOpen(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="npc-card">
       <div className="npc-header">
@@ -89,6 +126,30 @@ function NPC({ npc, disableActivity }) {
           <p> {npc.bond}</p>
         </div> */}
       </div>
+      {setOpen && (
+        <Button
+          sx={{ ml: "1rem", mb: "1rem" }}
+          variant="contained"
+          disabled={!subscribed || subscription !== "premium" || generating}
+          onClick={generateArt}
+        >
+          Generate NPC Art
+        </Button>
+      )}
+
+      {art && (
+        <Button
+          variant="contained"
+          sx={{ ml: "1rem", mb: "1rem" }}
+          onClick={() => {
+            setOpen(false);
+            setOpen(true);
+            setSelectedArt(art);
+          }}
+        >
+          View Art
+        </Button>
+      )}
     </div>
   );
 }

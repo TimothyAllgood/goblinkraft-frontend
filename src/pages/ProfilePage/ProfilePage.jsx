@@ -18,6 +18,8 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 function ProfilePage() {
   const id = useSelector((state) => state.user.id);
   const username = useSelector((state) => state.user.username);
+  const subscribed = useSelector((state) => state.user.subscribed);
+  const subscription = useSelector((state) => state.user.subscription);
   const dispatch = useDispatch();
   const { setItem } = useLocalStorage();
 
@@ -152,7 +154,14 @@ function ProfilePage() {
             </Button>
           </form>
         </div>
-        <div className="user-card"></div>
+        <div className="user-card">
+          <div className="user-info">
+            <Typography variant="h5">Subscription Info</Typography>
+            <Typography>
+              Subscription Type: {subscribed ? subscription : "Free"}
+            </Typography>
+          </div>
+        </div>
       </Box>
     </section>
   );

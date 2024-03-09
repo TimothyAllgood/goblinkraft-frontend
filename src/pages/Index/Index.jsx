@@ -33,7 +33,7 @@ export default function Index() {
   return (
     <div className="home-container">
       <div className="logo-container">
-        <ReactSVG className="logo" src="./src/assets/logo.svg" />
+        <ReactSVG className="logo" src="/logo.svg" />
       </div>
       <div className="home-info">
         <p>

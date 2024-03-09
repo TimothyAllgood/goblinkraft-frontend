@@ -96,21 +96,17 @@ function CampaignNav({ campaign }) {
       </div>
       <ul className="campaign-menu">
         <NavLink to={`/campaign/${campaign.id}/characters`}>Characters</NavLink>
-        <NavLink to={`/campaign/${campaign.id}/factions`}>Deities</NavLink>
-
-        <NavLink to={`/campaign/${campaign.id}/factions`}>Settlements</NavLink>
-        <NavLink to={`/campaign/${campaign.id}/factions`}>Regions</NavLink>
-        <NavLink to={`/campaign/${campaign.id}/factions`}>Dungeons</NavLink>
-        <NavLink to={`/campaign/${campaign.id}/factions`}>
-          Geographical Features
+        <NavLink to={`/campaign/${campaign.id}/deities`}>Deities</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/settlements`}>Dominions</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/settlements`}>
+          Settlements
         </NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>Buildings</NavLink>
+        <NavLink to={`/campaign/${campaign.id}/factions`}>Dungeons</NavLink>
         <NavLink to={`/campaign/${campaign.id}/factions`}>
           Points of Interest
         </NavLink>
         <NavLink to={`/campaign/${campaign.id}/factions`}>Factions</NavLink>
-        <NavLink to={`/campaign/${campaign.id}/factions`}>
-          Notable Objects
-        </NavLink>
         <NavLink to={`/campaign/${campaign.id}/factions`}>
           Session Notes
         </NavLink>

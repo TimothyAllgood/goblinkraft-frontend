@@ -1,0 +1,11 @@
+#checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  /* background-color: #fff; */
+}
+
+#checkout div:first-of-type {
+  width: 100vw;
+}

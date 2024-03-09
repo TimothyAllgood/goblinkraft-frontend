@@ -20,7 +20,7 @@ function Tables() {
     },
     {
       label: "Item",
-      generator: Item.generateItem,
+      generator: Item.generateItems,
       key: 2,
     },
     {

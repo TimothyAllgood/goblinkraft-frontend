@@ -1,0 +1,9 @@
+.campaign-settlement-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.campaign-settlement {
+  cursor: pointer;
+}

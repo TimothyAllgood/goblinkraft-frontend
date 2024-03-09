@@ -1,5 +1,6 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:4000/api/v1/campaigns";
+const BASE_URL =
+  "https://goblinkraft-backend-production.up.railway.app/api/v1/campaigns";
 
 export default class Campaign {
   static create = async (campaign) => {
@@ -73,6 +74,29 @@ export default class Campaign {
 
     let res = await axios.post(`${BASE_URL}/npcs/update-image`, npc, {
       config,
+    });
+    return res.data;
+  };
+
+  static getSettlement = async (id) => {
+    let res = await axios.get(`${BASE_URL}/settlements/get/${id}`);
+    return res.data;
+  };
+
+  static getSettlements = async (id) => {
+    let res = await axios.get(`${BASE_URL}/settlements/getall/${id}`);
+    return res.data;
+  };
+
+  static deleteSettlement = async (id) => {
+    let res = await axios.delete(`${BASE_URL}/settlements/delete/${id}`);
+    return res.data;
+  };
+
+  static upsertSettlement = async (id, settlement) => {
+    let res = await axios.post(`${BASE_URL}/settlements/upsert`, {
+      campaignId: id,
+      settlement,
     });
     return res.data;
   };

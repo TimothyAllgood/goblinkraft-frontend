@@ -35,7 +35,7 @@ function Login() {
   // }
 
   useEffect(() => {
-    getGoogleUrl;
+    getGoogleUrl();
 
     return () => {
       getGoogleUrl();
@@ -43,7 +43,9 @@ function Login() {
   }, []);
 
   const getGoogleUrl = async () => {
+    console.log("requested");
     let res = await User.getGoogleUrl();
+    console.log(res);
     setGoogleLoginUrl(res.url);
   };
 
@@ -113,12 +115,14 @@ function Login() {
               justifyContent="center"
               alignItems="center"
               gap="1rem"
+              width="1"
             >
               <Button variant="contained" fullWidth="true" type="submit">
                 Login
               </Button>
               <Button
                 variant="contained"
+                fullWidth="true"
                 startIcon={<GoogleIcon />}
                 href={googleLoginUrl}
               >

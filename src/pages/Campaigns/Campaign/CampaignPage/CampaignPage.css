@@ -3,7 +3,7 @@
   /* height: calc(100vh - (50px + 4rem)); */
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   width: 100vw;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .campaign-container {

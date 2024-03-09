@@ -103,7 +103,7 @@ function Nav() {
                 Logout
               </Button>
               {!subscribed && (
-                <Button variant="contained" onClick={signout}>
+                <Button variant="contained" href="/subscribe">
                   Subscribe
                 </Button>
               )}

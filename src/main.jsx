@@ -41,6 +41,14 @@ import CombatDescriptionPage from "./pages/Generators/CombatDescriptionPage/Comb
 import TownPage from "./pages/Generators/TownPage/TownPage.jsx";
 import CharacterPage from "./pages/Generators/CharacterPage/CharacterPage.jsx";
 import { jwtDecode } from "jwt-decode";
+import CampaignDeity from "./pages/Campaigns/Campaign/CampaignDeity/CampaignDeity.jsx";
+import CampaignSettlement from "./pages/Campaigns/CampaignSettlement/CampaignSettlement.jsx";
+import CampaignSettlementEdit from "./pages/Campaigns/CampaignSettlement/CampaignSettlementEdit.jsx";
+import { EmbeddedCheckout } from "@stripe/react-stripe-js";
+import Subscribe from "./components/Subscribe/Subscribe.jsx";
+import Return from "./components/Return/Return.jsx";
+import Subscription from "./pages/Subscriptions/Subscription.jsx";
+import { SSEProvider } from "react-hooks-sse";
 
 const scheme = localStorage.getItem("token")
   ? jwtDecode(localStorage.getItem("token"))?.colorScheme
@@ -217,6 +225,15 @@ const router = createBrowserRouter([
             element: <CampaignNPC />,
           },
           { path: "characters/:npcId", element: <CampaignNPCEdit /> },
+          {
+            path: "settlements",
+            element: <CampaignSettlement />,
+          },
+          {
+            path: "settlements/:settlementId",
+            element: <CampaignSettlementEdit />,
+          },
+          { path: "deities", element: <CampaignDeity /> },
           { path: "factions", element: <CampaignFaction /> },
         ],
       },
@@ -256,7 +273,9 @@ const router = createBrowserRouter([
         path: "/admin/generators/monsters/:id",
         element: <MonsterEdit />,
       },
-
+      { path: "/subscribe", element: <Subscription /> },
+      { path: "/subscribe/checkout/:priceId", element: <Subscribe /> },
+      { path: "/return", element: <Return /> },
       // Test Routes
       { path: "/user", element: <UserProtected /> },
       { path: "/admin", element: <Admin /> },
@@ -268,9 +287,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      {/* <SSEProvider endpoint="https://goblinkraft-backend-production.up.railway.app/webhook"> */}
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>
+      {/* </SSEProvider> */}
     </ThemeProvider>
   </React.StrictMode>
 );

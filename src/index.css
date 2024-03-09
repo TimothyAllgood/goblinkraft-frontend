@@ -4,8 +4,10 @@
   --main: rgb(0, 255, 149);
   --main-dark: rgb(0, 184, 107);
   --main-disabled: rgb(0, 184, 107, 0.2);
+  --main-inactive: rgb(0, 184, 107, 0.6);
   --sidebar-bg: #424141;
   --border: rgba(0, 0, 0, 0.12);
+  --inactive-color: rgba(138, 138, 138, 0.733);
   --color: rgb(0, 255, 149);
   --dm-border: #34095a;
   --nav-bg: #34095a;
@@ -16,8 +18,11 @@
   --bg: #17002b;
   --full-height: calc(100vh - (50px + 2rem));
   --main: rgb(0, 255, 149);
+  --main-inactive: rgb(0, 184, 107, 0.6);
+
   --sidebar-bg: #424141;
   --border: rgba(0, 0, 0, 0.12);
+  --inactive-color: rgba(138, 138, 138, 0.733);
   --color: rgb(0, 255, 149);
   --dm-border: #34095a;
   --nav-bg: #34095a;
@@ -171,4 +176,9 @@ a.MuiButton-outlined {
 .ql-container,
 .ql-toolbar {
   border-color: var(--main) !important;
+}
+
+.ql-editor.ql-blank::before {
+  color: var(--color) !important;
+  font-style: normal !important;
 }

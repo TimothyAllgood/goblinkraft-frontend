@@ -1,5 +1,6 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:4000/api/v1/users";
+const BASE_URL =
+  "https://goblinkraft-backend-production.up.railway.app/api/v1/users";
 
 export default class User {
   static register = async (user) => {
@@ -54,7 +55,9 @@ export default class User {
   };
 
   static getGoogleUrl = async () => {
+    console.log("request");
     let res = await axios.get(`${BASE_URL}/google`);
+    console.log(res);
     return res.data;
   };
 
@@ -75,6 +78,16 @@ export default class User {
 
   static getOpen = async () => {
     let res = await axios.get(`${BASE_URL}/open`);
+    return res.data;
+  };
+
+  static createSubscription = async (priceId) => {
+    let res = await axios.post(
+      `https://goblinkraft-backend-production.up.railway.app/create-subscription`,
+      {
+        priceId: priceId,
+      }
+    );
     return res.data;
   };
 }

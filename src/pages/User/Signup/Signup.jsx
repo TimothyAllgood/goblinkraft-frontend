@@ -29,7 +29,7 @@ function Signup() {
   });
 
   useEffect(() => {
-    getGoogleUrl;
+    getGoogleUrl();
 
     return () => {
       getGoogleUrl();
@@ -115,12 +115,14 @@ function Signup() {
               justifyContent="center"
               alignItems="center"
               gap="1rem"
+              width="1"
             >
               <Button variant="contained" fullWidth="true" type="submit">
                 Sign up
               </Button>
               <Button
                 variant="contained"
+                fullWidth="true"
                 startIcon={<GoogleIcon />}
                 href={googleLoginUrl}
               >

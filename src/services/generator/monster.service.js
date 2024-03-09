@@ -1,5 +1,6 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:4000/api/v1/monsters";
+const BASE_URL =
+  "https://goblinkraft-backend-production.up.railway.app/api/v1/monsters";
 
 export default class Monster {
   static generateMonster = async (filters) => {

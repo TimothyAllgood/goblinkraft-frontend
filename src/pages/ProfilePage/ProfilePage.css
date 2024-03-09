@@ -18,7 +18,7 @@
 
 .user-info {
   padding: 2rem;
-  background-color: white;
+  background-color: var(bg);
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;

@@ -1,5 +1,6 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:4000/api/v1/items/curses";
+const BASE_URL =
+  "https://goblinkraft-backend-production.up.railway.app/api/v1/items/curses";
 
 export default class ItemCurse {
   static create = async (ItemCurse) => {

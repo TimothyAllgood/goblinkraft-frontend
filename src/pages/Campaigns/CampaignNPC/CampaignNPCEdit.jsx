@@ -7,20 +7,23 @@ import {
   Box,
   Button,
   FormControl,
+  IconButton,
   InputLabel,
   MenuItem,
   Select,
+  Snackbar,
   TextField,
 } from "@mui/material";
 import "./CampaignNPCEdit.css";
 import ReactQuill from "react-quill";
-import { Label } from "@mui/icons-material";
+import CloseIcon from "@mui/icons-material/Close";
 
 function CampaignNPCEdit() {
   const { id, npcId } = useParams();
   const navigate = useNavigate();
 
   const [npc, setNpc] = useState(null);
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -85,10 +88,12 @@ function CampaignNPCEdit() {
       if (npcId !== "new") {
         let res = await Campaign.upsertNPC(npcId, npc);
         setNpc(res);
+        setSuccess(true);
       }
       if (npcId === "new") {
         let res = await Campaign.upsertNPC(null, npc);
         setNpc(res);
+        setSuccess(true);
       }
     } catch (error) {
       console.log(error);
@@ -100,6 +105,19 @@ function CampaignNPCEdit() {
   };
 
   if (loading) return <>Loading</>;
+
+  const action = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={() => setSuccess(false)}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </>
+  );
 
   return (
     <div className="npc-form-page campaign-container">
@@ -116,7 +134,7 @@ function CampaignNPCEdit() {
             <TextField
               id="name"
               name="name"
-              label="NPC Name"
+              label="Character Name"
               defaultValue={npc?.name}
               variant="outlined"
               sx={{ width: 1 }}
@@ -199,8 +217,32 @@ function CampaignNPCEdit() {
             </Select>
           </FormControl>
         </div>
+        <div className="npc-inputs">
+          <div className="form-group">
+            <TextField
+              id="race"
+              name="race"
+              label="Character Race"
+              defaultValue={npc?.race}
+              variant="outlined"
+              sx={{ width: 1 }}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <TextField
+              id="age"
+              name="age"
+              label="Character Age"
+              defaultValue={npc?.age}
+              variant="outlined"
+              sx={{ width: 1 }}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
         <div className="rich-editor">
-          <label>Bio</label>
+          <label>Description</label>
           <ReactQuill
             defaultValue={npc?.bio}
             onChange={(value) =>
@@ -213,11 +255,12 @@ function CampaignNPCEdit() {
             modules={{
               toolbar: [
                 [{ header: [1, 2, false] }],
-                ["bold", "italic", "underline"],
-                ["image", "code-block"],
+                ["bold", "italic", "underline", "strike"],
+                [{ list: "ordered" }, { list: "bullet" }],
               ],
             }}
             theme="snow"
+            placeholder="Who is this character? Where did they come from? What drives them? What are their motivations and goals? Describe this character's physical appearance, mannerisms, and quirks. How do they dress? What do they sound like? What are their most noticeable features? What are they afraid of? What regrets do they carry? What makes them feel alive?"
           />
         </div>
         <div className="rich-editor">
@@ -234,11 +277,12 @@ function CampaignNPCEdit() {
             modules={{
               toolbar: [
                 [{ header: [1, 2, false] }],
-                ["bold", "italic", "underline"],
-                ["image", "code-block"],
+                ["bold", "italic", "underline", "strike"],
+                [{ list: "ordered" }, { list: "bullet" }],
               ],
             }}
             theme="snow"
+            placeholder="What hidden truths does this character possess? Are they working for a hidden agenda? Do they have a dark past they desperately want to conceal? Are they secretly a villain in disguise? Do they hold knowledge that could rewrite the story?"
           />
         </div>
         {npc && npc.id >= 0 && (
@@ -248,7 +292,7 @@ function CampaignNPCEdit() {
             sx={{ width: "fit-content" }}
             startIcon={<CloudUploadIcon />}
           >
-            Upload NPC Image
+            Upload Character Image
             <VisuallyHiddenInput
               type="file"
               onChange={(e) => handleFileUpdate(e)}
@@ -283,8 +327,16 @@ function CampaignNPCEdit() {
         )}
 
         <Button variant="contained" sx={{ width: "fit-content" }} type="submit">
-          {npcId === "new" ? "Create" : "Update"} NPC
+          {npcId === "new" ? "Create" : "Update"} Character
         </Button>
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          open={success}
+          autoHideDuration={6000}
+          onClose={() => setSuccess(false)}
+          message="Character Saved!"
+          action={action}
+        />
       </form>
     </div>
   );

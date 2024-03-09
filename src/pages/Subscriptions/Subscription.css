@@ -1,0 +1,43 @@
+.subscriptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: fit-content;
+  height: calc(var(--full-height) - 2rem);
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.subscription {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  background-color: var(--nav-bg);
+  padding: 2.5rem 3rem;
+  align-items: center;
+  gap: 1rem;
+}
+.subscription .price {
+  background-color: var(--bg);
+  width: 100%;
+  padding: 1rem 5rem;
+  text-align: center;
+}
+
+.subscription .info-item {
+  display: flex;
+  color: var(--main-inactive);
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+}
+
+.subscription .active-benefit {
+  color: var(--main);
+  filter: none;
+  -webkit-filter: none;
+}
