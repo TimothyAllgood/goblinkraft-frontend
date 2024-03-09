@@ -67,7 +67,7 @@ function Login() {
   };
 
   return (
-    <Box height="calc(100vh - (50px + 2rem))">
+    <Box height="calc(100vh - (8rem))">
       <form className="login-form form" onSubmit={handleSubmit}>
         <Box
           display="flex"
@@ -84,6 +84,7 @@ function Login() {
             justifyContent="center"
             alignItems="center"
             gap="1rem"
+            position="relative"
           >
             <TextField
               type="text"
