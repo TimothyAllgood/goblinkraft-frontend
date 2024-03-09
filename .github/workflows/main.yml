@@ -24,4 +24,10 @@ jobs:
         server: ftp.archerrosedigital.com
         username: timothy@archerrosedigital.com
         password: ${{ secrets.password }}
+        local-dir: ./dist
         server-dir: goblinkraft.archerrosedigital.com/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/src/**
