@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./NPCList.css";
 import NPC from "./NPC/NPC";
 import Npc from "../../../services/generator/npc.service";
-import { Box, Button, CircularProgress } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import { useSelector } from "react-redux";
 import CloseIcon from "@mui/icons-material/Close";
+import UpgradeRoundedIcon from "@mui/icons-material/UpgradeRounded";
 
 function NPCList() {
   const [npcs, setNpcs] = useState([]);
@@ -65,6 +72,27 @@ function NPCList() {
         >
           Generate AI NPCs
         </Button>
+        {!subscribed && (
+          <Tooltip
+            className="info-tooltip"
+            title={
+              <>
+                <Typography>Requires Subscription</Typography>
+              </>
+            }
+            arrow
+            enterTouchDelay={100}
+          >
+            <UpgradeRoundedIcon
+              color="primary"
+              sx={{
+                background: "var(--main)",
+                color: "var(--nav-bg)",
+                borderRadius: "50%",
+              }}
+            />
+          </Tooltip>
+        )}
         <Button variant="contained" disabled={generating} onClick={fetchNpcs}>
           Roll New NPCs
         </Button>

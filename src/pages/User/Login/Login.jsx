@@ -26,14 +26,6 @@ function Login() {
     message: "",
   });
 
-  // {
-  //   valid: false,
-  //   errors: [{
-  //     msg:'',
-  //     element:
-  //   }]
-  // }
-
   useEffect(() => {
     getGoogleUrl();
 
@@ -65,7 +57,7 @@ function Login() {
       let data = await User.login(formData);
       if (data) {
         setItem("token", data.token);
-        await dispatch(login(data.token));
+        dispatch(login(data.token));
         navigate("/");
       }
     } catch (err) {

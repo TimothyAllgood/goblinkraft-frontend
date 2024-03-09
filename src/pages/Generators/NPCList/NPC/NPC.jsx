@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./NPC.css";
 import Stat from "../../../../util/stat.util";
 // import Tooltip from "../../../../components/Tooltip/Tooltip";
+import UpgradeRoundedIcon from "@mui/icons-material/UpgradeRounded";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import { useSelector } from "react-redux";
 import Npc from "../../../../services/generator/npc.service";
@@ -135,6 +136,30 @@ function NPC({
         >
           Generate NPC Art
         </Button>
+      )}
+
+      {!subscribed && subscription !== "premium" && (
+        <Tooltip
+          sx={{ paddingLeft: ".5rem" }}
+          className="info-tooltip"
+          title={
+            <>
+              <Typography>Requires Premium Subscription</Typography>
+            </>
+          }
+          arrow
+          enterTouchDelay={100}
+        >
+          <UpgradeRoundedIcon
+            color="primary"
+            sx={{
+              background: "var(--main)",
+              color: "var(--nav-bg)",
+              borderRadius: "50%",
+              marginLeft: ".5rem",
+            }}
+          />
+        </Tooltip>
       )}
 
       {art && (

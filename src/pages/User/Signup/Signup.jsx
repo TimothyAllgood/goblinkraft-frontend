@@ -136,46 +136,6 @@ function Signup() {
       </form>
     </Box>
   );
-
-  return (
-    <div className="form-container">
-      <div className="inner-form-container">
-        <form className="signup-form form" onSubmit={handleSubmit}>
-          <h3>Sign Up</h3>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-          />
-
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Username"
-          />
-
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-
-          <button type="submit">Sign up</button>
-          <a className="google-btn" href={googleLoginUrl}>
-            <img src="./src/assets/g.png" alt="" />
-            Sign Up with Google
-          </a>
-          {error.message && <FormError error={error} />}
-        </form>
-      </div>
-    </div>
-  );
 }
 
 export default Signup;

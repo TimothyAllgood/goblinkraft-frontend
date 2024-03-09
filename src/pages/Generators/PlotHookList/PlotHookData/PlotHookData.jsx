@@ -1,9 +1,10 @@
-import { Button, Divider, Typography } from "@mui/material";
+import { Button, Divider, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import "./PlotHookData.css";
 import { useSelector } from "react-redux";
 import PlotHook from "../../../../services/generator/plotHook.service";
 import { useState } from "react";
+import UpgradeRoundedIcon from "@mui/icons-material/UpgradeRounded";
 
 function PlotHookData({
   plotHook,
@@ -52,6 +53,29 @@ function PlotHookData({
       >
         Generate Adventure
       </Button>
+      {!subscribed && subscription !== "premium" && (
+        <Tooltip
+          sx={{ paddingLeft: ".5rem" }}
+          className="info-tooltip"
+          title={
+            <>
+              <Typography>Requires Premium Subscription</Typography>
+            </>
+          }
+          arrow
+          enterTouchDelay={100}
+        >
+          <UpgradeRoundedIcon
+            color="primary"
+            sx={{
+              background: "var(--main)",
+              color: "var(--nav-bg)",
+              borderRadius: "50%",
+              marginLeft: ".5rem",
+            }}
+          />
+        </Tooltip>
+      )}
 
       {adventure && (
         <Button
