@@ -35,7 +35,7 @@ export default function Index() {
       <div className="logo-container">
         <ReactSVG className="logo" src="/logo.svg" />
       </div>
-      <div className="home-info">
+      <div className="home-info" style={{ backgroundColor: "orange" }}>
         <p>
           Prepare to embark on a gobsmacking adventure like no other! Welcome to
           Goblinkraft, where mystical dungeons and mischievous goblins collide

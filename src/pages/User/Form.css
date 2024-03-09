@@ -4,7 +4,7 @@
 
 .form button,
 .form a:visited {
-  color: #fff !important;
+  color: var(--nav-bg) !important;
 }
 
 .form button {
