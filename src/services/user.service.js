@@ -55,9 +55,8 @@ export default class User {
   };
 
   static getGoogleUrl = async () => {
-    console.log("request");
+    console.log(process.env.BASE_URL);
     let res = await axios.get(`${BASE_URL}/google`);
-    console.log(res);
     return res.data;
   };
 
