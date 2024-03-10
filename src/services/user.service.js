@@ -1,6 +1,6 @@
 import axios from "axios";
-const BASE_URL =
-  "https://goblinkraft-backend-production.up.railway.app/api/v1/users";
+const BASE_URL = `${process.env.BASE_URL}/users`;
+// "https://goblinkraft-backend-production.up.railway.app/api/v1/users";
 
 export default class User {
   static register = async (user) => {
