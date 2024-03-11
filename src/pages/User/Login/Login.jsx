@@ -35,9 +35,7 @@ function Login() {
   }, []);
 
   const getGoogleUrl = async () => {
-    console.log("requested");
     let res = await User.getGoogleUrl();
-    console.log(res);
     setGoogleLoginUrl(res.url);
   };
 

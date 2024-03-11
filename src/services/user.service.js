@@ -54,6 +54,7 @@ export default class User {
   };
 
   static getGoogleUrl = async () => {
+    console.log("URL: ", import.meta.env.VITE_BASE_URL);
     let res = await axios.get(`${BASE_URL}/google`);
     return res.data;
   };
