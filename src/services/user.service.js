@@ -1,6 +1,6 @@
 import axios from "axios";
 const BASE_URL = `${import.meta.env.VITE_BASE_URL}/users`;
-// "https://goblinkraft-backend-production.up.railway.app";
+
 export default class User {
   static register = async (user) => {
     let res = await axios.post(`${BASE_URL}/register`, user);
@@ -54,7 +54,6 @@ export default class User {
   };
 
   static getGoogleUrl = async () => {
-    console.log(import.meta.env.VITE_BASE_URL);
     let res = await axios.get(`${BASE_URL}/google`);
     return res.data;
   };
