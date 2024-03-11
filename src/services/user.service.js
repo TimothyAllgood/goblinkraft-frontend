@@ -1,7 +1,6 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/users`;
-// "https://goblinkraft-backend-production.up.railway.app/api/v1/users";
-
+const BASE_URL = `${import.meta.env.VITE_BASE_URL}/users`;
+// "https://goblinkraft-backend-production.up.railway.app";
 export default class User {
   static register = async (user) => {
     let res = await axios.post(`${BASE_URL}/register`, user);
@@ -55,7 +54,7 @@ export default class User {
   };
 
   static getGoogleUrl = async () => {
-    console.log(process.env.BASE_URL);
+    console.log(import.meta.env.VITE_BASE_URL);
     let res = await axios.get(`${BASE_URL}/google`);
     return res.data;
   };
@@ -82,7 +81,7 @@ export default class User {
 
   static createSubscription = async (priceId) => {
     let res = await axios.post(
-      `https://goblinkraft-backend-production.up.railway.app/create-subscription`,
+      `${import.meta.env.VITE_BASE_URL}/create-subscription`,
       {
         priceId: priceId,
       }

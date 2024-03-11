@@ -20,7 +20,7 @@ export default function App() {
   // useEffect(() => {
   //   // opening a connection to the server to begin receiving events from it
   //   const eventSource = new EventSource(
-  //     "https://goblinkraft-backend-production.up.railway.app/update-user"
+  //     "${import.meta.env.VITE_BASE_URL}/update-user"
   //   );
   //   eventSource.onopen = () => {
   //     console.log("SSE connection opened");

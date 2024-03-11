@@ -11,7 +11,7 @@ function Return() {
     const sessionId = urlParams.get("session_id");
 
     fetch(
-      `https://goblinkraft-backend-production.up.railway.app/session-status?session_id=${sessionId}`
+      `${import.meta.env.VITE_BASE_URL}/session-status?session_id=${sessionId}`
     )
       .then((res) => res.json())
       .then((data) => {

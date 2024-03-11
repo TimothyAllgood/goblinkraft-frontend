@@ -49,7 +49,6 @@ import Subscribe from "./components/Subscribe/Subscribe.jsx";
 import Return from "./components/Return/Return.jsx";
 import Subscription from "./pages/Subscriptions/Subscription.jsx";
 import { SSEProvider } from "react-hooks-sse";
-import "dotenv/config";
 
 const scheme = localStorage.getItem("token")
   ? jwtDecode(localStorage.getItem("token"))?.colorScheme
@@ -288,7 +287,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      {/* <SSEProvider endpoint="https://goblinkraft-backend-production.up.railway.app/webhook"> */}
+      {/* <SSEProvider endpoint="${import.meta.env.VITE_BASE_URL}/webhook"> */}
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>
