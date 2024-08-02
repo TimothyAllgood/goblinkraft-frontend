@@ -6,6 +6,7 @@ import SpellData from "../../../services/admin/generatorData/spell/spell.service
 import { addArticle } from "../../../util/stringTransform";
 import Combat from "../../../services/generator/combat.service";
 import Checkbox from "../../../components/Checkbox/Checkbox";
+import Loader from "../../../components/Loader/Loader";
 
 function CombatDescriptionPage() {
   const [classType, setClassType] = useState("");
@@ -18,6 +19,7 @@ function CombatDescriptionPage() {
   const [enemiesToDelete, setEnemiesToDelete] = useState([]);
   const [graveyard, setGraveyard] = useState([]);
   const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const environmentTypes = [
     { id: 1, name: "In a forest" },
@@ -154,6 +156,7 @@ function CombatDescriptionPage() {
   };
 
   const handleKillEnemies = async () => {
+    setIsLoading(true);
     setEnemies((prevEnemies) =>
       prevEnemies.filter((enemy) => !enemiesToDelete.includes(enemy.id))
     );
@@ -207,6 +210,7 @@ function CombatDescriptionPage() {
     );
 
     setEnemiesToDelete([]);
+    setIsLoading(false);
   };
 
   const addEnemy = (enemy) => {
@@ -328,6 +332,12 @@ function CombatDescriptionPage() {
       <div className="description">
         <h2>Description</h2>
         <p>{description}</p>
+
+        {isLoading && (
+          <div className="loader-container">
+            <Loader />
+          </div>
+        )}
       </div>
     </div>
   );
