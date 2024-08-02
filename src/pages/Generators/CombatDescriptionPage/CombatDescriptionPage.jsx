@@ -93,6 +93,10 @@ function CombatDescriptionPage() {
     { id: 7, name: "Hand Crossbow" },
     { id: 8, name: "Heavy Crossbow" },
     { id: 9, name: "Longbow" },
+    { id: 10, name: "Throwing Axe" },
+    { id: 12, name: "Throwing Knife" },
+    { id: 13, name: "Net" },
+    { id: 14, name: "Throwing Star" },
   ];
 
   const meleeWeapons = [
