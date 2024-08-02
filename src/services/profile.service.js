@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/profiles`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/profiles`;
 
 export default class Profile {
   static getProfile = async (id) => {
