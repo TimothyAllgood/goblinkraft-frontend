@@ -1,0 +1,175 @@
+.combat-description-page {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "additional-info description description"
+    "character-info enemies-info graveyard"
+    "character-info enemies-info graveyard";
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  font-family: "Arial", sans-serif;
+  max-height: calc(100vh - 2rem);
+  border-radius: 5px;
+}
+
+.character-info {
+  background-color: var(--background-color);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 20px;
+  width: 45%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  grid-area: character-info;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weapon-spell-select {
+  visibility: hidden;
+}
+
+.weapon-spell-select.visible {
+  visibility: visible;
+}
+
+.enemies-info {
+  background-color: var(--background-color);
+  border-radius: 5px;
+  padding: 20px;
+  grid-area: enemies-info;
+  width: 100%;
+  overflow: auto;
+}
+
+.enemies-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.graveyard {
+  grid-area: graveyard;
+  overflow-y: auto;
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.graveyard,
+.description {
+  padding: 20px;
+}
+
+.enemy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid #2c3e50;
+  border-radius: 6px;
+  background-color: #34495e;
+  margin-bottom: 12px;
+  gap: 1rem;
+  color: #ecf0f1;
+}
+
+.enemy.alive {
+  background-color: #27ae60;
+}
+
+.enemies-list .enemy.dead {
+  background-color: #c0392b;
+  text-decoration: line-through;
+}
+
+.kill-button {
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.kill-button:disabled {
+  background-color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.kill-button:hover {
+  background-color: #c0392b;
+}
+
+.additional-info {
+  grid-area: additional-info;
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.additional-info h2,
+.character-info h2,
+.enemies-info h2,
+.graveyard h2,
+.description h2 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  margin: -20px -20px 20px -20px;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.description {
+  grid-area: description;
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+@media (max-width: 1100px) {
+  .combat-description-page {
+    grid-template-areas:
+      "additional-info description description"
+      "character-info enemies-info enemies-info"
+      "character-info enemies-info enemies-info";
+  }
+
+  .graveyard {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .combat-description-page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "additional-info"
+      "description"
+      "character-info"
+      "enemies-info"
+      "graveyard";
+    max-height: 100%;
+  }
+
+  .graveyard {
+    display: block;
+  }
+}
