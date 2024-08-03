@@ -305,6 +305,7 @@ function CombatDescriptionPage() {
             label="Add Enemies"
             service={MonsterData}
             setValue={addEnemy}
+            backgroundColor="var(--background-color)"
           />
         </label>
         <div className="enemies-list">

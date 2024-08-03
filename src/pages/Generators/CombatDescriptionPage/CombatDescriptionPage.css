@@ -73,16 +73,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  border: 1px solid #2c3e50;
   border-radius: 6px;
-  background-color: #34495e;
+  background-color: var(--darker);
   margin-bottom: 12px;
   gap: 1rem;
   color: #ecf0f1;
 }
 
 .enemy.alive {
-  background-color: #27ae60;
+  background-color: var(--primary-color);
 }
 
 .enemies-list .enemy.dead {
