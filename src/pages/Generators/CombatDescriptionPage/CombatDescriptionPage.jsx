@@ -60,6 +60,14 @@ function CombatDescriptionPage() {
     { id: 20, name: "Elegant" },
     { id: 21, name: "Majestic" },
     { id: 22, name: "Cold-blooded" },
+    { id: 23, name: "Violent" },
+    { id: 24, name: "Gory" },
+    { id: 26, name: "Dark Humor" },
+    { id: 27, name: "Raunchy" },
+    { id: 28, name: "Morbid" },
+    { id: 29, name: "Crude" },
+    { id: 30, name: "Vulgar" },
+    { id: 31, name: "Explicit" },
   ];
 
   const attackTypes = [
@@ -197,7 +205,7 @@ function CombatDescriptionPage() {
       : "";
     const prompt = `You${
       classType ? `, ${addArticle(classType)},` : " "
-    } killed ${enemyString} with ${weaponString} ${isCombatOverString}.${environmentString}${toneString} It should sound natural, be in first person and present tense, be brief, 2-3 sentences max, but cool and action packed, and violent. Look up the spell if needed.`;
+    } killed ${enemyString} with ${weaponString} ${isCombatOverString}.${environmentString}${toneString} It should sound natural and human, creative, be in first person and present tense, be brief, 2-3 sentences max but can be less, but cool and action packed, and violent.`;
 
     let res = await Combat.generateCombatDescription(prompt);
     setDescription(res.description);
