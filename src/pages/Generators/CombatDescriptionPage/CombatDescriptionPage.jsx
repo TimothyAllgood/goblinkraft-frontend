@@ -302,7 +302,7 @@ function CombatDescriptionPage() {
         <h2>Enemies</h2>
         <label>
           <Autocomplete
-            label="Add Enemies"
+            label="Start typing to add enemies..."
             service={MonsterData}
             setValue={addEnemy}
             backgroundColor="var(--background-color)"

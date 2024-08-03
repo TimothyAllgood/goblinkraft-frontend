@@ -39,7 +39,7 @@ function Autocomplete({
   }, [options]);
 
   useEffect(() => {
-    if (search.length > 2 && refetch) {
+    if (search.length >= 2 && refetch) {
       const debounceFetch = setTimeout(() => {
         if (service) {
           fetchOptions();
