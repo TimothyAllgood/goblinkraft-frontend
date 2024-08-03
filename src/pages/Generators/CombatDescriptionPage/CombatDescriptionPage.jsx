@@ -78,7 +78,6 @@ function CombatDescriptionPage() {
 
   const classTypes = [
     { id: 1, name: "Artificer" },
-    { id: 1, name: "Artificer" },
     { id: 2, name: "Barbarian" },
     { id: 3, name: "Bard" },
     { id: 4, name: "Cleric" },
@@ -201,11 +200,15 @@ function CombatDescriptionPage() {
       ? ` The fight takes place in ${environmentType.toLowerCase()}.`
       : "";
     const toneString = tone
-      ? ` Describe it in ${addArticle(tone).toLowerCase()} tone.`
+      ? ` The tone is ${addArticle(tone).toLowerCase()}.`
       : "";
-    const prompt = `You${
-      classType ? `, ${addArticle(classType)},` : " "
-    } killed ${enemyString} with ${weaponString} ${isCombatOverString}.${environmentString}${toneString} It should sound natural and human, creative, be in first person and present tense, be brief, 2-3 sentences max but can be less, but cool and action packed, and violent.`;
+    // const prompt = `You${
+    //   classType ? `, ${addArticle(classType)},` : " "
+    // } killed ${enemyString} with ${weaponString} ${isCombatOverString}.${environmentString}${toneString} It should sound natural and human, creative, be in first person and present tense, be brief, 2-3 sentences max but can be less, but cool and action packed, and violent.`;
+
+    const prompt = `Describe a graphic and impactful killing blow delivered by ${
+      classType ? addArticle(classType) : "an adventurer"
+    } using ${weaponString} against ${enemyString}. Include details about the weapon's motion, the physical damage inflicted, the enemy's reaction, the effect on the environment, and the character's emotional state. Keep it brief and natural (2-3 sentences max), in first person, and in present tense. ${environmentString}${toneString}`;
 
     let res = await Combat.generateCombatDescription(prompt);
     setDescription(res.description);
