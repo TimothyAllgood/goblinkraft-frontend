@@ -208,7 +208,7 @@ function CombatDescriptionPage() {
 
     const prompt = `Describe a graphic and impactful killing blow delivered by ${
       classType ? addArticle(classType) : "an adventurer"
-    } using ${weaponString} against ${enemyString}. Include details about the weapon's motion, the physical damage inflicted, the enemy's reaction, the effect on the environment, and the character's emotional state. Keep it brief and natural (2-3 sentences max), in first person, and in present tense. ${environmentString}${toneString}`;
+    } using ${weaponString} against ${enemyString}. Include details about the weapon's motion, the physical damage inflicted, the enemy's reaction, the effect on the environment, and the character's emotional state. Keep it brief and natural (2-3 sentences max), in first person, and in present tense. ${isCombatOverString}${environmentString}${toneString}`;
 
     let res = await Combat.generateCombatDescription(prompt);
     setDescription(res.description);
