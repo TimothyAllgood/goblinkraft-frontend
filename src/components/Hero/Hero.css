@@ -2,7 +2,7 @@
   background-image: url("./hero.png");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: calc(100vh - 75px);
   width: 100vw;
   position: relative;
   animation: zoomIn 30s forwards;
@@ -11,7 +11,8 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  padding-top: 75px;
+  /* padding-top: 75px; */
+  margin-top: -75px;
 }
 
 .hero::after {
