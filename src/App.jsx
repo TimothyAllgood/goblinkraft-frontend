@@ -3,6 +3,7 @@ import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import useViewport from "./hooks/useViewport";
 import { useState } from "react";
+import Header from "./components/Header/Header";
 
 function App() {
   const { width } = useViewport();
@@ -12,10 +13,11 @@ function App() {
   return (
     <>
       <div className="stack-horizontal">
-        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        {/* <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
         <div id="detail" className={sidebarOpen ? "sidebar-open" : ""}>
+          <Header />
           <main>
-            <Outlet />
+            <Outlet context={{ setSidebarOpen }} />
           </main>
         </div>
       </div>

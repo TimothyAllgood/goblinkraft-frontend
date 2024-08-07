@@ -2,8 +2,12 @@ import React from "react";
 import "./Button.css";
 function Button({ children, onClick, disabled }) {
   return (
-    <button className="button" onClick={onClick} disabled={disabled}>
-      {children}
+    <button
+      className="button outlined no-angled-corners"
+      onClick={onClick}
+      disabled={disabled}
+    >
+      Button
     </button>
   );
 }

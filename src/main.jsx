@@ -22,7 +22,8 @@ const router = createBrowserRouter([
         path: "generate",
         children: [
           { path: "npc", element: <NPCPage /> },
-          { path: "combat-description", element: <CombatDescriptionPage /> },
+          { path: "character", element: <NPCPage /> },
+          { path: "killing-blow", element: <CombatDescriptionPage /> },
         ],
       },
       {

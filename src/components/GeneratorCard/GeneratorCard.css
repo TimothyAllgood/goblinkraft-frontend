@@ -1,4 +1,4 @@
-.button {
+.generator-card {
   background: #1d110c;
   background: linear-gradient(
     0deg,
@@ -17,9 +17,28 @@
   z-index: 1;
   border-radius: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  padding: 5rem;
+  transition: all 0.3s ease-in-out;
 }
 
-.button::before {
+.generator-card.small {
+  padding: 1rem;
+}
+.generator-card.small .generator-card-icon {
+  display: none;
+}
+
+.generator-card:hover {
+  transform: scale(1.01);
+  filter: brightness(1.1);
+}
+
+.generator-card::before {
   content: "";
   pointer-events: none;
   transform: none;
@@ -32,13 +51,14 @@
   height: 100%;
   display: block;
   border-image-width: 11px 13px;
-  border-image-slice: 11 13 fill;
+  border-image-slice: 15 20 fill;
   border-image-repeat: round;
   border-image-outset: 0;
   border-image-source: url("./frame.png");
+  position: absolute;
 }
 
-.button::after {
+.generator-card::after {
   content: "";
   position: absolute;
   top: 0;
@@ -50,5 +70,12 @@
   background-image: url("./ui_texture.png");
   background-size: 200px;
   background-position: center;
+  opacity: 0.3;
   /* z-index: -1; */
+}
+
+.generator-card-icon {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
 }
