@@ -24,6 +24,7 @@
   top: 100%;
   left: 0;
   z-index: 1000;
+  max-height: 200px;
 }
 
 .options .option:hover {
@@ -32,6 +33,20 @@
 
 .autocomplete-input-container {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.randomize-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.randomize-button:hover {
+  filter: brightness(1.2);
 }
 
 .autocomplete-input {

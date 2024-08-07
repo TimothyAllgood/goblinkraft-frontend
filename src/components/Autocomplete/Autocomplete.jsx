@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import AutocompleteOption from "./AutocompleteOption/AutocompleteOption";
 import "./Autocomplete.css";
+import { faShuffle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Autocomplete({
   label,
@@ -9,6 +11,7 @@ function Autocomplete({
   setValue,
   clearAfter = true,
   backgroundColor = "var(--card-background)",
+  randomize = false,
 }) {
   const [options, setOptions] = useState([]);
   const [search, setSearch] = useState("");
@@ -26,9 +29,11 @@ function Autocomplete({
     const rect = element.getBoundingClientRect();
     if (rect.bottom >= window.innerHeight) {
       const maxHeight = window.innerHeight - rect.top - 10; // 10px padding from the bottom
-      element.style.maxHeight = `${maxHeight}px`;
+      element.style.bottom = `${inputRef.current.offsetHeight + 25}px`;
+      element.style.top = "initial";
     } else {
-      element.style.maxHeight = ""; // Reset maxHeight if not touching bottom
+      element.style.bottom = ""; // Reset maxHeight if not touching bottom
+      element.style.top = "100%";
     }
   };
 
@@ -118,6 +123,18 @@ function Autocomplete({
         >
           {label}
         </label>
+        {randomize && (
+          <span
+            className="randomize-button"
+            onClick={() => {
+              const randomOption =
+                searchOptions[Math.floor(Math.random() * searchOptions.length)];
+              handleOptionClick(randomOption);
+            }}
+          >
+            <FontAwesomeIcon icon={faShuffle} />
+          </span>
+        )}
       </div>
       {options.length > 0 && (
         <div ref={optionsRef} className="options">

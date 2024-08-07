@@ -7,7 +7,7 @@ function Button({ children, onClick, disabled }) {
       onClick={onClick}
       disabled={disabled}
     >
-      Button
+      {children}
     </button>
   );
 }

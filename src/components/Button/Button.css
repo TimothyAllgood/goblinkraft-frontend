@@ -8,7 +8,7 @@
     #38295c,
     #3c2c63
   );
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   outline: none;
   border: none;
   cursor: pointer;
@@ -17,6 +17,7 @@
   z-index: 1;
   border-radius: 20px;
   position: relative;
+  transition: filter 0.3s ease;
 }
 
 .button::before {
@@ -51,4 +52,8 @@
   background-size: 200px;
   background-position: center;
   /* z-index: -1; */
+}
+
+.button:hover {
+  filter: brightness(1.1);
 }

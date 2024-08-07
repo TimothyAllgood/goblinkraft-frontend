@@ -20,6 +20,8 @@ function CombatDescriptionPage() {
   const [graveyard, setGraveyard] = useState([]);
   const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [flavor, setFlavor] = useState("");
+  const [length, setLength] = useState(2);
 
   const environmentTypes = [
     { id: 1, name: "In a forest" },
@@ -194,13 +196,16 @@ function CombatDescriptionPage() {
       ? addArticle(weaponType).toLowerCase()
       : "your fists";
     const isCombatOverString = isCombatOver
-      ? "and the battle is over"
-      : "and the battle is still raging";
+      ? "Subtly imply that the battle is over."
+      : "Subtly imply that the battle is still raging.";
     const environmentString = environmentType
       ? ` The fight takes place in ${environmentType.toLowerCase()}.`
       : "";
     const toneString = tone
       ? ` The tone is ${addArticle(tone).toLowerCase()}.`
+      : "";
+    const flavorString = flavor
+      ? ` Additional flavor (very subtly influence, without being too specific or on explicitly including the flavor): ${flavor}.`
       : "";
     // const prompt = `You${
     //   classType ? `, ${addArticle(classType)},` : " "
@@ -208,7 +213,7 @@ function CombatDescriptionPage() {
 
     const prompt = `Describe a graphic and impactful killing blow delivered by ${
       classType ? addArticle(classType) : "an adventurer"
-    } using ${weaponString} against ${enemyString}. Include details about the weapon's motion, the physical damage inflicted, the enemy's reaction, the effect on the environment, and the character's emotional state. Keep it brief and natural (2-3 sentences max), in first person, and in present tense. ${isCombatOverString}${environmentString}${toneString}`;
+    } (subtly include class) using ${weaponString} against ${enemyString}. Include details about the weapon's motion, the physical damage inflicted, the enemy's reaction, the effect on the environment, and the character's emotional state. Keep it brief and natural, it should be ${length} sentence(s), in first person, and in present tense. The last sentence should evoke strong sensory and emotional imagery. ${isCombatOverString}${environmentString}${toneString}${flavorString}`;
 
     let res = await Combat.generateCombatDescription(prompt);
     setDescription(res.description);
@@ -236,7 +241,7 @@ function CombatDescriptionPage() {
   };
 
   return (
-    <div className="combat-description-page">
+    <div className="combat-description-page container">
       <div className="additional-info">
         <h2>Combat Info</h2>
 
@@ -245,6 +250,23 @@ function CombatDescriptionPage() {
           checked={isCombatOver}
           onChange={setIsCombatOver}
         />
+
+        <div className="sentence-length">
+          <label htmlFor="sentence-length">
+            Description Length (sentences):
+          </label>
+          <input
+            type="number"
+            id="sentence-length"
+            className="sentence-length-input"
+            min="1"
+            max="3"
+            value={length}
+            onChange={(e) =>
+              setLength(Math.min(3, Math.max(1, parseInt(e.target.value))))
+            }
+          />
+        </div>
 
         <Autocomplete
           label="Environment Type"
@@ -260,6 +282,7 @@ function CombatDescriptionPage() {
           setValue={setTone}
           clearAfter={false}
           backgroundColor="var(--background-color)"
+          randomize={true}
         />
       </div>
       <div className="character-info">
@@ -271,31 +294,46 @@ function CombatDescriptionPage() {
           clearAfter={false}
           backgroundColor="var(--background-color)"
         />
-        <Autocomplete
-          label="Attack Type"
-          searchOptions={attackTypes}
-          setValue={setAttackType}
-          clearAfter={false}
-          backgroundColor="var(--background-color)"
-        />
-        <div
-          className={`${attackType ? "visible" : "hidden"} weapon-spell-select`}
-        >
+        <div className="flavor-input">
+          <textarea
+            type="text"
+            id="flavor"
+            value={flavor}
+            onChange={(e) => setFlavor(e.target.value)}
+            placeholder="Enter your character's flavor"
+            className="flavor-textarea"
+          />
+        </div>
+        <div className="attack-type-input">
+          {" "}
           <Autocomplete
-            label={
-              attackType.toLowerCase() === "melee" ||
-              attackType.toLowerCase() === "ranged"
-                ? "Weapon"
-                : "Spell"
-            }
-            searchOptions={
-              attackType === "Melee" ? meleeWeapons : rangedWeapons
-            }
-            service={attackType === "Magic" ? SpellData : null}
-            setValue={setWeaponType}
+            label="Attack Type"
+            searchOptions={attackTypes}
+            setValue={setAttackType}
             clearAfter={false}
             backgroundColor="var(--background-color)"
           />
+          <div
+            className={`${
+              attackType ? "visible" : "hidden"
+            } weapon-spell-select`}
+          >
+            <Autocomplete
+              label={
+                attackType.toLowerCase() === "melee" ||
+                attackType.toLowerCase() === "ranged"
+                  ? "Weapon"
+                  : "Spell"
+              }
+              searchOptions={
+                attackType === "Melee" ? meleeWeapons : rangedWeapons
+              }
+              service={attackType === "Magic" ? SpellData : null}
+              setValue={setWeaponType}
+              clearAfter={false}
+              backgroundColor="var(--background-color)"
+            />
+          </div>
         </div>
       </div>
       <div className="enemies-info">
