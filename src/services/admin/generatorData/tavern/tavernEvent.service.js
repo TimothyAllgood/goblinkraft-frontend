@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/tavern/events`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/tavern/events`;
 
 export default class TavernEvent {
   static create = async (tavernEvent) => {
