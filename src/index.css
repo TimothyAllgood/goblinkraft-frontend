@@ -6,7 +6,7 @@
   --dark: #2c2049;
   --white: #f1f1f1;
   --darker: #292a2c;
-  --background-color: #2c2049;
+  --background-color: var(--white);
   --text-color: var(--white);
   --heading-color: var(--primary-color);
   --link-color: var(--white);
@@ -35,7 +35,9 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: "Quasimoda", sans-serif;
+  font-family: "laski-sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   line-height: initial;
 }
@@ -66,14 +68,14 @@ h6 {
   overflow-wrap: break-word;
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: "Bookmania", sans-serif;
-}
+} */
 
 ul {
   list-style: none;
