@@ -5,21 +5,15 @@ header {
   z-index: 100;
   width: 100vw;
   background-color: var(--background-color);
-  background-image: linear-gradient(
-    0deg,
-    #2c2049,
-    #30234f,
-    #342656,
-    #38295c,
-    #3c2c63
-  );
+  background-image: var(--dark-gradient);
   z-index: 100;
   display: flex;
   align-items: center;
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid var(--primary-color);
 }
 
-header::before {
+/* header::before {
   content: "";
   pointer-events: none;
   transform: none;
@@ -36,9 +30,9 @@ header::before {
   border-image-repeat: repeat;
   border-image-outset: 0;
   border-image-source: url("./frame.png");
-}
+} */
 
-header::after {
+/* header::after {
   content: "";
   position: absolute;
   top: 0;
@@ -51,7 +45,7 @@ header::after {
   background-size: 200px;
   background-position: center;
   opacity: 0.2;
-}
+} */
 
 nav {
   display: flex;

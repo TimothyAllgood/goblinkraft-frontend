@@ -1,24 +1,20 @@
 :root {
-  --primary-color: #35366d;
-  --accent-color: #ea7236;
-  --accent-dark: #203777;
-  --tertiary-color: #1e4583;
-  --dark: #2c2049;
+  --primary-color: #46f499;
+  --dark: #292a2c;
+  --dark-grey: #3d3e41;
   --white: #f1f1f1;
-  --darker: #292a2c;
   --background-color: var(--white);
   --text-color: var(--white);
-  --heading-color: var(--primary-color);
-  --link-color: var(--white);
-  --sidebar-background: var(--darker);
-  --sidebar-link-color: var(--white);
-  --sidebar-hover-background: var(--dark);
-  --sidebar-hover-text-color: var(--primary-color);
-  --sidebar-glow: 0 0 5px var(--darker), 0 0 10px var(--darker);
-  --card-background: var(--darker);
-  --card-border: #3d3e41;
-  --divider-color: var(--dark);
-  --card-glow: 0 0 5px var(--primary-color), 0 0 10px var(--darker);
+  --card-background: var(--dark);
+  --card-border: var(--dark-grey);
+  --dark-gradient: linear-gradient(
+    180deg,
+    #292a2c,
+    #232426,
+    #1d1e20,
+    #18191a,
+    #121314
+  );
 }
 
 *,
@@ -40,6 +36,22 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   line-height: initial;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./bg_texture.png");
+  background-size: 5vw;
+  background-position: center;
+  opacity: 0.05;
+  z-index: -1;
 }
 
 img,

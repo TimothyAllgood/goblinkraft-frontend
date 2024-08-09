@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./NPCPage.css";
 import Npc from "../../../services/generator/npc.service";
 import NPC from "./NPC/NPC";
-import Button from "../../../components/Button/Button";
+// import Button from "../../../components/Button/Button";
 
 function NPCPage() {
   const [npcs, setNpcs] = useState([]);
@@ -28,9 +28,9 @@ function NPCPage() {
     <section className="npc-page container">
       <div className="npc-page-header">
         <div className="npc-buttons">
-          <Button onClick={fetchNpcs} disabled={generating}>
+          {/* <Button onClick={fetchNpcs} disabled={generating}>
             {generating ? "Generating..." : "Roll New NPCs"}
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div className="npc-container">

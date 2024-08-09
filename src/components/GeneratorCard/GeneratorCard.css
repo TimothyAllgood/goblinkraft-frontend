@@ -1,21 +1,12 @@
 .generator-card {
   background: #1d110c;
-  background: linear-gradient(
-    0deg,
-    #2c2049,
-    #30234f,
-    #342656,
-    #38295c,
-    #3c2c63
-  );
+  background: var(--dark-gradient);
   padding: 0.5rem 1rem;
   outline: none;
-  border: none;
+  border: 2px solid var(--primary-color);
   cursor: pointer;
-  /* width: 1000px; */
   color: white;
   z-index: 1;
-  border-radius: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -37,7 +28,7 @@
   transform: scale(1.01);
   filter: brightness(1.1);
 }
-
+/*
 .generator-card::before {
   content: "";
   pointer-events: none;
@@ -71,8 +62,8 @@
   background-size: 200px;
   background-position: center;
   opacity: 0.3;
-  /* z-index: -1; */
-}
+  /* z-index: -1; 
+} */
 
 .generator-card-icon {
   font-size: 2rem;

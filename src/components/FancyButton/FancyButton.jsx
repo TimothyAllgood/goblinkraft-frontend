@@ -1,6 +1,6 @@
 import React from "react";
-import "./Button.css";
-function Button({ children, onClick, disabled }) {
+import "./FancyButton.css";
+function FancyButton({ children, onClick, disabled }) {
   return (
     <button
       className="button outlined no-angled-corners"
@@ -12,4 +12,4 @@ function Button({ children, onClick, disabled }) {
   );
 }
 
-export default Button;
+export default FancyButton;
