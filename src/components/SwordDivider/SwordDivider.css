@@ -1,0 +1,13 @@
+.sword-divider {
+  position: relative;
+  width: 25px !important;
+  height: 100%;
+}
+
+.sword {
+  rotate: 45deg;
+}
+
+.sword * {
+  stroke: var(--primary-color) !important;
+}

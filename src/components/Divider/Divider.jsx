@@ -1,9 +1,9 @@
 import "./Divider.css";
 
-function Divider({ color }) {
+function Divider({ color, orientation }) {
   return (
     <span
-      className="divider"
+      className={`divider ${orientation}`}
       style={{ backgroundColor: color ? color : "var(--divider-color)" }}
     ></span>
   );

@@ -7,6 +7,7 @@
   --text-color: var(--white);
   --card-background: var(--dark);
   --card-border: var(--dark-grey);
+  --dark-opacity: rgba(41, 42, 44, 0.9);
   --dark-gradient: linear-gradient(
     180deg,
     #292a2c,
