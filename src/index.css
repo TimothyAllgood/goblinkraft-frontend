@@ -16,6 +16,10 @@
     #18191a,
     #121314
   );
+  --divider-color: var(--dark-grey);
+  --button-color: var(--primary-color);
+  --button-text-color: var(--text-color);
+  --button-shadow-color: var(--dark);
 }
 
 *,
@@ -31,6 +35,7 @@
 
 body {
   background-color: var(--background-color);
+  background-color: var(--dark);
   color: var(--text-color);
   font-family: "laski-sans", sans-serif;
   font-weight: 400;
@@ -98,6 +103,37 @@ a,
 a:visited {
   color: var(--link-color);
   text-decoration: none;
+}
+
+a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  color: var(--primary-color);
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.3s ease;
+}
+
+a:hover::before {
+  width: 100%;
+}
+
+a:hover span {
+  animation: colorChange 0.3s ease forwards;
+}
+
+@keyframes colorChange {
+  to {
+    color: var(--accent-color);
+  }
 }
 
 #root,

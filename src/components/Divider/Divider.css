@@ -11,4 +11,10 @@
 .divider.vertical {
   width: 1px;
   height: 100%;
+  align-self: stretch;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }

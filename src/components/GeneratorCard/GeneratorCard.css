@@ -4,8 +4,10 @@
   padding: 0.5rem 1rem;
   outline: none;
   border: 2px solid var(--primary-color);
+
+  border-radius: 5px;
   cursor: pointer;
-  color: white;
+  color: var(--text-color);
   z-index: 1;
   position: relative;
   display: flex;

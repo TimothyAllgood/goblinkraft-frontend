@@ -7,15 +7,17 @@ import Header from "./components/Header/Header";
 
 function App() {
   const { width } = useViewport();
-  const breakpoint = 1200;
+  const breakpoint = 900;
   const [sidebarOpen, setSidebarOpen] = useState(width > breakpoint);
 
   return (
     <>
       <div className="stack-horizontal">
-        {/* <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
+        {width <= breakpoint && (
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        )}
         <div id="detail" className={sidebarOpen ? "sidebar-open" : ""}>
-          <Header />
+          {width > breakpoint && <Header />}
           <main>
             <Outlet context={{ setSidebarOpen }} />
           </main>
