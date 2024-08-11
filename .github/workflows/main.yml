@@ -10,8 +10,9 @@ jobs:
     - name: 🔨 Build Project
       run: |
         touch .env
-        echo VITE_BASE_URL={{secrets.VITE_BASE_URL}} >> .env
-        echo VITE_AUTH_DOMAIN={{secrets.VITE_AUTH_DOMAIN}} >> .env
+        touch .env
+        echo VITE_BASE_URL=${{ secrets.VITE_BASE_URL }} >> .env
+        echo VITE_AUTH_DOMAIN=${{ secrets.VITE_AUTH_DOMAIN }} >> .env
         echo VITE_AUTH_CLIENT_ID=${{ secrets.VITE_AUTH_CLIENT_ID }} >> .env
         echo "!.env" > .git-ftp-include # Add git untracked file
         npm install
