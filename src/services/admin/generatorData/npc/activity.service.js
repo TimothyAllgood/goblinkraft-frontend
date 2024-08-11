@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/activities`;
+const BASE_URL = `${import.meta.env.VITE_BASE_URL}/activities`;
 
 export default class Activity {
   static create = async (activity) => {

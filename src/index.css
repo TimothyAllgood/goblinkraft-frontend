@@ -1,12 +1,17 @@
 :root {
   --primary-color: #46f499;
+  --accent-color: #7889c3;
   --dark: #292a2c;
   --dark-grey: #3d3e41;
+  --light-grey: #cfcfcf;
   --white: #f1f1f1;
   --background-color: var(--white);
   --text-color: var(--white);
-  --card-background: var(--dark);
-  --card-border: var(--dark-grey);
+  --text-color-dark: var(--dark);
+  --card-background: var(--accent-color);
+  --card-header-background: var(--dark);
+  --card-border: var(--light-grey);
+  --card-text-color: var(--dark);
   --dark-opacity: rgba(41, 42, 44, 0.9);
   --dark-gradient: linear-gradient(
     180deg,
@@ -35,7 +40,7 @@
 
 body {
   background-color: var(--background-color);
-  background-color: var(--dark);
+  /* background-color: var(--dark); */
   color: var(--text-color);
   font-family: "laski-sans", sans-serif;
   font-weight: 400;
