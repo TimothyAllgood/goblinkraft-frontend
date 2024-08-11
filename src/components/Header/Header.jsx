@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { generatorMenuItems } from "../../data/menus/generator.data";
 import "./Header.css";
-import {
-  faArrowDown,
-  faCaretDown,
-  faPersonRays,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import GeneratorCard from "../GeneratorCard/GeneratorCard";
+
+import Dropdown from "../Dropdown/Dropdown";
+import Divider from "../Divider/Divider";
+import LoginButton from "../LoginButton/LoginButton";
+import SignupButton from "../SignupButton/SignupButton";
 
 function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -18,48 +17,27 @@ function Header() {
 
   return (
     <header>
-      <nav>
+      <nav className="desktop-nav">
         <div className="logo">
           <Link to="/">
             <h1>Goblinkraft</h1>
           </Link>
         </div>
         <div className="nav-links">
-          <div
-            className="dropdown"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
-            <span className="dropbtn" onClick={toggleDropdown}>
-              <p>Generators</p>
-              <FontAwesomeIcon icon={faCaretDown} />
-            </span>
-            <div className={`dropdown-content ${dropdownOpen ? "show" : ""}`}>
-              <GeneratorCard
-                generator={{
-                  name: "NPC Generator",
-                  url: "/generate/npc",
-                  icon: faPersonRays,
-                }}
-                variant="small"
-              />
-              <GeneratorCard
-                generator={{
-                  name: "Character Generator",
-                  url: "/generate/character",
-                  icon: faPersonRays,
-                }}
-                variant="small"
-              />
-              <GeneratorCard
-                generator={{
-                  name: "Killing Blow Generator",
-                  url: "/generate/killing-blow",
-                  icon: faPersonRays,
-                }}
-                variant="small"
-              />
-            </div>
+          <Dropdown
+            setDropdownOpen={setDropdownOpen}
+            toggleDropdown={toggleDropdown}
+            dropdownOpen={dropdownOpen}
+            variant="with-divider"
+            data={generatorMenuItems}
+          />
+          <Link to="/" data-text="Looking For Group">
+            Looking For Group
+          </Link>
+          <div className="vertical-divider" />
+          <div className="user-buttons">
+            <LoginButton />
+            <SignupButton />
           </div>
         </div>
       </nav>

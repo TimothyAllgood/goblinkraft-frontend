@@ -1,14 +1,11 @@
 import React from "react";
 import "./Button.css";
-function Button({ children, onClick, disabled }) {
+
+function Button({ onClick, children, variant = "primary" }) {
   return (
-    <button
-      className="button outlined no-angled-corners"
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <div className={`button ${variant}`} onClick={onClick}>
       {children}
-    </button>
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 .hero {
   background-image: url("./hero.png");
-  background-size: cover;
+  background-size: 100vw 100vh;
   background-position: center;
   height: calc(100vh - 75px);
   width: 100vw;
@@ -11,11 +11,10 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  /* padding-top: 75px; */
-  margin-top: -75px;
+  margin-top: -25px;
 }
 
-.hero::after {
+/* .hero::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -27,7 +26,7 @@
     rgba(0, 0, 0, 0) 0%,
     var(--background-color) 100%
   );
-}
+} */
 
 .hero-title {
   text-align: center;
@@ -59,10 +58,17 @@
 
 @keyframes zoomIn {
   0% {
-    background-size: 100%;
+    background-size: 100vw 100vh;
   }
   50% {
-    background-size: 109%;
+    background-size: 109vw 109vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: 100vh;
+    margin-top: 0;
   }
 }
 

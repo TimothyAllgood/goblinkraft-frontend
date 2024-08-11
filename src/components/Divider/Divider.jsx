@@ -1,10 +1,14 @@
 import "./Divider.css";
 
-function Divider({ color }) {
+function Divider({ color, orientation, position = "relative" }) {
   return (
     <span
-      className="divider"
-      style={{ backgroundColor: color ? color : "var(--divider-color)" }}
+      className={`divider ${orientation}`}
+      style={{
+        backgroundColor: color ? color : "var(--divider-color)",
+        position: position,
+        right: position === "absolute" ? "-1rem" : "0",
+      }}
     ></span>
   );
 }

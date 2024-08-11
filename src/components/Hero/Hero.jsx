@@ -1,7 +1,7 @@
 import React from "react";
 import hero from "./hero.png";
 import "./Hero.css";
-import Button from "../Button/Button";
+// import Button from "../Button/Button";
 import GeneratorCard from "../GeneratorCard/GeneratorCard";
 import {
   faDiceD20,

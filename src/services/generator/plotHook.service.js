@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/plothooks`;
+const BASE_URL = `${import.meta.env.VITE_BASE_URL}/plothooks`;
 
 export default class PlotHook {
   static generatePlotHook = async (config) => {

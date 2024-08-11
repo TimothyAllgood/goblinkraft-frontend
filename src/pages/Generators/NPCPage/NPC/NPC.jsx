@@ -42,7 +42,7 @@ function NPC({ npc }) {
         })}
       </div>
       <div className="npc-info">
-        <div className="description detail">
+        <div className="npc-description detail">
           <p>{npc.description}</p>
         </div>
         <div className="trait activity">
@@ -58,19 +58,6 @@ function NPC({ npc }) {
             <p> {npc.attribute.name} </p>
             <Tooltip text={npc.attribute.info} />
           </div>
-          {/* <Tooltip content={npc.quirk.info} /> */}
-          {/* <Tooltip
-            className="info-tooltip"
-            title={
-              <>
-                <Typography>{npc.quirk.info}</Typography>
-              </>
-            }
-            arrow
-            enterTouchDelay={100}
-          >
-            <InfoRoundedIcon color="primary" />
-          </Tooltip> */}
         </div>
         <div className="trait plot-hook">
           <h3>Plot Hook: </h3>
