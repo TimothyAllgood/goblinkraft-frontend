@@ -1,5 +1,7 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/categories`;
+const BASE_URL = `${
+  import.meta.env.DEV ? import.meta.env.VITE_BASE_URL : process.env.BASE_URL
+}/categories`;
 
 export default class Category {
   static create = async (category) => {
