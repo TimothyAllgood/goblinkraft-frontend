@@ -1,26 +1,43 @@
 @media (max-width: 900px) {
-  .sidebar {
-    height: 100vh;
+  .sidebar-header {
     background-color: var(--dark-gradient);
-    width: min(300px, 80vw);
+    width: 100vw;
+    height: 75px;
+    position: relative;
+    padding-left: 25px;
+  }
+
+  .sidebar {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    height: 100vh;
+    background-image: var(--dark-gradient);
+    width: 300px;
     padding: 2rem;
     box-shadow: var(--sidebar-glow);
     position: absolute;
-    left: min(-300px, -80vw);
+    right: -100vw;
     top: 0;
     z-index: 100;
-    transition: left 0.3s ease-in-out;
-  }
-
-  .sidebar nav {
-    height: 100%;
-    display: flex;
+    transition: right 0.3s ease-in-out;
     flex-direction: column;
-    gap: 1rem;
-    justify-content: space-between;
   }
 
-  .sidebar-header {
+  .sidebar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(300px - 100vw);
+    width: calc(100vw - 300px);
+    height: 100%;
+    background-color: var(--dark-opacity);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  .sidebar-heading {
     padding: 1rem;
   }
 
@@ -29,27 +46,43 @@
   }
 
   .sidebar.open {
-    left: 0;
-    min-width: min(300px, 80vw);
+    right: 0;
+  }
+
+  .sidebar.open::before {
+    opacity: 1;
+    visibility: visible;
   }
 
   .sidebar-toggle {
     position: absolute;
-    top: 0;
-    left: 25px;
+    top: 12.5px;
+    right: 25px;
     padding: 1rem;
     cursor: pointer;
-    transition: left 0.3s ease-in-out;
-    z-index: 100;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
   }
 
   .sidebar-toggle.toggled {
-    left: min(300px, 80vw);
+    right: 300px;
+  }
+}
+@media (min-width: 1200px) {
+  .sidebar-toggle {
+    display: none;
+  }
+}
+@media (max-width: 300px) {
+  .sidebar {
+    width: 80vw;
   }
 
-  @media (min-width: 1200px) {
-    .sidebar-toggle {
-      display: none;
-    }
+  .sidebar.open {
+    right: 0;
+  }
+
+  .sidebar-toggle.toggled {
+    right: 80vw;
   }
 }

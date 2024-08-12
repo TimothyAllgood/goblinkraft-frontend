@@ -6,7 +6,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Link, NavLink } from "react-router-dom";
 import NavMenu from "../NavMenu/NavMenu";
 import "./Sidebar.css";
-import { faBars, faHandFist, faPersonRays } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faHandFist,
+  faPersonRays,
+} from "@fortawesome/free-solid-svg-icons";
 import Divider from "../Divider/Divider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -63,9 +67,10 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       >
         <FontAwesomeIcon icon={faBars} />
       </div>
-      <header className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-        <nav>
-          <div className="sidebar-header">
+      <header className="sidebar-header">
+        <div className="logo">Goblinkraft</div>
+        <nav className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+          <div className="sidebar-heading">
             <Link to="/">
               <h1>Goblinkraft</h1>
             </Link>

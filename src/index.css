@@ -25,6 +25,7 @@
   --button-color: var(--primary-color);
   --button-text-color: var(--text-color);
   --button-shadow-color: var(--dark);
+  --disabled-color: var(--light-grey);
 }
 
 *,

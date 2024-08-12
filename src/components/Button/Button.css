@@ -22,6 +22,13 @@
   transform: translateY(1px);
 }
 
+.button.disabled {
+  background-color: var(--disabled-color);
+  color: var(--text-color-light);
+  border: 2px solid var(--disabled-color);
+  cursor: not-allowed;
+}
+
 .button.outlined {
   background-color: transparent;
   color: var(--button-color);
@@ -32,6 +39,18 @@
   background-color: var(--button-color);
   color: var(--button-text-color);
   text-shadow: 0 0px 15px var(--button-shadow-color);
+}
+
+.button.dark {
+  background-image: var(--dark-gradient);
+  color: var(--text-color-light);
+  border: 2px solid var(--primary-color);
+}
+
+.button.dark:hover {
+  background-color: transparent;
+  filter: brightness(1.1);
+  color: var(--primary-color);
 }
 
 @media (max-width: 900px) {
