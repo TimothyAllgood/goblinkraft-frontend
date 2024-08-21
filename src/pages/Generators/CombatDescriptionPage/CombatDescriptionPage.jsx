@@ -194,7 +194,7 @@ function CombatDescriptionPage() {
 
     const weaponString = weaponType
       ? addArticle(weaponType).toLowerCase()
-      : "your fists";
+      : "their fists";
     const isCombatOverString = isCombatOver
       ? "Subtly imply that the battle is over."
       : "Subtly imply that the battle is still raging.";
@@ -243,145 +243,164 @@ function CombatDescriptionPage() {
   return (
     <div className="combat-description-page container">
       <div className="additional-info">
-        <h2>Combat Info</h2>
-
-        <Checkbox
-          label="Is Combat Over?"
-          checked={isCombatOver}
-          onChange={setIsCombatOver}
-        />
-
-        <div className="sentence-length">
-          <label htmlFor="sentence-length">
-            Description Length (sentences):
-          </label>
-          <input
-            type="number"
-            id="sentence-length"
-            className="sentence-length-input"
-            min="1"
-            max="3"
-            value={length}
-            onChange={(e) =>
-              setLength(Math.min(3, Math.max(1, parseInt(e.target.value))))
-            }
-          />
+        <div className="description-header">
+          <h2>Combat Info</h2>
         </div>
-
-        <Autocomplete
-          label="Environment Type"
-          searchOptions={environmentTypes}
-          setValue={setEnvironmentType}
-          clearAfter={false}
-          backgroundColor="var(--background-color)"
-        />
-
-        <Autocomplete
-          label="Tone"
-          searchOptions={tones}
-          setValue={setTone}
-          clearAfter={false}
-          backgroundColor="var(--background-color)"
-          randomize={true}
-        />
-      </div>
-      <div className="character-info">
-        <h2>Your Character</h2>
-        <Autocomplete
-          label="Class"
-          searchOptions={classTypes}
-          setValue={setClassType}
-          clearAfter={false}
-          backgroundColor="var(--background-color)"
-        />
-        <div className="flavor-input">
-          <textarea
-            type="text"
-            id="flavor"
-            value={flavor}
-            onChange={(e) => setFlavor(e.target.value)}
-            placeholder="Enter your character's flavor"
-            className="flavor-textarea"
+        <div className="description-body">
+          <Checkbox
+            label="Is Combat Over?"
+            checked={isCombatOver}
+            onChange={setIsCombatOver}
           />
-        </div>
-        <div className="attack-type-input">
-          {" "}
+
+          <div className="sentence-length">
+            <label htmlFor="sentence-length">
+              Description Length (sentences):
+            </label>
+            <input
+              type="number"
+              id="sentence-length"
+              className="sentence-length-input"
+              min="1"
+              max="3"
+              value={length}
+              onChange={(e) =>
+                setLength(Math.min(3, Math.max(1, parseInt(e.target.value))))
+              }
+            />
+          </div>
+
           <Autocomplete
-            label="Attack Type"
-            searchOptions={attackTypes}
-            setValue={setAttackType}
+            label="Environment Type"
+            searchOptions={environmentTypes}
+            setValue={setEnvironmentType}
             clearAfter={false}
             backgroundColor="var(--background-color)"
           />
-          <div
-            className={`${
-              attackType ? "visible" : "hidden"
-            } weapon-spell-select`}
-          >
+
+          <Autocomplete
+            label="Tone"
+            searchOptions={tones}
+            setValue={setTone}
+            clearAfter={false}
+            backgroundColor="var(--background-color)"
+            randomize={true}
+          />
+        </div>
+      </div>
+      <div className="character-info">
+        <div className="description-header">
+          <h2>Your Character</h2>
+        </div>
+        <div className="description-body">
+          <Autocomplete
+            label="Class"
+            searchOptions={classTypes}
+            setValue={setClassType}
+            clearAfter={false}
+            backgroundColor="var(--background-color)"
+          />
+          <div className="flavor-input">
+            <textarea
+              type="text"
+              id="flavor"
+              value={flavor}
+              onChange={(e) => setFlavor(e.target.value)}
+              placeholder="Enter your character's flavor"
+              className="flavor-textarea"
+            />
+          </div>
+          <div className="attack-type-input">
+            {" "}
             <Autocomplete
-              label={
-                attackType.toLowerCase() === "melee" ||
-                attackType.toLowerCase() === "ranged"
-                  ? "Weapon"
-                  : "Spell"
-              }
-              searchOptions={
-                attackType === "Melee" ? meleeWeapons : rangedWeapons
-              }
-              service={attackType === "Magic" ? SpellData : null}
-              setValue={setWeaponType}
+              label="Attack Type"
+              searchOptions={attackTypes}
+              setValue={setAttackType}
               clearAfter={false}
               backgroundColor="var(--background-color)"
             />
+            <div
+              className={`${
+                attackType ? "visible" : "hidden"
+              } weapon-spell-select`}
+            >
+              <Autocomplete
+                label={
+                  attackType.toLowerCase() === "melee" ||
+                  attackType.toLowerCase() === "ranged"
+                    ? "Weapon"
+                    : "Spell"
+                }
+                searchOptions={
+                  attackType === "Melee" ? meleeWeapons : rangedWeapons
+                }
+                service={attackType === "Magic" ? SpellData : null}
+                setValue={setWeaponType}
+                clearAfter={false}
+                backgroundColor="var(--background-color)"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className="enemies-info">
-        <h2>Enemies</h2>
-        <label>
-          <Autocomplete
-            label="Start typing to add enemies..."
-            service={MonsterData}
-            setValue={addEnemy}
-            backgroundColor="var(--background-color)"
-          />
-        </label>
-        <div className="enemies-list">
-          {enemies.map((enemy) => (
-            <div
-              key={enemy.id}
-              className={`enemy ${enemy.isAlive ? "alive" : "dead"}`}
-            >
-              {enemy.name}
-              <button
-                className="kill-button"
-                onClick={() => handleToggleEnemyState(enemy.id)}
+        <div className="description-header">
+          <h2>Enemies</h2>
+        </div>
+        <div className="description-body">
+          <label>
+            <Autocomplete
+              label="Start typing to add enemies..."
+              service={MonsterData}
+              setValue={addEnemy}
+              backgroundColor="var(--background-color)"
+            />
+          </label>
+          <div className="enemies-list">
+            {enemies.map((enemy) => (
+              <div
+                key={enemy.id}
+                className={`enemy ${enemy.isAlive ? "alive" : "dead"}`}
               >
-                {enemy.isAlive ? "Kill" : "Oops..."}
-              </button>
+                {enemy.name}
+                <button
+                  className="kill-button"
+                  onClick={() => handleToggleEnemyState(enemy.id)}
+                >
+                  {enemy.isAlive ? "Kill" : "Oops..."}
+                </button>
+              </div>
+            ))}
+          </div>
+          <button
+            className="kill-button"
+            onClick={handleKillEnemies}
+            disabled={enemiesToDelete.length === 0}
+          >
+            Kill Enemies
+          </button>
+        </div>
+      </div>
+      <div className="graveyard">
+        <div className="description-header">
+          <h2>Combat Log</h2>
+        </div>
+        <div className="description-body">
+          {graveyard.map((enemy) => (
+            <div key={enemy.id} className="enemy dead">
+              <p>Name: {enemy.name}</p>
+              <p>Cause of Death: {enemy.causeOfDeath}</p>
             </div>
           ))}
         </div>
-        <button
-          className="kill-button"
-          onClick={handleKillEnemies}
-          disabled={enemiesToDelete.length === 0}
-        >
-          Kill Enemies
-        </button>
-      </div>
-      <div className="graveyard">
-        <h2>Combat Log</h2>
-        {graveyard.map((enemy) => (
-          <div key={enemy.id} className="enemy dead">
-            <p>Name: {enemy.name}</p>
-            <p>Cause of Death: {enemy.causeOfDeath}</p>
-          </div>
-        ))}
       </div>
       <div className="description">
-        <h2>Description</h2>
-        <p>{description}</p>
+        <div className="description-header">
+          <h2>Description</h2>
+        </div>
+        <div className="description-body">
+          <p>{description}</p>
+        </div>
 
         {isLoading && (
           <div className="loader-container">

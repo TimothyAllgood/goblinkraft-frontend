@@ -10,7 +10,7 @@
   --text-color-dark: var(--dark);
   --card-background: var(--accent-color);
   --card-header-background: var(--dark);
-  --card-border: var(--light-grey);
+  --card-border: var(--dark-grey);
   --card-text-color: var(--dark);
   --dark-opacity: rgba(41, 42, 44, 0.9);
   --dark-gradient: linear-gradient(

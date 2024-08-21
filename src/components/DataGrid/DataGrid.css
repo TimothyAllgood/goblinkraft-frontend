@@ -1,7 +1,7 @@
 .data-grid {
   display: grid;
   grid-template-rows: 3rem 1fr 3rem;
-  border: 1px solid var(--darker);
+  border: 1px solid var(--dark);
   border-radius: 4px;
   font-family: Arial, sans-serif;
 }
@@ -38,8 +38,8 @@
 
 .data-grid-header {
   display: flex;
-  background-color: var(--darker);
-  border-bottom: 1px solid var(--darker);
+  background-color: var(--dark);
+  border-bottom: 1px solid var(--dark);
   color: var(--white);
   text-transform: capitalize;
   height: 3rem;
@@ -61,6 +61,7 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
+  color: var(--dark);
 }
 
 .data-grid-row {
@@ -69,7 +70,7 @@
   grid-template-columns: fit-content(100%) 1fr 1fr fit-content(100%) fit-content(
       100%
     );
-  border-bottom: 1px solid var(--darker);
+  border-bottom: 1px solid var(--dark);
 }
 
 .data-grid-row:last-child {
@@ -80,7 +81,7 @@
   flex: 1;
   padding: 10px;
   text-align: left;
-  border-right: 1px solid var(--darker);
+  border-right: 1px solid var(--dark);
 }
 
 .data-grid-cell:last-child {
