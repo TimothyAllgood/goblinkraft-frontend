@@ -10,7 +10,18 @@ import NPCPage from "./pages/Generators/NPCPage/NPCPage.jsx";
 import NPCAdmin from "./pages/Admin/NPCAdmin/NPCAdmin.jsx";
 import MonsterAdmin from "./pages/Admin/MonsterAdmin/MonsterAdmin.jsx";
 import CombatDescriptionPage from "./pages/Generators/CombatDescriptionPage/CombatDescriptionPage.jsx";
-
+import CharacterPage from "./pages/Generators/CharacterPage/CharacterPage.jsx";
+import MonsterPage from "./pages/Generators/MonsterPage/MonsterPage.jsx";
+import ItemPage from "./pages/Generators/ItemPage/ItemPage.jsx";
+import TavernPage from "./pages/Generators/TavernPage/TavernPage.jsx";
+import PlotPage from "./pages/Generators/PlotPage/PlotPage.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import TavernAdmin from "./pages/Admin/TavernAdmin/TavernAdmin.jsx";
+import ItemAdmin from "./pages/Admin/ItemAdmin/ItemAdmin.jsx";
+import PlotHookAdmin from "./pages/Admin/PlotHookAdmin/PlotHookAdmin.jsx";
+import CharacterAdmin from "./pages/Admin/CharacterAdmin/CharacterAdmin.jsx";
+import ClassAdmin from "./pages/Admin/ClassAdmin/ClassAdmin.jsx";
+import TraitAdmin from "./pages/Admin/TraitAdmin/TraitAdmin.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,8 +33,12 @@ const router = createBrowserRouter([
         path: "generate",
         children: [
           { path: "npc", element: <NPCPage /> },
-          { path: "character", element: <NPCPage /> },
+          { path: "character", element: <CharacterPage /> },
+          { path: "monster", element: <MonsterPage /> },
+          { path: "item", element: <ItemPage /> },
           { path: "killing-blow", element: <CombatDescriptionPage /> },
+          { path: "tavern", element: <TavernPage /> },
+          { path: "plot", element: <PlotPage /> },
         ],
       },
       {
@@ -31,23 +46,33 @@ const router = createBrowserRouter([
         children: [
           { path: "npc", element: <NPCAdmin /> },
           { path: "monster", element: <MonsterAdmin /> },
+          { path: "tavern", element: <TavernAdmin /> },
+          { path: "item", element: <ItemAdmin /> },
+          { path: "plot-hook", element: <PlotHookAdmin /> },
+          { path: "character", element: <CharacterAdmin /> },
+          { path: "class", element: <ClassAdmin /> },
+          { path: "trait", element: <TraitAdmin /> },
         ],
       },
     ],
   },
 ]);
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Auth0Provider
-      domain={import.meta.env.VITE_AUTH_DOMAIN}
-      clientId={import.meta.env.VITE_AUTH_CLIENT_ID}
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-        audience: "https://backend.goblinkraft.com/api",
-      }}
-    >
-      <RouterProvider router={router} />
-    </Auth0Provider>
+    <QueryClientProvider client={queryClient}>
+      <Auth0Provider
+        domain={import.meta.env.VITE_AUTH_DOMAIN}
+        clientId={import.meta.env.VITE_AUTH_CLIENT_ID}
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+          audience: "https://backend.goblinkraft.com/api",
+        }}
+      >
+        <RouterProvider router={router} />
+      </Auth0Provider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

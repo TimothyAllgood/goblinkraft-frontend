@@ -1,9 +1,14 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}profiles`;
+const BASE_URL = `${import.meta.env.VITE_BASE_URL}/profile`;
 
 export default class Profile {
   static getProfile = async (id) => {
     let res = await axios.get(`${BASE_URL}/${id}`);
+    return res.data;
+  };
+
+  static getUsername = async (userId) => {
+    let res = await axios.get(`${BASE_URL}/username/${userId}`);
     return res.data;
   };
 

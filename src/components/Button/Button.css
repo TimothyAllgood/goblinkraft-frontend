@@ -8,7 +8,7 @@
   cursor: pointer;
   border: 2px solid var(--primary-color);
   background-color: var(--primary-color);
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   border-radius: 4px;
   transition: all 0.3s ease;
 }
@@ -43,7 +43,7 @@
 
 .button.dark {
   background-image: var(--dark-gradient);
-  color: var(--text-color-light);
+  color: var(--text-color);
   border: 2px solid var(--primary-color);
 }
 

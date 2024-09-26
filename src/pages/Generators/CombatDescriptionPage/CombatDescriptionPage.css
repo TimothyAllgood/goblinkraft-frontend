@@ -60,7 +60,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-dark);
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
@@ -93,6 +93,7 @@
   grid-area: graveyard;
   overflow-y: auto;
   width: 100%;
+  color: var(--text-color-dark) !important;
 }
 
 .graveyard,
@@ -110,7 +111,7 @@
   background-color: var(--darker);
   margin-bottom: 12px;
   gap: 1rem;
-  color: #ecf0f1;
+  /* color: #ecf0f1; */
 }
 
 .enemy.alive {
@@ -120,6 +121,10 @@
 .enemies-list .enemy.dead {
   background-color: #c0392b;
   text-decoration: line-through;
+}
+
+.graveyard .enemy {
+  color: var(--text-color-dark) !important;
 }
 
 .kill-button {
@@ -145,7 +150,7 @@
   grid-area: additional-info;
   width: 100%;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-dark);
   display: flex;
   flex-direction: column;
 }
@@ -213,7 +218,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-dark);
   resize: vertical;
   font-family: inherit;
   font-size: 1rem;

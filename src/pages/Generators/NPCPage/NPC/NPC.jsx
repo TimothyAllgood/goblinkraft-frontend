@@ -7,8 +7,7 @@ import {
 import Stat from "../../../../util/stat.util";
 import Tooltip from "../../../../components/Tooltip/Tooltip";
 
-function NPC({ npc }) {
-  console.log({ npc });
+function NPC({ npc, disableActivity = false }) {
   return (
     <div className="npc">
       <div className="npc-header">
@@ -45,13 +44,15 @@ function NPC({ npc }) {
         <div className="npc-description detail">
           <p>{npc.description}</p>
         </div>
-        <div className="trait activity">
-          <h3 className="bold">Current Activity: </h3>
-          <div className="trait-info">
-            <p> {npc.activity.name} </p>
-            <Tooltip text={npc.activity.info} />
+        {!disableActivity && (
+          <div className="trait activity">
+            <h3 className="bold">Current Activity: </h3>
+            <div className="trait-info">
+              <p> {npc.activity.name} </p>
+              <Tooltip text={npc.activity.info} />
+            </div>
           </div>
-        </div>
+        )}
         <div className="trait quirk">
           <h3>Quirk: </h3>
           <div className="trait-info">

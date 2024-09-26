@@ -6,7 +6,7 @@
   padding: 10px;
   background-color: var(--darker);
   border-radius: 5px;
-  color: var(--text-color);
+  color: var(--text-color-dark);
   flex: 1;
 }
 
@@ -23,6 +23,10 @@
 .pagination button:disabled {
   background-color: var(--dark);
   cursor: not-allowed;
+}
+
+.pagination button:not(:disabled) {
+  color: var(--text-color-dark);
 }
 
 .pagination button:hover:not(:disabled) {

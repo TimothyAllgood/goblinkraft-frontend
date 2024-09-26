@@ -12,17 +12,17 @@ export default class ItemCurse {
     return res.data;
   };
 
-  static getItemCurses = async () => {
+  static getAll = async () => {
     let res = await axios.get(`${BASE_URL}/`);
     return res.data;
   };
 
-  static getItemCurse = async (id) => {
+  static getOne = async (id) => {
     let res = await axios.get(`${BASE_URL}/${id}`);
     return res.data;
   };
 
-  static deleteItemCurse = async (id) => {
+  static delete = async (id) => {
     let res = await axios.delete(`${BASE_URL}/delete/${id}`);
     return res.data;
   };

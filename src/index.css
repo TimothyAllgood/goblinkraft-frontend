@@ -23,9 +23,10 @@
   );
   --divider-color: var(--dark-grey);
   --button-color: var(--primary-color);
-  --button-text-color: var(--text-color);
+  --button-text-color: var(--text-color-dark);
   --button-shadow-color: var(--dark);
   --disabled-color: var(--light-grey);
+  --cursed: #ff0000;
 }
 
 *,

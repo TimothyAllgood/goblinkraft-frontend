@@ -1,0 +1,17 @@
+.item-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
+
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 250px 250px;
+  gap: 1rem;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  padding-bottom: 2rem;
+}

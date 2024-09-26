@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { generatorMenuItems } from "../../data/menus/generator.data";
 import "./Header.css";
 
 import Dropdown from "../Dropdown/Dropdown";
-import Divider from "../Divider/Divider";
 import LoginButton from "../LoginButton/LoginButton";
 import SignupButton from "../SignupButton/SignupButton";
+import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "../LogoutButton/LogoutButton";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { isLoading, isAuthenticated } = useAuth0();
+  const [username] = useLocalStorage("username");
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -36,8 +40,19 @@ function Header() {
           </Link>
           <div className="vertical-divider" />
           <div className="user-buttons">
-            <LoginButton />
-            <SignupButton />
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : isAuthenticated ? (
+              <>
+                <p>{username}</p>
+                <LogoutButton />
+              </>
+            ) : (
+              <>
+                <LoginButton />
+                <SignupButton />
+              </>
+            )}
           </div>
         </div>
       </nav>

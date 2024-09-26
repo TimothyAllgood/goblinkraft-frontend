@@ -57,7 +57,7 @@ function DataGridComponent({ type, heightRef }) {
     if (searchQuery !== "") {
       const filteredData = data.filter((item) =>
         Object.values(item).some((value) =>
-          value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+          value?.toString().toLowerCase().includes(searchQuery.toLowerCase())
         )
       );
       setRows(filteredData.slice(0, 10));
@@ -98,7 +98,15 @@ function DataGridComponent({ type, heightRef }) {
         const item2 = data[j];
 
         const isDuplicate = Object.keys(item1).some(
-          (key) => key !== "id" && key !== "type" && item1[key] === item2[key]
+          (key) =>
+            (key === "name" ||
+              key === "description" ||
+              key === "info" ||
+              key === "affix" ||
+              key === "title" ||
+              key === "summary" ||
+              key === "concept") &&
+            item1[key] === item2[key]
         );
 
         if (isDuplicate) {
@@ -225,6 +233,8 @@ function DataGridComponent({ type, heightRef }) {
   return (
     <div>
       <div className="data-grid-controls" ref={controlsRef}>
+        {!hasDuplicates && <p>Total Amount: {data?.length}</p>}
+        {hasDuplicates && <p>Total Duplicates: {data.length}</p>}
         <input
           type="text"
           placeholder="Search"
@@ -274,9 +284,9 @@ function DataGridComponent({ type, heightRef }) {
                     column.field !== "id" &&
                     editingRow.id === row.id &&
                     column.editType === "text" ? (
-                      <input
-                        type="text"
+                      <textarea
                         defaultValue={row[column.field]}
+                        className="edit-input"
                         onChange={(e) => handleInputChange(e, column.field)}
                       />
                     ) : (
@@ -289,7 +299,12 @@ function DataGridComponent({ type, heightRef }) {
                     <button onClick={() => submitEdit(editingRow)}>
                       Confirm
                     </button>
-                    <button onClick={() => cancelEdit()}>Cancel</button>
+                    <button
+                      className="cancel-button"
+                      onClick={() => cancelEdit()}
+                    >
+                      Cancel
+                    </button>
                   </div>
                 ) : (
                   <div className={`data-grid-cell actions`}>
@@ -304,6 +319,7 @@ function DataGridComponent({ type, heightRef }) {
                           handleDelete(row.id);
                         }
                       }}
+                      className="delete-button"
                     >
                       Delete
                     </button>

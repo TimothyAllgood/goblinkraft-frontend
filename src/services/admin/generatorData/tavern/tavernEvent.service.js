@@ -12,17 +12,17 @@ export default class TavernEvent {
     return res.data;
   };
 
-  static getTavernEvents = async () => {
+  static getAll = async () => {
     let res = await axios.get(`${BASE_URL}/`);
     return res.data;
   };
 
-  static getTavernEvent = async (id) => {
+  static getOne = async (id) => {
     let res = await axios.get(`${BASE_URL}/${id}`);
     return res.data;
   };
 
-  static deleteTavernEvent = async (id) => {
+  static delete = async (id) => {
     let res = await axios.delete(`${BASE_URL}/delete/${id}`);
     return res.data;
   };

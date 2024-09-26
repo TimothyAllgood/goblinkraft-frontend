@@ -1,0 +1,95 @@
+.monster-stats {
+  display: flex;
+  gap: 1rem;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+
+.monster-block {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  color: var(--card-text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.monster-heading {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px 5px 0 0;
+  background-color: var(--card-header-background);
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--light-grey);
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.4);
+}
+
+.monster-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cr {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 1rem;
+  border: thick double var(--card-border);
+  border-top: none;
+  border-bottom: none;
+  justify-content: space-between;
+}
+
+.source-link-container {
+  display: flex;
+  gap: 5px;
+}
+
+.source-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  text-decoration: underline;
+}
+
+.stat,
+.value-modifier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat p {
+  margin: 0;
+}
+
+.stat .value {
+  border: 1px solid var(--border);
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+}
+
+.stat .modifier {
+  background-color: white;
+  margin-top: -0.75rem;
+  border: 1px solid var(--border);
+  padding: 0 0.5rem;
+}
+
+.ability {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: thick double var(--card-border);
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  flex: 1;
+}

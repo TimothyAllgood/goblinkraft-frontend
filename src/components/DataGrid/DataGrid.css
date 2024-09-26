@@ -4,6 +4,7 @@
   border: 1px solid var(--dark);
   border-radius: 4px;
   font-family: Arial, sans-serif;
+  margin-bottom: 2rem;
 }
 
 .data-grid-controls {
@@ -21,19 +22,60 @@
   font-size: 1rem;
 }
 
-.data-grid-controls button {
+.data-grid-cell.actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.data-grid-cell.actions button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   background-color: var(--primary-color);
-  color: var(--white);
+  color: var(--text-color-dark);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-height: 2rem;
+}
+
+.data-grid-controls button,
+.data-grid-cell.actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--text-color-dark);
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.data-grid-controls button:hover {
-  background-color: darken(var(--primary-color), 10%);
+.data-grid-controls button:hover,
+.data-grid-cell.actions button:hover {
+  background-color: #17b57a;
+}
+
+.delete-button,
+.cancel-button {
+  background-color: #d9534f !important;
+  color: var(--white) !important;
+}
+
+.edit-input {
+  background-color: var(--darker);
+  color: var(--text-color-dark);
+  border: 1px solid var(--dark);
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  /* height: auto; */
+  min-height: 100%;
+  resize: vertical;
+  overflow: auto;
+  field-sizing: content;
 }
 
 .data-grid-header {
@@ -73,15 +115,51 @@
   border-bottom: 1px solid var(--dark);
 }
 
-.data-grid-row:last-child {
-  border-bottom: none;
-}
-
 .data-grid-cell {
   flex: 1;
   padding: 10px;
   text-align: left;
   border-right: 1px solid var(--dark);
+}
+.data-grid-row,
+.data-grid-header {
+  display: flex;
+  width: 100%;
+}
+
+.data-grid-cell,
+.data-grid-header-cell {
+  flex: 1 0 0;
+  min-width: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.data-grid-header-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* .data-grid-cell {
+  overflow-x: scroll  ;
+
+  white-space: nowrap;
+} */
+
+.data-grid-body {
+  width: 100%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.data-grid-cell::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.data-grid-cell {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .data-grid-cell:last-child {
