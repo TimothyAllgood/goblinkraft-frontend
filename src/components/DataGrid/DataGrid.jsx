@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./DataGrid.css";
 import Pagination from "./Pagination/Pagination";
 import Snackbar from "../Snackbar/Snackbar";
+import { dataGridToCsv, dataGridToJson } from "../../util/json.util";
 
 function DataGridComponent({ type, heightRef }) {
   // Service must have getAll and getOne methods
@@ -229,12 +230,33 @@ function DataGridComponent({ type, heightRef }) {
       setSnackbar({ message: "Row deleted successfully", show: true });
     }
   };
+  const exportData = () => {
+    const jsonData = dataGridToJson(data);
+    const csvData = dataGridToCsv(data);
+
+    const blob = new Blob([csvData], { type: "text/csv;charset=utf-8;" });
+    console.log(jsonData);
+    // Create a download link for the CSV file
+    const downloadLink = document.createElement("a");
+    downloadLink.href = URL.createObjectURL(blob);
+    downloadLink.download = "data_export.csv";
+
+    // Append the link to the body, trigger the download, and remove the link
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
+    // Clean up the URL object
+    URL.revokeObjectURL(downloadLink.href);
+    // saveAs(blob, "reports.csv");
+  };
 
   return (
     <div>
       <div className="data-grid-controls" ref={controlsRef}>
         {!hasDuplicates && <p>Total Amount: {data?.length}</p>}
         {hasDuplicates && <p>Total Duplicates: {data.length}</p>}
+        <button onClick={exportData}>Export Data</button>
         <input
           type="text"
           placeholder="Search"
