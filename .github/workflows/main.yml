@@ -21,7 +21,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: 192.232.218.212
-        username: timothy@archerrosedigital.com
+        username: timothy@timothyallgood.com
         password: ${{ secrets.ftp_password }}
         local-dir: ./dist/
         server-dir: ./goblinkraft.timothyallgood.com/
