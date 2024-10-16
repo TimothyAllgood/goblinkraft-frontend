@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/plothooks/data`;
+const BASE_URL = `${process.env.BASE_URL}/plothooks/data`;
 
 export default class PlotHookData {
   static create = async (plotHook) => {

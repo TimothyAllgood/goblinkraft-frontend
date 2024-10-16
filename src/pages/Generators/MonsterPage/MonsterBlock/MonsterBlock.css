@@ -69,7 +69,7 @@
 }
 
 .stat .value {
-  border: 1px solid var(--border);
+  /* border: 1px solid var(--border); */
   padding: 1rem;
   aspect-ratio: 1 / 1;
 }

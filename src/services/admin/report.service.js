@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/reports`;
+const BASE_URL = `${process.env.BASE_URL}/reports`;
 
 export default class Report {
   static getAll = async (type) => {

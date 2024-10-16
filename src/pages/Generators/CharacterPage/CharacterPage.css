@@ -7,6 +7,11 @@
   padding-bottom: 2rem;
 }
 
+.character-section-header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
 .character-section {
   flex: 1;
   display: flex;

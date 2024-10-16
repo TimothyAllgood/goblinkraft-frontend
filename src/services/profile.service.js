@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/profile`;
+const BASE_URL = `${process.env.BASE_URL}/profile`;
 
 export default class Profile {
   static getProfile = async (id) => {

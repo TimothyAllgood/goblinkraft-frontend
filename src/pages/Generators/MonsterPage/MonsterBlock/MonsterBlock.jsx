@@ -11,9 +11,7 @@ function MonsterBlock({ monster, abilities, filters, setFilters }) {
   );
   const [monsterName, setMonsterName] = useState("");
 
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
   useEffect(() => {
     setSource(Source.getSource(monster.source));
     setMonsterName(`${abilities[0].affix} ${monster.name}`);
@@ -655,7 +653,7 @@ function MonsterBlock({ monster, abilities, filters, setFilters }) {
         </div>
       </div>
       {/* <Divider /> */}
-      <div className="cr">
+      <div className="cr card-bg">
         <p>
           <span className="bold">Challenge Rating:</span> {adjustCR()}
         </p>
@@ -688,7 +686,7 @@ function MonsterBlock({ monster, abilities, filters, setFilters }) {
       </div>
 
       {/* <Divider /> */}
-      <div className="ability">
+      <div className="ability card-bg">
         {abilities.map((ability, i) => {
           return (
             <p key={i}>

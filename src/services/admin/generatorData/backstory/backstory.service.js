@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/backstories/data`;
+const BASE_URL = `${process.env.BASE_URL}/backstories/data`;
 
 export default class Backstory {
   static create = async (backstory) => {

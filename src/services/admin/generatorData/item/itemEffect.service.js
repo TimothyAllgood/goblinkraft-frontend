@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/items/effects`;
+const BASE_URL = `${process.env.BASE_URL}/items/effects`;
 
 export default class ItemEffect {
   static create = async (itemEffect) => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/campaigns`;
+const BASE_URL = `${process.env.BASE_URL}/campaigns`;
 
 export default class Campaign {
   static create = async (campaign) => {

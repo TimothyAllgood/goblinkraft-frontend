@@ -22,13 +22,13 @@
 
 @media (max-width: 1200px) {
   .npc-container {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
   }
 }
 
 @media (max-width: 1024px) {
   .npc-container {
-    grid-template-columns: repeat(1, 1fr);
     margin-bottom: 2rem;
   }
 }

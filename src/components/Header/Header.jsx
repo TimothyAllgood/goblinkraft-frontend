@@ -35,9 +35,9 @@ function Header() {
             variant="with-divider"
             data={generatorMenuItems}
           />
-          <Link to="/" data-text="Looking For Group">
+          {/* <Link to="/" data-text="Looking For Group">
             Looking For Group
-          </Link>
+          </Link> */}
           <div className="vertical-divider" />
           <div className="user-buttons">
             {isLoading ? (

@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/spells/data`;
+const BASE_URL = `${process.env.BASE_URL}/spells/data`;
 
 export default class SpellData {
   static create = async (spell) => {

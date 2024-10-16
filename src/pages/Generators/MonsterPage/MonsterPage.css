@@ -13,3 +13,22 @@
   font-style: italic;
   font-size: 0.8rem;
 }
+
+.boxed-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: thick double var(--text-color-dark);
+  border-radius: 1rem;
+  background-color: var(--background-color);
+  font-size: 1.2rem;
+}
+
+.monster-buttons {
+  display: flex;
+  flex-direction: row;
+
+  gap: 1rem;
+}

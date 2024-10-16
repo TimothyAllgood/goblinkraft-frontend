@@ -7,6 +7,7 @@ import Button from "../../../components/Button/Button";
 function PlotPage() {
   const [plotHooks, setPlotHooks] = useState({});
   const [generating, setGenerating] = useState(true);
+
   useEffect(() => {
     fetchPlotHooks();
   }, []);
@@ -17,6 +18,7 @@ function PlotPage() {
     setPlotHooks(res.plotHooks);
     setGenerating(false);
   };
+
   return (
     <div className="plot-page container">
       <div className="plot-page-header">

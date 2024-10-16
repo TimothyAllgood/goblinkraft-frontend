@@ -13,17 +13,17 @@ function Hero() {
   const generators = [
     {
       name: "NPC Generator",
-      url: "/generate/npc",
+      url: "/npc-generator",
       icon: faPersonRays,
     },
     {
       name: "Character Generator",
-      url: "/generate/character",
+      url: "/character-generator",
       icon: faDiceD20,
     },
     {
-      name: "Killing Blow Generator",
-      url: "/generate/killing-blow",
+      name: "Tavern Generator",
+      url: "/tavern-generator",
       icon: faHandFist,
     },
   ];

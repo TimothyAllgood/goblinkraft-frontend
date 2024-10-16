@@ -7,7 +7,7 @@ import Button from "../../../components/Button/Button";
 function ItemPage() {
   const [items, setItems] = useState({});
   const [generating, setGenerating] = useState(false);
-
+  const [otherItemsGenerating, setOtherItemsGenerating] = useState(false);
   useEffect(() => {
     fetchItems();
   }, []);
@@ -33,7 +33,14 @@ function ItemPage() {
       <div className="item-container">
         {items.length > 0 &&
           items.map((item, i) => {
-            return <Item key={i} item={item} />;
+            return (
+              <Item
+                key={i}
+                item={item}
+                otherItemsGenerating={otherItemsGenerating}
+                setOtherItemsGenerating={setOtherItemsGenerating}
+              />
+            );
           })}
       </div>
     </div>

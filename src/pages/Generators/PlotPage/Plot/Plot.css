@@ -24,7 +24,7 @@
 }
 
 .plot-content {
-  padding: 1rem;
+  padding: 2rem 1rem;
   display: grid;
   gap: 1rem;
   border: thick double var(--card-border);
@@ -32,4 +32,15 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   flex: 1;
+}
+
+.single-plot-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.plot-buttons {
+  display: flex;
+  gap: 1rem;
 }

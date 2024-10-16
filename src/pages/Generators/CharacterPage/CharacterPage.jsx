@@ -2,18 +2,35 @@ import React, { useState, useEffect } from "react";
 import "./CharacterPage.css";
 import Character from "../../../services/generator/character.service";
 import Button from "../../../components/Button/Button";
+import Modal from "../../../components/Modal/Modal";
+import Markdown from "../../../components/Markdown/Markdown";
 function CharacterPage() {
   const [character, setCharacter] = useState(null);
+  // const [story, setStory] = useState(null);
+  // const [generatingStory, setGeneratingStory] = useState(false);
+  // const [showStory, setShowStory] = useState(false);
 
   useEffect(() => {
     generateCharacter();
   }, []);
 
+  // useEffect(() => {
+  //   setStory(null);
+  //   setGeneratingStory(false);
+  // }, [character]);
+
   const generateCharacter = async () => {
     const character = await Character.generateCharacter();
-    console.log(character);
     setCharacter(character);
   };
+
+  // const generateCharacterStory = async () => {
+  //   setGeneratingStory(true);
+  //   const res = await Character.generateCharacterStory(character);
+  //   setStory(res.story);
+  //   setGeneratingStory(false);
+  //   setShowStory(true);
+  // };
 
   return (
     <div className="character-page container">
@@ -24,17 +41,29 @@ function CharacterPage() {
             <Button variant="outlined" onClick={generateCharacter}>
               Get New Character
             </Button>
+            {/* <Button
+              variant="outlined"
+              onClick={generateCharacterStory}
+              disabled={generatingStory}
+            >
+              {generatingStory ? "Generating..." : "Get New Story"}
+            </Button>
+            {story && (
+              <Button variant="outlined" onClick={() => setShowStory(true)}>
+                View Full Story
+              </Button>
+            )} */}
           </div>
         </div>
-        <div className="character-section-content">
+        <div className="character-section-content card-bg">
           {character && (
-            <div className="character-card">
+            <div className="character-card ">
               <div className="character-header">
-                <p className="subtitle">
-                  You are {character.backstory.concept}
+                <p className="subtitle large-p">
+                  You are {character.backstory.concept.replace(/\.{2}$/, ".")}
                 </p>
               </div>
-              <div className="character-details">
+              <div className="character-details ">
                 <div className="detail-section ">
                   <div className="character-header">
                     <h3>Background</h3>
@@ -96,7 +125,7 @@ function CharacterPage() {
           )}
         </div>
       </div>
-      <div className="character-story character-section">
+      {/* <div className="character-story character-section">
         <div className="character-section-header">
           <h2>Character Story</h2>
         </div>
@@ -104,6 +133,11 @@ function CharacterPage() {
           <p>Once upon a time...</p>
         </div>
       </div>
+      {showStory && (
+        <Modal isOpen={showStory} onClose={() => setShowStory(false)}>
+          <Markdown content={story} />
+        </Modal>
+      )} */}
     </div>
   );
 }

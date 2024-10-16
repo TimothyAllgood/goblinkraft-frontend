@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/monsters/abilities`;
+const BASE_URL = `${process.env.BASE_URL}/monsters/abilities`;
 
 export default class MonsterAbility {
   static create = async (monsterAbility) => {

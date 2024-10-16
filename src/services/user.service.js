@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/users`;
+const BASE_URL = `${process.env.BASE_URL}/users`;
 
 export default class User {
   static register = async (user) => {
@@ -54,7 +54,7 @@ export default class User {
   };
 
   static getGoogleUrl = async () => {
-    console.log("URL: ", import.meta.env.VITE_BASE_URL);
+    console.log("URL: ", process.env.BASE_URL);
     let res = await axios.get(`${BASE_URL}/google`);
     return res.data;
   };
@@ -80,12 +80,9 @@ export default class User {
   };
 
   static createSubscription = async (priceId) => {
-    let res = await axios.post(
-      `${import.meta.env.VITE_BASE_URL}/create-subscription`,
-      {
-        priceId: priceId,
-      }
-    );
+    let res = await axios.post(`${process.env.BASE_URL}/create-subscription`, {
+      priceId: priceId,
+    });
     return res.data;
   };
 }

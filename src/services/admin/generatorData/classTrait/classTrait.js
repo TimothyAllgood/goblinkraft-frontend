@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/classTraits/data`;
+const BASE_URL = `${process.env.BASE_URL}/classTraits/data`;
 
 export default class ClassTrait {
   static create = async (classTrait) => {

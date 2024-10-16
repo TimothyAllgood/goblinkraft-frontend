@@ -47,6 +47,8 @@ function TavernPage() {
                 key={tavern?.barTender.name}
                 npc={tavern?.barTender}
                 disableActivity={true}
+                hideButtons
+                hideImage
               />
             </>
           )}
@@ -56,7 +58,7 @@ function TavernPage() {
             <div className="tavern-detail-header">
               <h3>General Atmopshere</h3>
             </div>
-            <div className="event">
+            <div className="event card-bg">
               <p>{tavern.tavernAtmosphere?.info}</p>
             </div>
           </div>
@@ -64,7 +66,7 @@ function TavernPage() {
             <div className="tavern-detail-header">
               <h3>Tonight's Main Event</h3>
             </div>
-            <div className="event">
+            <div className="event card-bg">
               <p>{tavern.tavernEvent?.info}</p>
             </div>
           </div>
@@ -72,7 +74,7 @@ function TavernPage() {
             <div className="tavern-detail-header">
               <h3>Unique Feature</h3>
             </div>
-            <div className="event">
+            <div className="event card-bg">
               <p>{tavern.tavernFeature?.info}</p>
             </div>
           </div>
@@ -80,7 +82,7 @@ function TavernPage() {
             <div className="tavern-detail-header">
               <h3>Rumors</h3>
             </div>
-            <div className="event">
+            <div className="event card-bg">
               <p>{tavern.tavernRumor?.name} </p>
             </div>
           </div>
@@ -91,7 +93,7 @@ function TavernPage() {
           <div className="tavern-menu-header">
             <h3>Food</h3>
           </div>
-          <div className="tavern-menu-container">
+          <div className="tavern-menu-container card-bg">
             {tavern.menu?.food?.map((item, i) => {
               return (
                 <div key={i} className="menu-item">
@@ -111,7 +113,7 @@ function TavernPage() {
           <div className="tavern-menu-header">
             <h3>Drinks</h3>
           </div>
-          <div className="tavern-menu-container">
+          <div className="tavern-menu-container card-bg">
             {tavern.menu?.drinks?.map((item, i) => {
               return (
                 <div key={i} className="menu-item">
@@ -133,7 +135,9 @@ function TavernPage() {
         <div className="people">
           {tavern.patrons?.length > 0 &&
             tavern.patrons.map((patron) => {
-              return <NPC key={patron.name} npc={patron} />;
+              return (
+                <NPC key={patron.name} npc={patron} hideButtons hideImage />
+              );
             })}
         </div>
       </div>

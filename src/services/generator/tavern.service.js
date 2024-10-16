@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/taverns`;
+const BASE_URL = `${process.env.BASE_URL}/taverns`;
 
 export default class Tavern {
   static generateTavern = async (config) => {

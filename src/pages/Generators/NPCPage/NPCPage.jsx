@@ -3,15 +3,24 @@ import "./NPCPage.css";
 import Npc from "../../../services/generator/npc.service";
 import NPC from "./NPC/NPC";
 import Button from "../../../components/Button/Button";
+import Modal from "../../../components/Modal/Modal";
+import Markdown from "../../../components/Markdown/Markdown";
 
 function NPCPage() {
   const [npcs, setNpcs] = useState([]);
   const [generating, setGenerating] = useState(true);
-
+  const [selectedQuest, setSelectedQuest] = useState(null);
+  const [questModalOpen, setQuestModalOpen] = useState(false);
+  const [otherNpcsGenerating, setOtherNpcsGenerating] = useState(false);
   useEffect(() => {
     fetchNpcs();
-    console.log(npcs);
   }, []);
+
+  useEffect(() => {
+    if (selectedQuest) {
+      setQuestModalOpen(true);
+    }
+  }, [selectedQuest]);
 
   const fetchNpcs = async () => {
     try {
@@ -35,9 +44,24 @@ function NPCPage() {
       </div>
       <div className="npc-container">
         {npcs.map((npc) => (
-          <NPC key={npc.id} npc={npc} />
+          <NPC
+            key={npc.seed}
+            npc={npc}
+            setSelectedQuest={setSelectedQuest}
+            otherNpcsGenerating={otherNpcsGenerating}
+            setOtherNpcsGenerating={setOtherNpcsGenerating}
+          />
         ))}
       </div>
+      <Modal
+        isOpen={questModalOpen}
+        onClose={() => {
+          setQuestModalOpen(false);
+          setSelectedQuest(null);
+        }}
+      >
+        <Markdown content={selectedQuest} />
+      </Modal>
     </section>
   );
 }

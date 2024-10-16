@@ -29,18 +29,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
-      {
-        path: "generate",
-        children: [
-          { path: "npc", element: <NPCPage /> },
-          { path: "character", element: <CharacterPage /> },
-          { path: "monster", element: <MonsterPage /> },
-          { path: "item", element: <ItemPage /> },
-          { path: "killing-blow", element: <CombatDescriptionPage /> },
-          { path: "tavern", element: <TavernPage /> },
-          { path: "plot", element: <PlotPage /> },
-        ],
-      },
+      { path: "npc-generator", element: <NPCPage /> },
+      { path: "character-generator", element: <CharacterPage /> },
+      { path: "monster-generator", element: <MonsterPage /> },
+      { path: "item-generator", element: <ItemPage /> },
+      { path: "killing-blow-generator", element: <CombatDescriptionPage /> },
+      { path: "tavern-generator", element: <TavernPage /> },
+      { path: "plot-generator", element: <PlotPage /> },
       {
         path: "admin",
         children: [

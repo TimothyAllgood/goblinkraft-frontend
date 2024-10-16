@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/tavern/menu-items`;
+const BASE_URL = `${process.env.BASE_URL}/tavern/menu-items`;
 
 export default class MenuItem {
   static create = async (menuItem) => {

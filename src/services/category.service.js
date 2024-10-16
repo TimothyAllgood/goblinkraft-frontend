@@ -1,6 +1,6 @@
 import axios from "axios";
 const BASE_URL = `${
-  import.meta.env.DEV ? import.meta.env.VITE_BASE_URL : process.env.BASE_URL
+  import.meta.env.DEV ? process.env.BASE_URL : process.env.BASE_URL
 }/categories`;
 
 export default class Category {

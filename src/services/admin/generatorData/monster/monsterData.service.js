@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${import.meta.env.VITE_BASE_URL}/monsters/data`;
+const BASE_URL = `${process.env.BASE_URL}/monsters/data`;
 
 export default class MonsterData {
   static create = async (monster) => {
