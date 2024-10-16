@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/users`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/users`;
 
 export default class User {
   static register = async (user) => {
@@ -80,9 +80,12 @@ export default class User {
   };
 
   static createSubscription = async (priceId) => {
-    let res = await axios.post(`${process.env.BASE_URL}/create-subscription`, {
-      priceId: priceId,
-    });
+    let res = await axios.post(
+      `https://goblinkraft-backend-production.up.railway.app/api/v1/create-subscription`,
+      {
+        priceId: priceId,
+      }
+    );
     return res.data;
   };
 }

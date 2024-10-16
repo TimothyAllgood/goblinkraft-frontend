@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/tavern/atmospheres`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/tavern/atmospheres`;
 
 export default class TavernAtmosphere {
   static create = async (tavernAtmosphere) => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/items`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/items`;
 
 export default class ItemService {
   static generateItem = async (config) => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/spells/data`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/spells/data`;
 
 export default class SpellData {
   static create = async (spell) => {

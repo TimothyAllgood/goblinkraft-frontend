@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/backstories/data`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/backstories/data`;
 
 export default class Backstory {
   static create = async (backstory) => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/tavern/menu-items`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/tavern/menu-items`;
 
 export default class MenuItem {
   static create = async (menuItem) => {

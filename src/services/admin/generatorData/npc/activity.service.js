@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/activities`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/activities`;
 
 export default class Activity {
   static create = async (activity) => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/profile`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/profile`;
 
 export default class Profile {
   static getProfile = async (id) => {

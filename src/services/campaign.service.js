@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/campaigns`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/campaigns`;
 
 export default class Campaign {
   static create = async (campaign) => {

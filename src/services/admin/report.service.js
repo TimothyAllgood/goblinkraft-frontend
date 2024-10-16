@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/reports`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/reports`;
 
 export default class Report {
   static getAll = async (type) => {

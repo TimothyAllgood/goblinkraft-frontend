@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/plothooks/data`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/plothooks/data`;
 
 export default class PlotHookData {
   static create = async (plotHook) => {

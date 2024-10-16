@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `${process.env.BASE_URL}/classTraits/data`;
+const BASE_URL = `https://goblinkraft-backend-production.up.railway.app/api/v1/classTraits/data`;
 
 export default class ClassTrait {
   static create = async (classTrait) => {
